@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVO BACKROOMS — Crear Nivel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="crear-nivel">
+  <div class="crt-overlay"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#x258C;</span>ARCHIVO BACKROOMS<span class="logo-icon">&#x2590;</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Men&uacute;">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="niveles.html" class="nav-link">Niveles</a>
+        <a href="entidades.html" class="nav-link">Entidades</a>
+        <a href="crear-nivel.html" class="nav-link active" id="nav-submit-link">Crear Nivel</a>
+        <a href="comunidad.html" class="nav-link">Comunidad</a>
+      </nav>
+      <div class="header-auth">
+        <button class="btn-auth" id="btn-login">Iniciar Sesi&oacute;n</button>
+        <span class="btn-user" id="user-badge" style="display:none"></span>
+        <button class="btn-logout" id="btn-logout" style="display:none">Salir</button>
+        <button class="btn-backup" id="btn-backup" title="Descargar backup de todos los datos">&#x25A0; BACKUP</button>
+        <button class="btn-game" id="btn-game">&#x25A0; SUPERVIVENCIA</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="container">
+      <h1 class="section-title">Registrar Nuevo Nivel</h1>
+      <p class="section-sub">Colabora con el archivo documentando tus exploraciones.</p>
+
+      <div class="form-not-logged" id="not-logged-msg">
+        <div class="lock-icon">&#x1F512;</div>
+        <p>Debes iniciar sesi&oacute;n para registrar un nuevo nivel.</p>
+        <p class="hint">Haz clic en <strong>Iniciar Sesi&oacute;n</strong> en la barra superior.</p>
+      </div>
+
+      <form class="level-form" id="level-form" style="display:none">
+        <div class="form-info">Todos los campos son obligatorios. El nombre debe ser &uacute;nico en el archivo.</div>
+
+        <div class="form-group">
+          <label for="level-name">Nombre del Nivel / Sitio Liminal</label>
+          <input type="text" id="level-name" placeholder="Ej: Nivel 11 &mdash; Las Urbanizaciones Infinitas" required>
+          <div id="name-status" class="name-status"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="level-desc">Descripci&oacute;n del Entorno</label>
+          <textarea id="level-desc" placeholder="Describe el espacio, la atm&oacute;sfera, las sensaciones..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="level-anomalies">Anomal&iacute;as Detectadas</label>
+          <textarea id="level-anomalies" placeholder="Bucles espaciales, distorsi&oacute;n temporal, sonidos inexplicables..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="level-danger">Nivel de Peligro</label>
+          <select id="level-danger" required>
+            <option value="">Selecciona un nivel</option>
+            <option value="1">1 &mdash; Seguro / Habitable</option>
+            <option value="2">2 &mdash; Bajo / Precauci&oacute;n</option>
+            <option value="3">3 &mdash; Moderado / Peligro</option>
+            <option value="4">4 &mdash; Alto / Muy Peligroso</option>
+            <option value="5">5 &mdash; Extremo / Mortal</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="level-video-url">Enlace de Video (YouTube) si existe grabaci&oacute;n del nivel</label>
+          <input type="url" id="level-video-url" placeholder="https://www.youtube.com/watch?v=...">
+        </div>
+
+        <button type="submit" class="btn-submit" id="btn-submit-level" disabled>REGISTRAR EN EL ARCHIVO</button>
+        <div id="form-success" class="form-success"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><span class="footer-logo">ARCHIVO BACKROOMS</span> &mdash; <span class="footer-ver">v2.0</span></p>
+      <p class="footer-quote">"Este archivo no es ficci&oacute;n. Si est&aacute;s aqu&iacute;, ya has cruzado el umbral."</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 id="modal-title">Iniciar Sesi&oacute;n</h2>
+      <form id="auth-form" class="auth-form">
+        <div class="form-group">
+          <label for="auth-user">Nombre de Agente</label>
+          <input type="text" id="auth-user" placeholder="Tu nombre en el archivo..." required>
+        </div>
+        <div class="form-group">
+          <label for="auth-pass">Clave de Acceso</label>
+          <input type="password" id="auth-pass" placeholder="Contrase&ntilde;a..." required>
+        </div>
+        <div id="auth-error" class="auth-error"></div>
+        <div id="auth-success" class="auth-success"></div>
+        <button type="submit" class="btn-submit" id="btn-auth">ACCEDER AL ARCHIVO</button>
+      </form>
+      <div class="auth-toggle" id="auth-toggle">
+        &iquest;No tienes cuenta? <a id="auth-toggle-link">Reg&iacute;strate aqu&iacute;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
