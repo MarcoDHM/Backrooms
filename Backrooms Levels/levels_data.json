@@ -1,0 +1,668 @@
+{
+    "levels":  [
+                   {
+                       "id":  0,
+                       "slug":  "level_0",
+                       "title":  "Nivel 0, \"El Lobby\"",
+                       "alias":  "El Lobby",
+                       "class":  0,
+                       "difficulty":  0,
+                       "image":  "level_0.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_0",
+                       "description":  "El Nivel 0, también conocido como \"El Lobby\", es el primer nivel de Los Backrooms, y la primera ubicación en la que la mayoría de los vagabundos se encontrarán al ingresar desde la realidad base. El sonido zumbante... El Nivel 0 es un espacio expansivo no euclidiano que se asemeja a la trastienda de un antiguo comercio. Este nivel es conocido principalmente por su distribución desorientadora y su...",
+                       "entities":  [
+                                        "(ninguna)"
+                                    ],
+                       "exits":  [
+                                     "Los Frontrooms",
+                                     "Nivel 1",
+                                     "Nivel 27",
+                                     "Nivel -1",
+                                     "Nivel 2"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  1,
+                       "slug":  "level_1",
+                       "title":  "Nivel 1; \"Zona Habitable\"",
+                       "alias":  "Zona Habitable",
+                       "class":  1,
+                       "difficulty":  null,
+                       "image":  "level_1.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_1",
+                       "description":  "El Nivel 1, también conocido como Zona Habitable es el segundo nivel de Los Backrooms. El Nivel 1 es un almacén común que cuenta con pisos y paredes de concreto. Se pueden encontrar barras de refuerzo expuestas, herramientas, vehículos industriales (como carretillas y elevadoras) y cajas de suministros. También hay charcos de agua común los cuales se evaporan y se condensan formando una niebla que...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  2,
+                       "slug":  "level_2",
+                       "title":  "Nivel 2, \"Sistema de Tuberías\"",
+                       "alias":  "Sistema de Tuberías",
+                       "class":  3,
+                       "difficulty":  null,
+                       "image":  "level_2.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_2",
+                       "description":  "El Nivel 2 es el tercer nivel de los Backrooms, y el último en el que uno podría comenzar al noclipear desde la realidad. El Nivel 2 se compone de un sistema de alcantarillado subterráneo con pasillos y habitaciones estrechas. Tanto las paredes como el suelo están hechos de concreto, lo que los hace prácticamente indestructibles con los medios conocidos hasta el momento. Ocasionalmente, es posible...",
+                       "entities":  [
+                                        "Entidad 2",
+                                        "Entidad 17",
+                                        "Entidad 5"
+                                    ],
+                       "exits":  [
+                                     "The Frontrooms",
+                                     "Nivel 1",
+                                     "The Hub",
+                                     "Nivel 2.2",
+                                     "Nivel 8",
+                                     "Nivel 10",
+                                     "Nivel 11",
+                                     "Nivel -1",
+                                     "Nivel 22",
+                                     "Nivel 3",
+                                     "Nivel 4",
+                                     "Nivel 0",
+                                     "Nivel 344",
+                                     "Nivel 27"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  3,
+                       "slug":  "level_3",
+                       "title":  "Nivel 3, \"Estación Eléctrica\"",
+                       "alias":  "Estación Eléctrica",
+                       "class":  3,
+                       "difficulty":  null,
+                       "image":  "level_3.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_3",
+                       "description":  "El Nivel 3, identificado como \"Estación eléctrica\" es el cuarto nivel de los Backrooms. El Nivel 3 se asemeja a un complejo de habitaciones y pasillos equipados con maquinaria compleja y artefactos eléctricos. Su arquitectura sugiere que se trata de una estación eléctrica en estado de abandono, pero que aún sigue operando. Las instalaciones del Nivel 3 se encuentran descuidadas, contando con zonas...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  4,
+                       "slug":  "level_4",
+                       "title":  "Nivel 4, \"Oficinas Abandonadas\"",
+                       "alias":  "Oficinas Abandonadas",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_4.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_4",
+                       "description":  "El Nivel 4, también conocido como la \"Oficina Abandonada\", es un complejo infinito de habitaciones y pasillos que hacen recordar a los de una oficina con paredes blancas y una alfombra de color gris, con ventanas que dan ver al exterior. Las zonas principales del nivel están carentes de muebles u otra cosa que no se espera en una oficina convencional, en contraste con algunas áreas que aún present...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+                                     "Nivel 2",
+                                     "Nivel 3",
+                                     "Nivel 7",
+                                     "The Hub",
+                                     "Nivel 621",
+                                     "Nivel 16",
+                                     "Nivel 153",
+                                     "Nivel 5",
+                                     "Nivel 6",
+                                     "Nivel 4.1",
+                                     "Nivel 160",
+                                     "Nivel 894",
+                                     "PA98"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  5,
+                       "slug":  "level_5",
+                       "title":  "Nivel 5, \"Hotel del Terror\"",
+                       "alias":  "Hotel del Terror",
+                       "class":  5,
+                       "difficulty":  null,
+                       "image":  "level_5.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_5",
+                       "description":  "El Nivel 5, también conocido como Hotel del Terror es el sexto nivel de Los Backrooms. El Nivel 5 se trata de un complejo hotelero infinito, el cual cuenta con todas las secciones que un hotel podría tener como salones, salones de baile, habitaciones para huéspedes, restaurantes, pasillos y salas de mantenimiento. El nivel cuenta con una arquitectura que sugiere tratarse de alguna relativa del sig...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  6,
+                       "slug":  "level_6",
+                       "title":  "Nivel 6, \"Luces Fuera\"",
+                       "alias":  "Luces Fuera",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_6.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_6",
+                       "description":  "El Nivel 6, también conocido como \"Luces Fuera\" es el séptimo nivel de Los Backrooms.",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  7,
+                       "slug":  "level_7",
+                       "title":  "Nivel 7, \"Talasofobia\"",
+                       "alias":  "Talasofobia",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_7.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_7",
+                       "description":  "T A L A S O F O B I A El Nivel 7 también conocido como T A L A S O F O B I A es el octavo nivel de Los Backrooms. Supone un importante obstáculo para la exploración del Nivel 8 y niveles posteriores. El Nivel 7 es un océano completamente infinito el cual se extiende en todas las direcciones. Cabe destacar que el Nivel 7 se trata de una combinación entre una edificación inundada la cual es mayor la...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  8,
+                       "slug":  "level_8",
+                       "title":  "Nivel 8, \"Sistema de Cuevas\"",
+                       "alias":  "Sistema de Cuevas",
+                       "class":  5,
+                       "difficulty":  null,
+                       "image":  "level_8.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_8",
+                       "description":  "El Nivel 8 es el noveno nivel de Los Backrooms y el último de Los Nueve Principales. Este nivel se caracteriza por su gran formación de distintos tipos de cuevas, presentando una gran variedad de ambientes y ecosistemas. El Nivel 8 se asemeja a un sistema de enormes cavernas y pequeños sistemas de cuevas que se retuercen como en cualquier otro sistema subterráneo colectivo. Al igual que el Nivel 6...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  90,
+                       "slug":  "level_neg0",
+                       "title":  "Nivel -0, \"Sin Textura\"",
+                       "alias":  "Sin Textura",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_neg0.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_-0",
+                       "description":  "El Nivel -0, conocido también como \"Sin Textura\", es el primer nivel negativo de Los Backrooms. Donde la dimensión se rompe y no encuentras escape. Se trata de una amalgama de estructuras que asemejan el estilo de Maurits Cornelis Escher, adquiriendo un entorno descriptible como abstracto e inconexo, con texturas similares a las de un modelo carente de texturas dentro de un videojuego. En general,...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+                                     "Nivel 0",
+                                     "Nivel 1",
+                                     "Nivel 11",
+                                     "Nivel 71",
+                                     "Nivel -1"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  91,
+                       "slug":  "level_neg1",
+                       "title":  "Nivel -1, \"Pasillos a Escala de Grises\"",
+                       "alias":  "Pasillos a Escala de Grises",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_neg1.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_-1",
+                       "description":  "El Nivel -1, más conocido como \"Pasillos a Escala de Grises\", es el segundo nivel negativo de Los Backrooms por debajo del Nivel 0.",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  92,
+                       "slug":  "level_neg2",
+                       "title":  "Nivel -2, \"Desbordamiento\"",
+                       "alias":  "Desbordamiento",
+                       "class":  4,
+                       "difficulty":  4,
+                       "image":  "level_neg2.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_-2",
+                       "description":  "El Nivel -2 es el tercer nivel negativo de los Backrooms. Este nivel consta de cuatro subáreas diferentes, pero se sospecha que puede ser más profundo. El Nivel -2 es un lugar generalmente peligroso que alberga varias entidades indocumentadas y hostiles, y algunas de las más siniestras. El explorador Aryaman apenas escapó con vida de una gigantesca criatura malvada en este nivel. La caída de ejes...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  93,
+                       "slug":  "level_neg3",
+                       "title":  "Nivel -3, \"Reflexiones\"",
+                       "alias":  "Reflexiones",
+                       "class":  3,
+                       "difficulty":  null,
+                       "image":  "level_neg3.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_-3",
+                       "description":  "El Nivel -3, mejor conocido como \"Reflexiones\", es el cuarto nivel negativo de los Backrooms, descubierto un día no identificado de 1955 mientras se realizaban exploraciones por el Nivel -2. El Nivel -3 es descrito como una versión más deforme de un laberinto de espejos. La propiedad más característica de este nivel es que los espejos del mismo no podrás ver tu propio reflejo, creando una enorme s...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  100,
+                       "slug":  "level_the_end",
+                       "title":  "The End",
+                       "alias":  "El Fin",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_the_end.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/The_End",
+                       "description":  "The End, también conocido como El Fin (es decir, el mismo nombre pero en español) o el Final Falso es un nivel enigmático de Los Backrooms, The End es una trampa o nivel que tiene como objetivo \"atraer\" a los vagabundos a una falsa sensación de seguridad, haciéndoles creer que finalmente han escapado de Los Backrooms. Le estructura del nivel consiste en una biblioteca de los años 2000 la cual es c...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  101,
+                       "slug":  "level_l4_s0mbr4_gr1s",
+                       "title":  "L4 S0MBR4 GR1S",
+                       "alias":  null,
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_l4_s0mbr4_gr1s.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/L4_S0MBR4_GR1S",
+                       "description":  "Se le conoce a los Backrooms como un purgatorio en donde las almas desdichadas están condenadas a vivir una serie de sucesos tortuosos e insólitos que ponen constantemente en riesgo la vida de lo que se conoce coloquialmente como vagabundos. Los lugares inimaginables de la tierra son transportados a un revoltijo de espacios liminales en una dimensión cuyo sitio exacto se desconoce, atravesando cua...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  102,
+                       "slug":  "level_corre_por_tu_vida",
+                       "title":  "¡Corre Por Tu Vida!",
+                       "alias":  "Nivel !",
+                       "class":  0,
+                       "difficulty":  null,
+                       "image":  "level_corre_por_tu_vida.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/%C2%A1Corre_por_tu_vida!",
+                       "description":  "Durante horas, llevas huyendo en este pasillo interminable durante lo que parece una eternidad. Estás cansado, hambriento y sediento. La adrenalina corre por tu cuerpo, pero tus piernas están agotadas. Quieres descansar, pero no puedes, porque temes a que ellos estén cada vez más cerca. Con sus rugidos, gruñidos y gritos, acompañado con el estruendo de la alarma, comienzas a disociar de la realida...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  103,
+                       "slug":  "level_la_tierra_prometida",
+                       "title":  "La Tierra Prometida",
+                       "alias":  null,
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_la_tierra_prometida.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/La_Tierra_Prometida",
+                       "description":  "La Tierra Prometida La Tierra Prometida es un nivel enigmático de Los Backrooms y uno en los que puedes volver a la realidad.",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  104,
+                       "slug":  "level_the_hub",
+                       "title":  "The Hub",
+                       "alias":  null,
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_the_hub.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/The_Hub",
+                       "description":  "The Hub es un nivel enigmático de Los Backrooms. The Hub, conocido también como \"El Centro\" o \"La Encrucijada\", es un extenso complejo subterráneo de túneles de ladrillo que sirve de nexo entre los niveles de Los Backrooms. Se sabe que The Hub contiene entradas a la gran mayoría de los niveles, cerradas tras puertas de acero dispersas que aparecen en posiciones inestables y cambiantes. Todo el niv...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+                                     "Nivel 1",
+                                     "Nivel 2",
+                                     "Nivel 37",
+                                     "Nivel 154",
+                                     "El Centro de Descanso",
+                                     "Llaves de Nivel",
+                                     "Nivel 188"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  11,
+                       "slug":  "level_11",
+                       "title":  "Nivel 11, Ciudadela Sin Fin/Confederación Anárquica de Cittavelle",
+                       "alias":  null,
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_11.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_11",
+                       "description":  "Aviso Importante Se ve horrible en el modo claro, ¿no es cierto? Lo siento chico, pero soy demasiado flojo como para darle prioridad a este modo. Así que... Si se desea una experiencia más disfrutable acompañada de una ambientación visual acorde a la página que se está leyendo, por favor mejor lea la página en modo oscuro. Gracias. Puede continuar con su lectura. El Nivel 11 es el doceavo nivel de...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+                                     "Nivel -17",
+                                     "Nivel 13",
+                                     "Nivel 23",
+                                     "Nivel -20",
+                                     "Nivel 74",
+                                     "nivel 130",
+                                     "Nivel 40",
+                                     "Nivel 113",
+                                     "Nivel -333",
+                                     "Nivel -29",
+                                     "Nivel 211",
+                                     "Nivel 17",
+                                     "Nivel 16",
+                                     "Nivel 9",
+                                     "Nivel 69",
+                                     "Nivel 10",
+                                     "Nivel -59",
+                                     "Nivel 145",
+                                     "Nivel -800",
+                                     "Nivel -31",
+                                     "Nivel -19",
+                                     "Nivel -25",
+                                     "Nivel 97",
+                                     "Nivel 24",
+                                     "Nivel -123",
+                                     "Nivel 153",
+                                     "Nivel 3999",
+                                     "Sueños de Escarlata",
+                                     "Nivel 3",
+                                     "Nivel 18",
+                                     "Nivel 178",
+                                     "Nivel -43",
+                                     "Nivel 285",
+                                     "Nivel 5",
+                                     "Nivel 1",
+                                     "Nivel 2",
+                                     "Nivel -0",
+                                     "Nivel 201",
+                                     "Nivel 37",
+                                     "Nivel 43",
+                                     "Nivel 75",
+                                     "Nivel 348",
+                                     "Nivel 350"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  37,
+                       "slug":  "level_37",
+                       "title":  "Nivel 37, \"Sublimidad\"",
+                       "alias":  "Sublimidad",
+                       "class":  1,
+                       "difficulty":  null,
+                       "image":  "level_37.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_37",
+                       "description":  "Sublimidad es el nivel 37 de Los Backrooms. El Nivel 37, a veces llamado como \"Poolrooms\" (salas de piscinas), es un amplio complejo de salas y pasillos interconectados ligeramente sumergidos en agua ondulante y tibia. Cada zona del nivel varía enormemente en tamaño y estructura, desde piscinas y pasillos uniformes hasta zonas más abiertas y de formas anormales. Las paredes, techos y suelos del ni...",
+                       "entities":  [
+                                        "(ninguna)"
+                                    ],
+                       "exits":  [
+                                     "Nivel 188",
+                                     "Nivel 37.1",
+                                     "Nivel -33",
+                                     "Nivel -34",
+                                     "Nivel -31",
+                                     "Nivel 43",
+                                     "Nivel 533",
+                                     "Nivel 332",
+                                     "Nivel 306",
+                                     "Nivel 273",
+                                     "Nivel 447",
+                                     "Nivel 792",
+                                     "Hombre de la Cámara",
+                                     "La Tesis de Kauer"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  39,
+                       "slug":  "level_39",
+                       "title":  "Nivel 39, \"Camino de Bambú\"",
+                       "alias":  "Camino de Bambú",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_39.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_39",
+                       "description":  "El Nivel 39 tiene la apariencia de un bosque infinito con caminos decorados de forma sencilla, y lo más destacado es el bosque infinito de bambú. La altura del bambú en este bosque se estima entre 15 y 20 metros, y la madera es notablemente resistente, se estima que al menos dos veces más resistente que la del mundo real. El terreno del nivel es mayormente plano, con elevaciones y descensos que da...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  920,
+                       "slug":  "level_92",
+                       "title":  "Nivel 92, \"Resplandor Carmesí\"",
+                       "alias":  "Resplandor Carmesí",
+                       "class":  3,
+                       "difficulty":  null,
+                       "image":  "level_92.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_92",
+                       "description":  "\"Resplandor Carmesí\" El Nivel 92, mejor conocido como \"Resplandor Carmesí\" o vulgarmente también como \"Los Pasillos Radiantes\", es el 93º nivel de los Backrooms. El Nivel 92 imita ser el interior de un edificio departamental representado a través de un pasillo infinito con algunas decoraciones y puertas en los costados y una sola escalera que lleva a un segundo pasillo mucho más reducido en extens...",
+                       "entities":  [
+                                        "(ninguna)"
+                                    ],
+                       "exits":  [
+                                     "Nivel 34",
+                                     "Nivel -13",
+                                     "Nivel 91",
+                                     "Nivel -21",
+                                     "Nivel 0",
+                                     "Nivel 65",
+                                     "Nivel -189"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  118,
+                       "slug":  "level_118",
+                       "title":  "Nivel 118, \"Laberintitud\"",
+                       "alias":  "Laberintitud",
+                       "class":  3,
+                       "difficulty":  null,
+                       "image":  "level_118.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_118",
+                       "description":  "El Nivel 118 tambien conocido como laberintitud es el 119 nivel de los backrooms. El Nivel 118 toma el aspecto de un gran conjunto de oficinas aparentemente infinito, compuesto por pasillos rectilíneos, intersecciones repetitivas y salas que parecen diseñadas para confundir la percepción de los vagabundos. Básicamente, es un laberinto bastante grande. Se interconectan principalmente por puertas de...",
+                       "entities":  [
+                                        "(ninguna)"
+                                    ],
+                       "exits":  [
+                                     "Nivel 11",
+                                     "Nivel 41",
+                                     "Nivel 108",
+                                     "Nivel 217",
+                                     "Nivel 4",
+                                     "Nivel 0"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  125,
+                       "slug":  "level_125",
+                       "title":  "Feria 125, \"El Mundo Gira\"",
+                       "alias":  "El Mundo Gira",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_125.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_125",
+                       "description":  "Conocido coloquialmente como Feria 125 o El Mundo Gira, el Nivel 125 es el nivel 126° de Los Backrooms. El Nivel 125 se trata de un parque de atracciones abandonado y desolado, pero sin embargo manteniéndose en un estado funcional y nada deteriorado. Según diversas expediciones y exploraciones realizadas en el perímetro de una zona del nivel, tomando en cuenta el diverso material promocional se pr...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  188,
+                       "slug":  "level_188",
+                       "title":  "Nivel 188, \"El Patio de las Ventanas\"",
+                       "alias":  "El Patio de las Ventanas",
+                       "class":  4,
+                       "difficulty":  null,
+                       "image":  "level_188.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_188",
+                       "description":  "El Nivel 188 es el nivel 189° de Los Backrooms. El Nivel 188, conocido como \"El Patio Cerrado\", \"El Patio de las Ventanas\" o simplemente \"Las Ventanas\", se presenta como un patio interior con paredes de hormigón y cinco hileras de ventanales, diseñado para asemejarse a un hotel moderno. A diferencia de la mayoría de los patios, el Nivel 188 parece tener un techo sobre el recinto; sin embargo, se h...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+                                     "Nivel 37",
+                                     "Nivel 4",
+                                     "The Hub",
+                                     "Nivel 69",
+                                     "Nivel 99",
+                                     "Nivel 51"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  201,
+                       "slug":  "level_201",
+                       "title":  "Nivel 201, \"A E S T É T I C O\"",
+                       "alias":  "A E S T É T I C O",
+                       "class":  1,
+                       "difficulty":  null,
+                       "image":  "level_201.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_201",
+                       "description":  "El Nivel 201 es el 202º nivel de los Backrooms, que parece consistir en un gigantesco desierto con un gran océano a un lado y una brillante ciudad al otro.",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  220,
+                       "slug":  "level_220",
+                       "title":  "Nivel 220, Pastelería San Delirio",
+                       "alias":  "Pastelería San Delirio",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_220.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_220",
+                       "description":  "~ 𝒫𝒶𝓈𝓉𝑒𝓁𝑒𝓇í𝒶 𝒮𝒶𝓃 𝒟𝑒𝓁𝒾𝓇𝒾𝑜 ~ El Nivel 220. también conocido como \"Pastelería San Delirio\", es el 221º nivel de Los Backrooms. La Pastelería San Delirio se trata de una Repostería amplia con múltiples mesas y colores en su estructura. Su apariencia es algo antigua, recordando al estilo usado en los 90´s. La entrada al establecimiento consta de una alfombra roja con un letrero encim...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  308,
+                       "slug":  "level_308",
+                       "title":  "Nivel 308, \"La Plaga Roja\"",
+                       "alias":  "La Plaga Roja",
+                       "class":  4,
+                       "difficulty":  null,
+                       "image":  "level_308.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_308",
+                       "description":  "\"Desde el MEG le pedimos que haga una grabación de su trayecto por el Nivel 308 para que su sacrificio no sea en vano.\" El Nivel 308 también conocido como \"La Plaga Roja\", es el 309º nivel de los Backrooms, que se caracteriza por contar con una peligrosa infección sumada a una mortalidad asegurada. El Nivel 308 es un camino que atraviesa pueblos, ciudades, bosques nevados, desiertos, entre otros;...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  444,
+                       "slug":  "level_444",
+                       "title":  "Nivel 444, \"Registros Internos\"",
+                       "alias":  "Registros Internos",
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_444.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_444",
+                       "description":  "El Nivel 444, también conocido como Registros Internos es el 445° nivel de Los Backrooms. El Nivel 444 es una enorme red de pasillos estrechos con estanterías demasiado altas, tanto que no es posible saber su altura máxima. Todas están llenas de documentos, archivos, cajas y libros polvorientos. En el suelo hay una alfombra roja que recorre cada pasillo, amortiguando los golpes, se ve deteriorada...",
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+                                     "Nivel 0",
+                                     "Nivel 75",
+                                     "Nivel 52",
+                                     "The End"
+                                 ],
+                       "image_downloaded":  true
+                   },
+                   {
+                       "id":  499,
+                       "slug":  "level_499",
+                       "title":  "Nivel 499",
+                       "alias":  null,
+                       "class":  null,
+                       "difficulty":  null,
+                       "image":  "level_499.jpg",
+                       "wiki_url":  "https://backrooms.fandom.com/es/wiki/Nivel_499",
+                       "description":  null,
+                       "entities":  [
+
+                                    ],
+                       "exits":  [
+
+                                 ],
+                       "image_downloaded":  false,
+                       "error":  "not_found"
+                   }
+               ],
+    "summary":  {
+                    "total":  30,
+                    "images_downloaded":  29,
+                    "images_already_existing":  29,
+                    "errors":  [
+                                   "Nivel 499"
+                               ]
+                }
+}

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVO BACKROOMS — Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="inicio">
+  <div class="crt-overlay"></div>
+
+  <header class="site-header">
+    <div class="header-status">
+      <div class="hs-left">
+        <span class="hs-pill hs-pill-ok"><span class="hs-led"></span>ONLINE</span>
+        <span class="hs-item"><span class="hs-k">SESSION</span><span class="hs-v" id="hs-session-id">0x0000-0000</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">T+</span><span class="hs-v" id="hs-clock">00:00:00</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">SYNC</span><span class="hs-v" id="hs-sync">98%</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">LAT</span><span class="hs-v" id="hs-latency">47ms</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">PING</span><span class="hs-v" id="hs-ping">12ms</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">BAND</span><span class="hs-v">2.4 GHz</span></span>
+      </div>
+      <div class="hs-right">
+        <span class="hs-item"><span class="hs-k">NODO</span><span class="hs-v">AS-001</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">BUILD</span><span class="hs-v">v2.0.7</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-pill hs-pill-warn"><span class="hs-led hs-led-warn"></span>SECURE</span>
+      </div>
+    </div>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#x258C;</span>BACKROOMS<span class="logo-icon">&#x2590;</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Men&uacute;">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link active">Inicio</a>
+        <a href="niveles.html" class="nav-link">Niveles</a>
+        <a href="entidades.html" class="nav-link">Entidades</a>
+        <a href="crear-nivel.html" class="nav-link" id="nav-submit-link">Crear Nivel</a>
+        <a href="comunidad.html" class="nav-link">Comunidad</a>
+        <a href="videos.html" class="nav-link">V&iacute;deos</a>
+      </nav>
+      <div class="header-auth">
+        <div class="lang-selector" id="lang-selector">
+          <button class="lang-current" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span class="lang-label" data-i18n="auth.lang">LANG</span>
+            <span class="lang-sep">:</span>
+            <span class="lang-code">ESP</span>
+            <span class="lang-caret">&#x25BE;</span>
+          </button>
+          <ul class="lang-dropdown" role="listbox">
+            <li class="lang-option" data-lang="es" role="option"><span class="lang-flag">ES</span><span class="lang-name">Español</span><span class="lang-short">ESP</span></li>
+            <li class="lang-option" data-lang="en" role="option"><span class="lang-flag">EN</span><span class="lang-name">English</span><span class="lang-short">ENG</span></li>
+            <li class="lang-option" data-lang="pt" role="option"><span class="lang-flag">PT</span><span class="lang-name">Português</span><span class="lang-short">PT</span></li>
+          </ul>
+        </div>
+        <button class="btn-auth" id="btn-login" data-i18n="auth.login">Iniciar Sesi&oacute;n</button>
+        <span class="btn-user" id="user-badge" style="display:none"></span>
+        <button class="btn-logout" id="btn-logout" style="display:none" data-i18n="auth.logout">Salir</button>
+        <button class="btn-backup" id="btn-backup" data-i18n-title="auth.backup.t" title="Descargar backup de todos los datos">&#x25A0; BACKUP</button>
+        <button class="btn-game" id="btn-game">&#x25A0; <span data-i18n="auth.game">SUPERVIVENCIA</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="home-main">
+
+    <section class="crowbar-database">
+      <div class="container">
+        <header class="cdb-header">
+          <div class="cdb-header-left">
+            <h2 class="cdb-title"><span class="cdb-bracket">&#x258C;</span> <span data-i18n="index.cdb.title">CROWBAR DATABASE</span> <span class="cdb-bracket">&#x2590;</span></h2>
+            <p class="cdb-subtitle" data-i18n="index.cdb.sub">ARCHIVO CENTRAL &middot; BIENVENIDO A LA BASE DE DATOS</p>
+          </div>
+          <div class="cdb-header-right">
+            <div class="cdb-status">
+              <span class="cdb-status-dot"></span>
+              <span data-i18n="index.cdb.status">6 CATEGOR&Iacute;AS ACTIVAS</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="database-grid">
+          <a href="niveles.html" class="db-card db-card-1">
+            <div class="db-card-bg" style="background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=900&q=80&auto=format&fit=crop')"></div>
+            <div class="db-card-grid"></div>
+            <div class="db-card-content">
+              <div class="db-card-top">
+                <span class="db-card-id">CAT-001</span>
+                <span class="db-card-pulse"></span>
+              </div>
+              <h3 class="db-card-title" data-i18n="index.cdb.levels">NIVELES</h3>
+              <p class="db-card-desc" data-i18n="index.cdb.levels.d">Pasillos, aulas, salas infinitas. Cada nivel con sus propias reglas f&iacute;sicas.</p>
+              <div class="db-card-bottom">
+                <span class="db-card-count">05</span>
+                <span class="db-card-btn" data-i18n="index.cdb.go">[ ACCEDER &rarr; ]</span>
+              </div>
+            </div>
+            <div class="db-card-glitch"></div>
+          </a>
+
+          <a href="entidades.html" class="db-card db-card-2">
+            <div class="db-card-bg" style="background-image:url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=900&q=80&auto=format&fit=crop')"></div>
+            <div class="db-card-grid"></div>
+            <div class="db-card-content">
+              <div class="db-card-top">
+                <span class="db-card-id">CAT-002</span>
+                <span class="db-card-pulse"></span>
+              </div>
+              <h3 class="db-card-title" data-i18n="index.cdb.entities">ENTIDADES</h3>
+              <p class="db-card-desc" data-i18n="index.cdb.entities.d">Criaturas, manifestaciones, presencias. No todas son hostiles. No todas son visibles.</p>
+              <div class="db-card-bottom">
+                <span class="db-card-count">06</span>
+                <span class="db-card-btn" data-i18n="index.cdb.go">[ ACCEDER &rarr; ]</span>
+              </div>
+            </div>
+            <div class="db-card-glitch"></div>
+          </a>
+
+          <a href="crear-nivel.html" class="db-card db-card-3">
+            <div class="db-card-bg" style="background-image:url('https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=900&q=80&auto=format&fit=crop')"></div>
+            <div class="db-card-grid"></div>
+            <div class="db-card-content">
+              <div class="db-card-top">
+                <span class="db-card-id">CAT-003</span>
+                <span class="db-card-pulse"></span>
+              </div>
+              <h3 class="db-card-title" data-i18n="index.cdb.objects">OBJETOS</h3>
+              <p class="db-card-desc" data-i18n="index.cdb.objects.d">Art&iacute;culos an&oacute;malos, suministros de agua almendras, bater&iacute;as y herramientas.</p>
+              <div class="db-card-bottom">
+                <span class="db-card-count">12</span>
+                <span class="db-card-btn" data-i18n="index.cdb.go">[ ACCEDER &rarr; ]</span>
+              </div>
+            </div>
+            <div class="db-card-glitch"></div>
+          </a>
+
+          <a href="comunidad.html" class="db-card db-card-4">
+            <div class="db-card-bg" style="background-image:url('https://images.unsplash.com/photo-1551351959-ddf30ec06f12?w=900&q=80&auto=format&fit=crop')"></div>
+            <div class="db-card-grid"></div>
+            <div class="db-card-content">
+              <div class="db-card-top">
+                <span class="db-card-id">CAT-004</span>
+                <span class="db-card-pulse"></span>
+              </div>
+              <h3 class="db-card-title" data-i18n="index.cdb.groups">GRUPOS</h3>
+              <p class="db-card-desc" data-i18n="index.cdb.groups.d">Facciones, comunidades, supervivientes organizados. Aliados o amenazas.</p>
+              <div class="db-card-bottom">
+                <span class="db-card-count">08</span>
+                <span class="db-card-btn" data-i18n="index.cdb.go">[ ACCEDER &rarr; ]</span>
+              </div>
+            </div>
+            <div class="db-card-glitch"></div>
+          </a>
+
+          <a href="videos.html" class="db-card db-card-5">
+            <div class="db-card-bg" style="background-image:url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=900&q=80&auto=format&fit=crop')"></div>
+            <div class="db-card-grid"></div>
+            <div class="db-card-content">
+              <div class="db-card-top">
+                <span class="db-card-id">CAT-005</span>
+                <span class="db-card-pulse"></span>
+              </div>
+              <h3 class="db-card-title" data-i18n="index.cdb.relatos">RELATOS</h3>
+              <p class="db-card-desc" data-i18n="index.cdb.relatos.d">Testimonios, registros, cintas encontradas. La voz de quienes volvieron.</p>
+              <div class="db-card-bottom">
+                <span class="db-card-count">14</span>
+                <span class="db-card-btn" data-i18n="index.cdb.go">[ ACCEDER &rarr; ]</span>
+              </div>
+            </div>
+            <div class="db-card-glitch"></div>
+          </a>
+
+          <a href="#fenomenos" class="db-card db-card-6">
+            <div class="db-card-bg" style="background-image:url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=900&q=80&auto=format&fit=crop')"></div>
+            <div class="db-card-grid"></div>
+            <div class="db-card-content">
+              <div class="db-card-top">
+                <span class="db-card-id">CAT-006</span>
+                <span class="db-card-pulse"></span>
+              </div>
+              <h3 class="db-card-title" data-i18n="index.cdb.fen">FEN&Oacute;MENOS</h3>
+              <p class="db-card-desc" data-i18n="index.cdb.fen.d">Anomal&iacute;as f&iacute;sicas, glitches espaciales, eventos sin explicaci&oacute;n l&oacute;gica.</p>
+              <div class="db-card-bottom">
+                <span class="db-card-count">09</span>
+                <span class="db-card-btn" data-i18n="index.cdb.go">[ ACCEDER &rarr; ]</span>
+              </div>
+            </div>
+            <div class="db-card-glitch"></div>
+          </a>
+        </div>
+
+        <footer class="cdb-footer">
+          <span class="cdb-footer-line"></span>
+          <span class="cdb-footer-text" data-i18n="index.cdb.foot">CROWBAR INC. &middot; ARCHIVO NO OFICIAL &middot; USO BAJO PROPIA RESPONSABILIDAD</span>
+          <span class="cdb-footer-line"></span>
+        </footer>
+      </div>
+    </section>
+
+    <section class="classified-intro">
+      <div class="container">
+        <div class="classified-border">
+          <div class="classified-corner classified-corner-tl"></div>
+          <div class="classified-corner classified-corner-tr"></div>
+          <div class="classified-corner classified-corner-bl"></div>
+          <div class="classified-corner classified-corner-br"></div>
+          <div class="classified-header">
+            <span class="classified-warn-icon">&#x26A0;</span>
+            <span data-i18n="index.classified.header">ARCHIVO CLASIFICADO &mdash; NIVEL DE AMENAZA: AMARILLO</span>
+            <span class="classified-warn-icon">&#x26A0;</span>
+          </div>
+          <blockquote class="classified-quote">
+            <p data-i18n="index.classified.q1">&ldquo;Si no tienes cuidado y te sales de la realidad, no te asustes... qu&eacute;date quieto, respira, e intenta no gritar.&rdquo;</p>
+            <p class="classified-quote-sub" data-i18n="index.classified.q2">El archivo no es ficci&oacute;n. Si est&aacute;s leyendo esto, ya has cruzado el umbral. La salida es un mito. La moqueta huele a humedad vieja y los fluorescentes nunca se apagan.</p>
+            <p class="classified-quote-sub" data-i18n="index.classified.q3">Mant&eacute;n la cordura. Documenta todo. No vayas solo.</p>
+          </blockquote>
+          <div class="classified-footer">
+            <span data-i18n="index.classified.src">&mdash; Extra&iacute;do del Archivo Backrooms &middot; Doc. 001-A</span>
+            <span class="classified-stamp"><span data-i18n="index.classified.stamp">CLASIFICADO</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-monitor">
+      <div class="container">
+        <div class="hm-panel">
+          <div class="hm-titlebar">
+            <span class="hm-title">&#x25A0; <span data-i18n="index.monitor.title">MONITOR DE SESI&Oacute;N Y DIAGN&Oacute;STICO ASYNC</span></span>
+            <span class="hm-title-status"><span class="hm-rec-dot"></span> <span data-i18n="index.monitor.live">EN L&Iacute;NEA</span></span>
+            <span class="hm-title-id">SYS-MON-001</span>
+          </div>
+          <div class="hm-body">
+            <div class="hm-widgets">
+              <div class="widget hm-widget">
+                <div class="widget-label" data-i18n="index.sanity">&#x25A0; Cordura del Explorador</div>
+                <div class="widget-value" id="sanity-value">85%</div>
+                <div class="widget-bar-track">
+                  <div class="widget-bar-fill" id="sanity-fill" style="width:85%"></div>
+                </div>
+              </div>
+              <div class="widget hm-widget">
+                <div class="widget-label" data-i18n="index.clock">&#x25A0; Reloj de Pared Inmutable</div>
+                <div class="widget-value" id="wall-clock">00:00:00</div>
+                <div class="widget-bar-track">
+                  <div class="widget-bar-fill widget-bar-fill-alt"></div>
+                </div>
+              </div>
+              <div class="widget hm-widget hm-widget-stats">
+                <div class="widget-label">&#x25A0; <span data-i18n="index.monitor.stats">ESTADO DEL ARCHIVO</span></div>
+                <div class="hm-stats-mini">
+                  <div class="stat"><span class="stat-num">5</span> <span data-i18n="index.stats.1">Niveles Fundacionales</span></div>
+                  <div class="stat"><span class="stat-num">6</span> <span data-i18n="index.stats.2">Entidades Catalogadas</span></div>
+                  <div class="stat"><span class="stat-num" id="stat-community">0</span> <span data-i18n="index.stats.3">Aportes de la Comunidad</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="hm-terminal">
+              <div class="hero-terminal">
+                <div class="hero-line"><span class="prompt">&gt;</span> <span class="cmd" data-i18n="index.hero.cmd1">noclip.exe --init backrooms.db</span></div>
+                <div class="hero-line"><span class="prompt">&gt;</span> <span class="cmd" data-i18n="index.hero.cmd2">establecer_conexion --nivel 0</span></div>
+                <div class="hero-line output" data-i18n="index.hero.out1">[CONEXI&Oacute;N ESTABLECIDA] Se&ntilde;al d&eacute;bil. Estabilizando...</div>
+                <div class="hero-line output" data-i18n="index.hero.out2">[NIVEL 0] "El Aula de Transici&oacute;n" &mdash; Moqueta h&uacute;meda, fluorescentes eternos.</div>
+                <div class="hero-line output" id="hero-count" data-i18n="index.hero.count">[ARCHIVO] Niveles documentados: 5 principales &middot; 0 comunitarios</div>
+                <div class="hero-line output cursor-line" data-i18n="index.hero.cursor">[SISTEMA] Listo. Bienvenido, explorador.<span class="typed-cursor"></span></div>
+              </div>
+            </div>
+            <div class="terminal-console" id="terminal-logs-console">
+              <div class="console-title" data-i18n="index.console">&#x25A0; Consola de Logs del Sistema</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><span class="footer-logo">ARCHIVO BACKROOMS</span> &mdash; <span class="footer-ver">v2.0</span></p>
+      <p class="footer-quote">"<span data-i18n="footer.quote">Este archivo no es ficci&oacute;n. Si est&aacute;s aqu&iacute;, ya has cruzado el umbral.</span>"</p>
+      <p class="footer-attr" data-i18n="footer.attr">&#x29D6; Contenido de niveles y entidades extra&iacute;do de la <a href="https://backrooms.fandom.com/es/wiki/Wiki_Backrooms" target="_blank" rel="noopener" style="color:#ff2a2a;">Wiki Hispana de los Backrooms</a> bajo <a href="https://www.fandom.com/es/licensing-es" target="_blank" rel="noopener" style="color:#ff2a2a;">CC-BY-SA</a>. Im&aacute;genes y textos &copy; sus respectivos autores.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 id="modal-title" data-i18n="auth.title.login">Iniciar Sesi&oacute;n</h2>
+      <form id="auth-form" class="auth-form">
+        <div class="form-group">
+          <label for="auth-user" data-i18n="auth.user">Nombre de Agente</label>
+          <input type="text" id="auth-user" data-i18n-ph="auth.user.ph" placeholder="Tu nombre en el archivo..." required>
+        </div>
+        <div class="form-group">
+          <label for="auth-pass" data-i18n="auth.pass">Clave de Acceso</label>
+          <input type="password" id="auth-pass" data-i18n-ph="auth.pass.ph" placeholder="Contrase&ntilde;a..." required>
+        </div>
+        <div id="auth-error" class="auth-error"></div>
+        <div id="auth-success" class="auth-success"></div>
+        <button type="submit" class="btn-submit" id="btn-auth" data-i18n="auth.submit.login">ACCEDER AL ARCHIVO</button>
+      </form>
+      <div class="auth-toggle" id="auth-toggle">
+        <span data-i18n="auth.toggle.ask">&iquest;No tienes cuenta?</span> <a id="auth-toggle-link" data-i18n="auth.toggle.go">Reg&iacute;strate aqu&iacute;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <div class="sg-overlay" id="survival-minigame" style="display:none">
+    <div class="sg-scanlines"></div>
+    <div class="sg-window">
+      <div class="sg-topbar">
+        <span class="sg-top-title" data-i18n="index.sg.title">&#x25A0; PROTOCOLO DE EXTRACCI&Oacute;N LIMINAL v3.1</span>
+        <span class="sg-top-status" id="sg-status" data-i18n="sg.step.system.started">SISTEMA INICIADO</span>
+      </div>
+      <div class="sg-viewport" id="sg-viewport">
+        <div class="sg-ascii" id="sg-ascii-banner"></div>
+        <div class="sg-content" id="sg-content"></div>
+        <div class="sg-opt-grid" id="sg-opt-grid"></div>
+        <div class="sg-actions-bar" id="sg-actions-bar">
+          <button class="sg-cmd" id="sg-btn-start" data-i18n="index.sg.start">[ INICIAR PROTOCOLO ]</button>
+          <button class="sg-cmd" id="sg-btn-restart" style="display:none" data-i18n="index.sg.restart">[ REINICIAR ]</button>
+          <button class="sg-cmd" id="sg-btn-close" style="display:none" data-i18n="index.sg.close">[ CERRAR ]</button>
+        </div>
+      </div>
+      <div class="sg-footerbar">
+        <span id="sg-footer-left" data-i18n="index.sg.heart">CORAZ&Oacute;N DEL ARCHIVO &mdash; M&Oacute;DULO DE SUPERVIVENCIA</span>
+        <span id="sg-footer-right">v3.1</span>
+      </div>
+    </div>
+    <div class="sg-glitch-overlay" id="sg-glitch"></div>
+    <div class="sg-flash" id="sg-flash"></div>
+  </div>
+
+  <div class="sg-death-fade" id="sg-death-fade"></div>
+  <div class="sg-death-text" id="sg-death-text">
+    <h1 data-i18n="death.title">CONEXI&Oacute;N CON EL SUJETO PERDIDA</h1>
+    <p data-i18n="death.body">SIGNOS VITALES SENSADOS: 0%</p>
+  </div>
+
+  <script src="data/wiki-levels.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVO BACKROOMS &mdash; Niveles</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="niveles">
+  <div class="crt-overlay"></div>
+
+  <header class="site-header">
+    <div class="header-status">
+      <div class="hs-left">
+        <span class="hs-pill hs-pill-ok"><span class="hs-led"></span>ONLINE</span>
+        <span class="hs-item"><span class="hs-k">SESSION</span><span class="hs-v" id="hs-session-id">0x0000-0000</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">T+</span><span class="hs-v" id="hs-clock">00:00:00</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">SYNC</span><span class="hs-v" id="hs-sync">98%</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">LAT</span><span class="hs-v" id="hs-latency">47ms</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">PING</span><span class="hs-v" id="hs-ping">12ms</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">BAND</span><span class="hs-v">2.4 GHz</span></span>
+      </div>
+      <div class="hs-right">
+        <span class="hs-item"><span class="hs-k">NODO</span><span class="hs-v">AS-001</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">BUILD</span><span class="hs-v">v2.0.7</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-pill hs-pill-warn"><span class="hs-led hs-led-warn"></span>SECURE</span>
+      </div>
+    </div>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#x258C;</span>BACKROOMS<span class="logo-icon">&#x2590;</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Men&uacute;">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="niveles.html" class="nav-link active">Niveles</a>
+        <a href="entidades.html" class="nav-link">Entidades</a>
+        <a href="crear-nivel.html" class="nav-link" id="nav-submit-link">Crear Nivel</a>
+        <a href="comunidad.html" class="nav-link">Comunidad</a>
+        <a href="videos.html" class="nav-link">V&iacute;deos</a>
+      </nav>
+      <div class="header-auth">
+        <!-- Language selector -->
+        <div class="lang-selector" id="lang-selector">
+          <button class="lang-current" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span class="lang-label" data-i18n="auth.lang">LANG</span>
+            <span class="lang-sep">:</span>
+            <span class="lang-code">ESP</span>
+            <span class="lang-caret">&#x25BE;</span>
+          </button>
+          <ul class="lang-dropdown" role="listbox">
+            <li class="lang-option" data-lang="es" role="option"><span class="lang-flag">ES</span><span class="lang-name">Español</span><span class="lang-short">ESP</span></li>
+            <li class="lang-option" data-lang="en" role="option"><span class="lang-flag">EN</span><span class="lang-name">English</span><span class="lang-short">ENG</span></li>
+            <li class="lang-option" data-lang="pt" role="option"><span class="lang-flag">PT</span><span class="lang-name">Português</span><span class="lang-short">PT</span></li>
+          </ul>
+        </div>
+        <button class="btn-auth" id="btn-login" data-i18n="auth.login">Iniciar Sesi&oacute;n</button>
+        <span class="btn-user" id="user-badge" style="display:none"></span>
+        <button class="btn-logout" id="btn-logout" style="display:none" data-i18n="auth.logout">Salir</button>
+        <button class="btn-backup" id="btn-backup" data-i18n-title="auth.backup.t" title="Descargar backup de todos los datos">&#x25A0; BACKUP</button>
+        <button class="btn-game" id="btn-game">&#x25A0; <span data-i18n="auth.game">SUPERVIVENCIA</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="container">
+      <h1 class="section-title" data-i18n="levels.title">Niveles Principales</h1>
+      <p class="section-sub" data-i18n="levels.sub">Los 5 niveles fundacionales documentados por el archivo.</p>
+
+      <div class="niveles-survival">
+        <div class="ns-panel">
+          <div class="ns-titlebar">
+            <span class="ns-title">&#x258C; PROTOCOLO DE SUPERVIVENCIA LIMINAL &#x2590;</span>
+            <span class="ns-status"><span class="ns-rec-dot"></span> ACTIVO</span>
+            <span class="ns-id">PROTO-001</span>
+          </div>
+          <div class="ns-body">
+            <div class="ns-left">
+              <pre class="ns-ascii">
+ &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;   &#x2588;&#x2588;&#x2588;  &#x2588;&#x2588;&#x2588;
+&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x2557; &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588; &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588; &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;
+&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2557;  &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;
+&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588; &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;   &#x2588;&#x2588;&#x2554;&#x2550;&#x2588;&#x2588; &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;
+&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x255A;&#x2550;&#x2550;&#x2550;&#x255D; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;
+&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;   &#x255A;&#x2550;&#x2550;&#x255D;     &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
+              </pre>
+              <div class="ns-stats-grid">
+                <div class="ns-stat">
+                  <span class="ns-stat-k">AMENAZA ACTIVA</span>
+                  <span class="ns-stat-v" id="ns-threat" style="color:#ff2a2a">3.8 / 5</span>
+                  <div class="ns-bar"><div class="ns-bar-fill" style="width:76%;background:linear-gradient(90deg,#ffae00,#ff2a2a)"></div></div>
+                </div>
+                <div class="ns-stat">
+                  <span class="ns-stat-k">SUPERVIVIENTES</span>
+                  <span class="ns-stat-v" id="ns-survivors">1,247</span>
+                </div>
+                <div class="ns-stat">
+                  <span class="ns-stat-k">TASA DE &Eacute;XITO</span>
+                  <span class="ns-stat-v" id="ns-success" style="color:#ffae00">12%</span>
+                  <div class="ns-bar"><div class="ns-bar-fill" style="width:12%;background:linear-gradient(90deg,#ff2a2a,#ffae00)"></div></div>
+                </div>
+                <div class="ns-stat">
+                  <span class="ns-stat-k">TIEMPO MEDIO</span>
+                  <span class="ns-stat-v" id="ns-avgtime">04:17</span>
+                </div>
+                <div class="ns-stat">
+                  <span class="ns-stat-k">ENTIDADES ACTIVAS</span>
+                  <span class="ns-stat-v" id="ns-entities" style="color:#ff2a2a">14</span>
+                </div>
+                <div class="ns-stat">
+                  <span class="ns-stat-k">PROFUNDIDAD</span>
+                  <span class="ns-stat-v">5 / 5</span>
+                </div>
+              </div>
+            </div>
+            <div class="ns-right">
+              <div class="ns-about">
+                <h3>&#x258C; &iquest;QU&Eacute; ES ESTE PROTOCOLO?</h3>
+                <p>Simulaci&oacute;n de extracci&oacute;n en tiempo real. Cada decisi&oacute;n afecta tu cordura, tu inventario y tu probabilidad de volver. 5 niveles de profundidad. 1 objetivo: <strong>salir con vida</strong>.</p>
+              </div>
+              <div class="ns-rules">
+                <h3>&#x258C; REGLAS DE SUPERVIVENCIA</h3>
+                <ol>
+                  <li><span class="ns-rule-num">01</span> Elige sabiamente. No hay vuelta atr&aacute;s.</li>
+                  <li><span class="ns-rule-num">02</span> La cordura baja con cada evento an&oacute;malo.</li>
+                  <li><span class="ns-rule-num">03</span> Las entidades reaccionan al ruido.</li>
+                  <li><span class="ns-rule-num">04</span> El inventario es limitado. No recargas.</li>
+                  <li><span class="ns-rule-num">05</span> Si mueres, el archivo registra tu conexi&oacute;n perdida.</li>
+                </ol>
+              </div>
+              <button class="ns-start" id="ns-start-btn" type="button">
+                <span class="ns-start-icon">&#x25B6;</span>
+                <span class="ns-start-text">INICIAR EXTRACCI&Oacute;N</span>
+              </button>
+              <div class="ns-warning">&#x26A0; UNA VEZ INICIADO NO HAY PAUSA</div>
+            </div>
+          </div>
+          <div class="ns-bottombar">
+            <span>&#x25BA; PROTOCOLO: <strong>EXTRACCI&Oacute;N LIMINAL v3.1</strong></span>
+            <span>&#x25BA; &Uacute;LTIMA EJECUCI&Oacute;N: <strong id="ns-last">--</strong></span>
+            <span>&#x25BA; RECOMENDADO NIVELES 1&ndash;5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2col" id="wiki-grid"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><span class="footer-logo">ARCHIVO BACKROOMS</span> &mdash; <span class="footer-ver">v2.0</span></p>
+      <p class="footer-quote">"<span data-i18n="footer.quote">Este archivo no es ficci&oacute;n. Si est&aacute;s aqu&iacute;, ya has cruzado el umbral.</span>"</p>
+      <p class="footer-attr" data-i18n="footer.attr">&#x29D6; Contenido de niveles y entidades extra&iacute;do de la <a href="https://backrooms.fandom.com/es/wiki/Wiki_Backrooms" target="_blank" rel="noopener" style="color:#ff2a2a;">Wiki Hispana de los Backrooms</a> bajo <a href="https://www.fandom.com/es/licensing-es" target="_blank" rel="noopener" style="color:#ff2a2a;">CC-BY-SA</a>. Im&aacute;genes y textos &copy; sus respectivos autores.</p>
+    </div>
+  </footer>
+
+  <!-- LEVEL MODAL -->
+  <div class="level-modal-overlay" id="level-modal-overlay">
+    <div class="level-modal" id="level-modal">
+      <div class="level-modal-border" id="level-modal-border">
+        <button class="level-modal-close" id="level-modal-close" title="Cerrar (ESC)">&times;</button>
+
+        <div class="level-modal-header">
+          <span class="level-modal-tag" data-i18n="levels.tag">[ REGISTRO DE NIVEL ]</span>
+          <span class="level-modal-status" id="level-modal-status">STATUS: &mdash;</span>
+        </div>
+
+        <h2 class="level-modal-title" id="level-modal-title">&mdash;</h2>
+
+        <div class="level-modal-body">
+          <div class="lm-image-frame">
+            <img src="" alt="" class="lm-modal-image" id="lm-modal-image">
+            <div class="lm-image-caption" data-i18n="levels.frame.cap">FRAME 001 &mdash; STILL CAPTURE</div>
+          </div>
+
+          <div class="lm-content-grid">
+            <div class="lm-col-left">
+              <div class="lm-row">
+                <span class="lm-label" data-i18n="levels.props">&gt; PROPIEDADES DEL ENTORNO</span>
+                <span class="lm-value lm-props" id="lm-props">&mdash;</span>
+              </div>
+              <div class="lm-row">
+                <span class="lm-label" data-i18n="levels.reading">&gt; LECTURA DE ANOMALÍA</span>
+                <span class="lm-value lm-reading" id="lm-reading">&mdash;</span>
+              </div>
+              <div class="lm-row lm-video" id="lm-video"></div>
+            </div>
+
+            <div class="lm-col-right">
+              <!-- Datos técnicos -->
+              <div class="lm-tech-block">
+                <div class="lm-tech-title" data-i18n="levels.tech">&gt; DATOS TÉCNICOS</div>
+                <div class="lm-tech-grid">
+                  <div class="lm-tech-cell"><span class="lm-tech-k">TEMP</span><span class="lm-tech-v">&mdash;</span></div>
+                  <div class="lm-tech-cell"><span class="lm-tech-k">GASES</span><span class="lm-tech-v">&mdash;</span></div>
+                  <div class="lm-tech-cell"><span class="lm-tech-k">HUM</span><span class="lm-tech-v">&mdash;</span></div>
+                  <div class="lm-tech-cell"><span class="lm-tech-k">RAD</span><span class="lm-tech-v">&mdash;</span></div>
+                  <div class="lm-tech-cell"><span class="lm-tech-k">GRAV</span><span class="lm-tech-v">&mdash;</span></div>
+                  <div class="lm-tech-cell"><span class="lm-tech-k">O&#x2082;</span><span class="lm-tech-v">&mdash;</span></div>
+                  <div class="lm-tech-cell lm-tech-cell-wide"><span class="lm-tech-k">HAB</span><span class="lm-tech-v">&mdash;</span></div>
+                </div>
+              </div>
+
+              <!-- Conexiones / Relaciones -->
+              <div class="lm-conn-block">
+                <div class="lm-conn-title" data-i18n="levels.conn">&gt; CONEXIONES / RELACIONES</div>
+                <div class="lm-conn-list"></div>
+              </div>
+
+              <!-- Descripci&oacute;n / Wiki -->
+              <div class="lm-desc-block" style="margin-top:18px;padding:14px 18px;background:rgba(20,18,8,0.7);border:1px solid rgba(255,234,0,0.25);position:relative;">
+                <div class="lm-conn-title" style="font-size:11px;letter-spacing:0.22em;color:#ffea00;margin-bottom:8px;font-family:'Courier New',monospace;">&gt; DESCRIPCI&Oacute;N / REGISTRO</div>
+                <p class="lm-desc-text" style="margin:0 0 10px;font-size:13px;line-height:1.55;color:rgba(255,234,0,0.85);"></p>
+                <div class="lm-exits-block" style="margin-top:10px;padding-top:10px;border-top:1px dashed rgba(255,234,0,0.2);">
+                  <span class="lm-conn-title" style="font-size:10px;letter-spacing:0.2em;color:#ffea00;opacity:0.7;font-family:'Courier New',monospace;">&gt; SALIDAS / EXITS:</span>
+                  <div class="lm-exits-list" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;"></div>
+                </div>
+                <div class="lm-wiki-attr" style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,234,0,0.15);font-size:10px;color:rgba(255,234,0,0.6);font-family:'Courier New',monospace;letter-spacing:0.08em;">
+                  <span>&#x29D6; FUENTE:</span>
+                  <a href="" target="_blank" rel="noopener" class="lm-wiki-link" style="color:#ff2a2a;text-decoration:underline;margin-left:6px;">Wiki Hispana Backrooms (CC-BY-SA)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-modal-footer">
+          <span class="lm-footer-id" data-i18n="levels.modal.footer">ARCHIVO BACKROOMS — ACCESO RESTRINGIDO</span>
+          <span class="lm-footer-cmd" data-i18n="levels.modal.close">CERRAR: ESC o [X]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINIJUEGO DE SUPERVIVENCIA -->
+  <div class="sg-overlay" id="survival-minigame" style="display:none">
+    <div class="sg-scanlines"></div>
+    <div class="sg-window">
+      <div class="sg-topbar">
+        <span class="sg-top-title">&#x25A0; PROTOCOLO DE EXTRACCI&Oacute;N LIMINAL v3.1</span>
+        <span class="sg-top-status" id="sg-status" data-i18n="sg.step.system.started">SISTEMA INICIADO</span>
+      </div>
+      <div class="sg-viewport" id="sg-viewport">
+        <div class="sg-ascii" id="sg-ascii-banner"></div>
+        <div class="sg-content" id="sg-content"></div>
+        <div class="sg-opt-grid" id="sg-opt-grid"></div>
+        <div class="sg-actions-bar" id="sg-actions-bar">
+          <button class="sg-cmd" id="sg-btn-start">[ INICIAR PROTOCOLO ]</button>
+          <button class="sg-cmd" id="sg-btn-restart" style="display:none">[ REINICIAR ]</button>
+          <button class="sg-cmd" id="sg-btn-close" style="display:none">[ CERRAR ]</button>
+        </div>
+      </div>
+      <div class="sg-footerbar">
+        <span>CORAZ&Oacute;N DEL ARCHIVO &mdash; M&Oacute;DULO DE SUPERVIVENCIA</span>
+        <span>v3.1</span>
+      </div>
+    </div>
+    <div class="sg-glitch-overlay" id="sg-glitch"></div>
+    <div class="sg-flash" id="sg-flash"></div>
+  </div>
+
+  <div class="sg-death-fade" id="sg-death-fade"></div>
+  <div class="sg-death-text" id="sg-death-text">
+    <h1>CONEXI&Oacute;N CON EL SUJETO PERDIDA</h1>
+    <p>SIGNOS VITALES SENSADOS: 0%</p>
+  </div>
+
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 id="modal-title" data-i18n="auth.title.login">Iniciar Sesi&oacute;n</h2>
+      <form id="auth-form" class="auth-form">
+        <div class="form-group">
+          <label for="auth-user" data-i18n="auth.user">Nombre de Agente</label>
+          <input type="text" id="auth-user" data-i18n-ph="auth.user.ph" placeholder="Tu nombre en el archivo..." required>
+        </div>
+        <div class="form-group">
+          <label for="auth-pass" data-i18n="auth.pass">Clave de Acceso</label>
+          <input type="password" id="auth-pass" data-i18n-ph="auth.pass.ph" placeholder="Contrase&ntilde;a..." required>
+        </div>
+        <div id="auth-error" class="auth-error"></div>
+        <div id="auth-success" class="auth-success"></div>
+        <button type="submit" class="btn-submit" id="btn-auth" data-i18n="auth.submit.login">ACCEDER AL ARCHIVO</button>
+      </form>
+      <div class="auth-toggle" id="auth-toggle">
+        <span data-i18n="auth.toggle.ask">&iquest;No tienes cuenta?</span> <a id="auth-toggle-link" data-i18n="auth.toggle.go">Reg&iacute;strate aqu&iacute;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <script src="data/wiki-levels.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

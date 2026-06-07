@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHIVO BACKROOMS — Vídeos Desclasificados</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="videos">
+  <div class="crt-overlay"></div>
+
+  <header class="site-header">
+    <div class="header-status">
+      <div class="hs-left">
+        <span class="hs-pill hs-pill-ok"><span class="hs-led"></span>ONLINE</span>
+        <span class="hs-item"><span class="hs-k">SESSION</span><span class="hs-v" id="hs-session-id">0x0000-0000</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">T+</span><span class="hs-v" id="hs-clock">00:00:00</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">SYNC</span><span class="hs-v" id="hs-sync">98%</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">LAT</span><span class="hs-v" id="hs-latency">47ms</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">PING</span><span class="hs-v" id="hs-ping">12ms</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">BAND</span><span class="hs-v">2.4 GHz</span></span>
+      </div>
+      <div class="hs-right">
+        <span class="hs-item"><span class="hs-k">NODO</span><span class="hs-v">AS-001</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-item"><span class="hs-k">BUILD</span><span class="hs-v">v2.0.7</span></span>
+        <span class="hs-sep">&middot;</span>
+        <span class="hs-pill hs-pill-warn"><span class="hs-led hs-led-warn"></span>SECURE</span>
+      </div>
+    </div>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#x258C;</span>BACKROOMS<span class="logo-icon">&#x2590;</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Men&uacute;">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="niveles.html" class="nav-link">Niveles</a>
+        <a href="entidades.html" class="nav-link">Entidades</a>
+        <a href="crear-nivel.html" class="nav-link" id="nav-submit-link">Crear Nivel</a>
+        <a href="comunidad.html" class="nav-link">Comunidad</a>
+        <a href="videos.html" class="nav-link active">V&iacute;deos</a>
+      </nav>
+      <div class="header-auth">
+        <!-- Language selector -->
+        <div class="lang-selector" id="lang-selector">
+          <button class="lang-current" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span class="lang-label" data-i18n="auth.lang">LANG</span>
+            <span class="lang-sep">:</span>
+            <span class="lang-code">ESP</span>
+            <span class="lang-caret">&#x25BE;</span>
+          </button>
+          <ul class="lang-dropdown" role="listbox">
+            <li class="lang-option" data-lang="es" role="option"><span class="lang-flag">ES</span><span class="lang-name">Español</span><span class="lang-short">ESP</span></li>
+            <li class="lang-option" data-lang="en" role="option"><span class="lang-flag">EN</span><span class="lang-name">English</span><span class="lang-short">ENG</span></li>
+            <li class="lang-option" data-lang="pt" role="option"><span class="lang-flag">PT</span><span class="lang-name">Português</span><span class="lang-short">PT</span></li>
+          </ul>
+        </div>
+        <button class="btn-auth" id="btn-login" data-i18n="auth.login">Iniciar Sesi&oacute;n</button>
+        <span class="btn-user" id="user-badge" style="display:none"></span>
+        <button class="btn-logout" id="btn-logout" style="display:none" data-i18n="auth.logout">Salir</button>
+        <button class="btn-backup" id="btn-backup" data-i18n-title="auth.backup.t" title="Descargar backup de todos los datos">&#x25A0; BACKUP</button>
+        <button class="btn-game" id="btn-game">&#x25A0; <span data-i18n="auth.game">SUPERVIVENCIA</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-section video-page">
+    <div class="container">
+      <h1 class="section-title" data-i18n="videos.title">Vídeos Desclasificados</h1>
+      <p class="section-sub"><span data-i18n="videos.sub">Cat&aacute;logo de grabaciones recuperadas de los niveles.</span> <strong style="color:var(--danger);" data-i18n="videos.restricted">Material de uso restringido.</strong></p>
+
+      <div class="videos-grid" id="videos-grid"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><span class="footer-logo">ARCHIVO BACKROOMS</span> &mdash; <span class="footer-ver">v2.0</span></p>
+      <p class="footer-quote">"<span data-i18n="footer.quote">Este archivo no es ficci&oacute;n. Si est&aacute;s aqu&iacute;, ya has cruzado el umbral.</span>"</p>
+      <p class="footer-attr" data-i18n="footer.attr">&#x29D6; Contenido de niveles y entidades extra&iacute;do de la <a href="https://backrooms.fandom.com/es/wiki/Wiki_Backrooms" target="_blank" rel="noopener" style="color:#ff2a2a;">Wiki Hispana de los Backrooms</a> bajo <a href="https://www.fandom.com/es/licensing-es" target="_blank" rel="noopener" style="color:#ff2a2a;">CC-BY-SA</a>. Im&aacute;genes y textos &copy; sus respectivos autores.</p>
+    </div>
+  </footer>
+
+  <!-- VIDEO MODAL: Pop-up de reproducción -->
+  <div class="video-modal-overlay" id="video-modal-overlay">
+    <div class="video-modal-wrap">
+      <div class="vm-bezel vm-bezel-modal">
+        <div class="vm-screws">
+          <span class="screw"></span><span class="screw"></span>
+          <span class="screw"></span><span class="screw"></span>
+        </div>
+
+        <button class="video-modal-close" id="video-modal-close" title="Cerrar (ESC)">&times;</button>
+
+        <div class="vm-topbar">
+          <div class="vm-rec-indicator">
+            <span class="vm-rec-dot"></span>
+            <span class="vm-rec-text" data-i18n="vm.rec">REC</span>
+          </div>
+          <div class="vm-meta">
+            <span class="vm-meta-item vm-modal-channel">—</span>
+            <span class="vm-meta-item" data-i18n="vm.meta1">0x4F-2A1F</span>
+            <span class="vm-meta-item" data-i18n="vm.meta2">BACKROOMS</span>
+          </div>
+          <div class="vm-timestamp" id="vm-timestamp-modal">TCR 00:00:00:00</div>
+        </div>
+
+        <div class="vm-viewport">
+          <div class="vm-frame">
+            <iframe
+              id="video-modal-iframe"
+              src=""
+              title="Backrooms Video Player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              class="vm-iframe">
+            </iframe>
+          </div>
+
+          <div class="vm-overlay-info">
+            <div class="vm-overlay-row">
+              <span class="vm-overlay-key">&#x25A0; <span data-i18n="vm.k.author">SUBJECT</span></span>
+              <span class="vm-overlay-val vm-modal-creator">—</span>
+            </div>
+            <div class="vm-overlay-row">
+              <span class="vm-overlay-key">&#x25A0; ORIGEN</span>
+              <span class="vm-overlay-val">YOUTUBE / KANE PIXELS 2022</span>
+            </div>
+            <div class="vm-overlay-row">
+              <span class="vm-overlay-key">&#x25A0; <span data-i18n="vm.k.year">FECHA DE CAPTURA</span></span>
+              <span class="vm-overlay-val vm-modal-date">—</span>
+            </div>
+            <div class="vm-overlay-row">
+              <span class="vm-overlay-key">&#x25A0; <span data-i18n="vm.k.code">ARCHIVO</span></span>
+              <span class="vm-overlay-val vm-modal-code">—</span>
+            </div>
+            <div class="vm-overlay-row">
+              <span class="vm-overlay-key">&#x25A0; ESTADO</span>
+              <span class="vm-overlay-val vm-status-sec" data-i18n="vm.status.secure">STATUS: SECURE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="vm-controls">
+          <button class="vm-btn">&#x23EE;</button>
+          <button class="vm-btn">&#x23F8;</button>
+          <button class="vm-btn vm-btn-play">&#x25B6;</button>
+          <button class="vm-btn">&#x23F9;</button>
+          <button class="vm-btn">&#x23ED;</button>
+          <div class="vm-vu-meter">
+            <span class="vm-vu-bar" style="--i:0"></span>
+            <span class="vm-vu-bar" style="--i:1"></span>
+            <span class="vm-vu-bar" style="--i:2"></span>
+            <span class="vm-vu-bar" style="--i:3"></span>
+            <span class="vm-vu-bar" style="--i:4"></span>
+            <span class="vm-vu-bar" style="--i:5"></span>
+            <span class="vm-vu-bar" style="--i:6"></span>
+            <span class="vm-vu-bar" style="--i:7"></span>
+            <span class="vm-vu-bar" style="--i:8"></span>
+            <span class="vm-vu-bar" style="--i:9"></span>
+            <span class="vm-vu-bar" style="--i:10"></span>
+            <span class="vm-vu-bar" style="--i:11"></span>
+            <span class="vm-vu-bar" style="--i:12"></span>
+          </div>
+          <span class="vm-time-display" id="vm-time-modal">00:00:00</span>
+        </div>
+
+        <div class="vm-bottombar">
+          <span class="vm-bb-left"><span data-i18n="vm.bottom.bat">BATERÍA</span>: <span class="vm-bat">88%</span></span>
+          <span class="vm-bb-center" data-i18n="vm.bottom.channel">CANAL: 01 · AUDIO: 48kHz</span>
+          <span class="vm-bb-right" data-i18n="vm.bottom.brand">BLOODHOUND CCTV</span>
+        </div>
+      </div>
+
+      <div class="vm-side-info vm-side-modal">
+        <button class="vm-info-modal-close" id="video-modal-close-side" data-i18n="vm.close" title="Cerrar">&#x2715; CERRAR</button>
+        <h2 class="vm-modal-title">—</h2>
+        <div class="vm-info-card">
+          <div class="vm-info-title" data-i18n="vm.info.metadata">&gt; METADATOS DE LA GRABACIÓN</div>
+          <ul class="vm-info-list">
+            <li><span class="vm-info-k" data-i18n="vm.k.title">TÍTULO</span><span class="vm-info-v vm-modal-title">—</span></li>
+            <li><span class="vm-info-k" data-i18n="vm.k.author">AUTOR</span><span class="vm-info-v vm-modal-creator">—</span></li>
+            <li><span class="vm-info-k" data-i18n="vm.k.year">AÑO</span><span class="vm-info-v vm-modal-date">—</span></li>
+            <li><span class="vm-info-k" data-i18n="vm.k.duration">DURACIÓN</span><span class="vm-info-v vm-modal-duration">—</span></li>
+            <li><span class="vm-info-k" data-i18n="vm.k.resolution">RESOLUCIÓN</span><span class="vm-info-v vm-modal-resolution">—</span></li>
+            <li><span class="vm-info-k" data-i18n="vm.k.code">CÓDIGO DE ARCHIVO</span><span class="vm-info-v vm-modal-code">—</span></li>
+          </ul>
+        </div>
+
+        <div class="vm-info-card">
+          <div class="vm-info-title" data-i18n="vm.info.analysis">&gt; ANÁLISIS DEL ARCHIVO</div>
+          <p class="vm-info-para vm-modal-desc">—</p>
+          <p class="vm-info-para"><span data-i18n="vm.analysis.class">Clasificado como</span> <span class="vm-info-tag vm-modal-lvl">—</span> / <span data-i18n="vm.analysis.cat">Categoría</span> <span class="vm-info-tag vm-modal-cat">—</span> / <span data-i18n="vm.analysis.danger">Peligro estimado</span> <span class="vm-info-tag danger vm-modal-danger">—</span>.</p>
+        </div>
+
+        <div class="vm-info-card">
+          <div class="vm-info-title" data-i18n="vm.info.next">&gt; PRÓXIMAS TRANSMISIONES</div>
+          <ul class="vm-info-list vm-modal-next">
+            <li><span class="vm-info-k">—</span><span class="vm-info-v">—</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 id="modal-title" data-i18n="auth.title.login">Iniciar Sesi&oacute;n</h2>
+      <form id="auth-form" class="auth-form">
+        <div class="form-group">
+          <label for="auth-user" data-i18n="auth.user">Nombre de Agente</label>
+          <input type="text" id="auth-user" data-i18n-ph="auth.user.ph" placeholder="Tu nombre en el archivo..." required>
+        </div>
+        <div class="form-group">
+          <label for="auth-pass" data-i18n="auth.pass">Clave de Acceso</label>
+          <input type="password" id="auth-pass" data-i18n-ph="auth.pass.ph" placeholder="Contrase&ntilde;a..." required>
+        </div>
+        <div id="auth-error" class="auth-error"></div>
+        <div id="auth-success" class="auth-success"></div>
+        <button type="submit" class="btn-submit" id="btn-auth" data-i18n="auth.submit.login">ACCEDER AL ARCHIVO</button>
+      </form>
+      <div class="auth-toggle" id="auth-toggle">
+        <span data-i18n="auth.toggle.ask">&iquest;No tienes cuenta?</span> <a id="auth-toggle-link" data-i18n="auth.toggle.go">Reg&iacute;strate aqu&iacute;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <script src="data/wiki-levels.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
