@@ -67,7 +67,10 @@
         <span class="btn-user" id="user-badge" style="display:none"></span>
         <button class="btn-logout" id="btn-logout" style="display:none" data-i18n="auth.logout">Salir</button>
         <button class="btn-backup" id="btn-backup" data-i18n-title="auth.backup.t" title="Descargar backup de todos los datos">&#x25A0; BACKUP</button>
-        <button class="btn-game" id="btn-game">&#x25A0; <span data-i18n="auth.game">SUPERVIVENCIA</span></button>
+        <button class="btn-mute" id="mute-toggle" type="button" aria-label="Silenciar/Activar audio" title="Activar/Desactivar audio">
+          <span class="mute-icon" id="mute-icon">&#x1F50A;</span>
+          <span class="mute-label" id="mute-label">AUDIO</span>
+        </button>
       </div>
     </div>
   </header>
@@ -176,7 +179,16 @@
           <span class="level-modal-status" id="level-modal-status">STATUS: &mdash;</span>
         </div>
 
-        <h2 class="level-modal-title" id="level-modal-title">&mdash;</h2>
+        <div class="level-modal-title-row">
+          <div class="level-modal-title-col">
+            <h2 class="level-modal-title" id="level-modal-title">&mdash;</h2>
+            <span class="level-modal-alias" id="level-modal-alias"></span>
+          </div>
+          <div class="level-modal-difficulty" id="level-modal-difficulty">
+            <span class="lm-diff-num" id="lm-diff-num">0</span>
+            <span class="lm-diff-label" id="lm-diff-label">SEGURO</span>
+          </div>
+        </div>
 
         <div class="level-modal-body">
           <div class="lm-image-frame">
@@ -195,6 +207,20 @@
                 <span class="lm-value lm-reading" id="lm-reading">&mdash;</span>
               </div>
               <div class="lm-row lm-video" id="lm-video"></div>
+
+              <!-- Descripci&oacute;n / Registro (debajo de Lectura de Anomalía) -->
+              <div class="lm-desc-block" style="margin-top:18px;padding:14px 18px;background:rgba(20,18,8,0.7);border:1px solid rgba(255,234,0,0.25);position:relative;">
+                <div class="lm-conn-title" style="font-size:11px;letter-spacing:0.22em;color:#ffea00;margin-bottom:8px;font-family:'Courier New',monospace;">&gt; DESCRIPCI&Oacute;N / REGISTRO</div>
+                <p class="lm-desc-text" style="margin:0 0 10px;font-size:13px;line-height:1.55;color:rgba(255,234,0,0.85);"></p>
+                <div class="lm-exits-block" style="margin-top:10px;padding-top:10px;border-top:1px dashed rgba(255,234,0,0.2);">
+                  <span class="lm-conn-title" style="font-size:10px;letter-spacing:0.2em;color:#ffea00;opacity:0.7;font-family:'Courier New',monospace;">&gt; SALIDAS / EXITS:</span>
+                  <div class="lm-exits-list" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;"></div>
+                </div>
+                <div class="lm-wiki-attr" style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,234,0,0.15);font-size:10px;color:rgba(255,234,0,0.6);font-family:'Courier New',monospace;letter-spacing:0.08em;">
+                  <span>&#x29D6; FUENTE:</span>
+                  <a href="" target="_blank" rel="noopener" class="lm-wiki-link" style="color:#ff2a2a;text-decoration:underline;margin-left:6px;">Wiki Hispana Backrooms (CC-BY-SA)</a>
+                </div>
+              </div>
             </div>
 
             <div class="lm-col-right">
@@ -216,20 +242,6 @@
               <div class="lm-conn-block">
                 <div class="lm-conn-title" data-i18n="levels.conn">&gt; CONEXIONES / RELACIONES</div>
                 <div class="lm-conn-list"></div>
-              </div>
-
-              <!-- Descripci&oacute;n / Wiki -->
-              <div class="lm-desc-block" style="margin-top:18px;padding:14px 18px;background:rgba(20,18,8,0.7);border:1px solid rgba(255,234,0,0.25);position:relative;">
-                <div class="lm-conn-title" style="font-size:11px;letter-spacing:0.22em;color:#ffea00;margin-bottom:8px;font-family:'Courier New',monospace;">&gt; DESCRIPCI&Oacute;N / REGISTRO</div>
-                <p class="lm-desc-text" style="margin:0 0 10px;font-size:13px;line-height:1.55;color:rgba(255,234,0,0.85);"></p>
-                <div class="lm-exits-block" style="margin-top:10px;padding-top:10px;border-top:1px dashed rgba(255,234,0,0.2);">
-                  <span class="lm-conn-title" style="font-size:10px;letter-spacing:0.2em;color:#ffea00;opacity:0.7;font-family:'Courier New',monospace;">&gt; SALIDAS / EXITS:</span>
-                  <div class="lm-exits-list" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;"></div>
-                </div>
-                <div class="lm-wiki-attr" style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,234,0,0.15);font-size:10px;color:rgba(255,234,0,0.6);font-family:'Courier New',monospace;letter-spacing:0.08em;">
-                  <span>&#x29D6; FUENTE:</span>
-                  <a href="" target="_blank" rel="noopener" class="lm-wiki-link" style="color:#ff2a2a;text-decoration:underline;margin-left:6px;">Wiki Hispana Backrooms (CC-BY-SA)</a>
-                </div>
               </div>
             </div>
           </div>
@@ -302,6 +314,7 @@
   <div class="notification" id="notification"></div>
 
   <script src="data/wiki-levels.js"></script>
+  <script src="data/entities.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

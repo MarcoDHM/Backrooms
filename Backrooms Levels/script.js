@@ -161,7 +161,8 @@
       'footer.attr': '⧖ Contenido de niveles y entidades extraído de la Wiki Hispana de los Backrooms (CC-BY-SA). Imágenes y textos © sus respectivos autores.',
       // Death
       'death.title': 'CONEXIÓN CON EL SUJETO PERDIDA',
-      'death.body':  'SIGNOS VITALES SENSADOS: 0%'
+      'death.body': 'SIGNOS VITALES SENSADOS: 0%',
+      'music.toggle': 'MÚSICA'
     },
     en: {
       'nav.inicio':     'Home',
@@ -293,7 +294,8 @@
       'footer.quote': 'This archive is not fiction. If you are here, you have already crossed the threshold.',
       'footer.attr': '⧖ Level and entity content extracted from the Backrooms Spanish Wiki (CC-BY-SA). Images and texts © their respective authors.',
       'death.title': 'CONNECTION WITH SUBJECT LOST',
-      'death.body':  'VITAL SIGNS SENSED: 0%'
+      'death.body':  'VITAL SIGNS SENSED: 0%',
+      'music.toggle': 'MUSIC'
     },
     pt: {
       'nav.inicio':     'Início',
@@ -425,7 +427,8 @@
       'footer.quote': 'Este arquivo não é ficção. Se você está aqui, já cruzou o limiar.',
       'footer.attr': '⧖ Conteúdo de níveis e entidades extraído da Wiki Hispânica dos Backrooms (CC-BY-SA). Imagens e textos © seus respectivos autores.',
       'death.title': 'CONEXÃO COM O SUJEITO PERDIDA',
-      'death.body':  'SINAIS VITAIS SENSORIADOS: 0%'
+      'death.body':  'SINAIS VITAIS SENSORIADOS: 0%',
+      'music.toggle': 'MÚSICA'
     }
   };
 
@@ -886,14 +889,22 @@
     var exitsJson = JSON.stringify(l.exits || []).replace(/'/g, '&#39;').replace(/"/g, '&quot;');
     var wikiUrl = l.wiki_url || '';
     var alias = l.alias || '';
+    var survivalLabels = { 1:'SEGURO', 2:'BAJO', 3:'MODERADO', 4:'PELIGROSO', 5:'MORTAL' };
+    var diffLabel = survivalLabels[l.survival] || 'CLASE ' + l.survival;
     return '<div class="level-card" data-level-id="' + l.id + '" data-level-name="' + l.name.replace(/"/g,'&quot;') + '" data-level-tags="' + tagsHtml.replace(/"/g,'&quot;') + '" data-level-video="' + videoUrl + '" data-level-survival="' + l.survival + '" data-level-color="' + color + '" data-level-image="' + imgSrc + '" data-level-technical="' + technicalJson + '" data-level-connections="' + connectionsJson + '" data-level-description="' + descJson + '" data-level-exits="' + exitsJson + '" data-level-wiki="' + wikiUrl.replace(/"/g,'&quot;') + '" data-level-alias="' + alias.replace(/"/g,'&quot;') + '">'
       + '<div class="level-visual">'
         + '<img src="' + imgSrc + '" alt="' + l.name + '" class="level-img" loading="lazy" onerror="this.src=\'images/Niveles/level_0.jpg\'">'
         + '<span class="level-badge">' + (l.tags && l.tags[0] || 'Nivel') + '</span>'
       + '</div>'
       + '<div class="level-info">'
-        + '<span class="li-name">' + nameHtml + '</span>'
-        + (alias ? '<span class="li-alias">' + alias + '</span>' : '')
+        + '<div class="li-text">'
+          + '<span class="li-name">' + nameHtml + '</span>'
+          + (alias ? '<span class="li-alias">' + alias + '</span>' : '')
+        + '</div>'
+        + '<div class="li-difficulty" style="border-color:' + color + ';color:' + color + ';">'
+          + '<span class="li-diff-num">' + (l.survival || 0) + '</span>'
+          + '<span class="li-diff-label">' + diffLabel + '</span>'
+        + '</div>'
       + '</div>'
     + '</div>';
   }
@@ -903,19 +914,42 @@
     var grid = document.getElementById(containerId);
     if (!grid) return;
     grid.innerHTML = ENTITIES.map(function(e) {
-      var color = SURVIVAL_COLORS[e.danger];
-      var label = t('surv.' + e.danger);
-      return '<div class="entity-card">'
-        + '<div class="entity-visual ' + e.visual + '">'
+      var color = SURVIVAL_COLORS[e.danger] || SURVIVAL_COLORS[1];
+      var label = t('surv.' + e.danger) || '';
+      var imgSrc = e.image || 'images/Entidades/entidad_9_facelings.jpg';
+      var desc = e.description || '';
+      var wikiUrl = e.wiki_url || '';
+      var shortDesc = desc.length > 80 ? desc.substring(0, 80) + '...' : desc;
+      return '<div class="entity-card" data-entity-id="' + e.id + '" data-entity-name="' + (e.name || '').replace(/"/g,'&quot;') + '" data-entity-desc="' + desc.replace(/"/g,'&quot;').replace(/'/g,'&#39;') + '" data-entity-danger="' + e.danger + '" data-entity-image="' + imgSrc + '" data-entity-wiki="' + wikiUrl.replace(/"/g,'&quot;') + '">'
+        + '<div class="entity-visual">'
+          + '<img src="' + imgSrc + '" alt="' + (e.name || '') + '" class="entity-img" loading="lazy" onerror="this.style.display=\'none\'">'
           + '<span class="entity-badge" style="color:' + color + ';border-color:' + color + '">' + e.id + '</span>'
           + '<span class="entity-danger-overlay" style="color:' + color + '">PELIGRO ' + e.danger + '/5</span>'
         + '</div>'
         + '<div class="entity-info">'
-          + '<span class="ei-name">' + e.name + '</span>'
+          + '<span class="ei-name">' + (e.name || '') + '</span>'
           + '<span class="ei-tag" style="color:' + color + '">' + label + '</span>'
         + '</div>'
       + '</div>';
     }).join('');
+    bindEntityCardClicks();
+  }
+
+  function bindEntityCardClicks() {
+    var cards = document.querySelectorAll('.entity-card[data-entity-id]');
+    for (var i = 0; i < cards.length; i++) {
+      (function(card) {
+        if (card._emClickBound) return;
+        card._emClickBound = true;
+        card.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (typeof openEntityModal === 'function') {
+            openEntityModal(card);
+          }
+        });
+      })(cards[i]);
+    }
   }
 
   // ===================== DATA: Videos =====================
@@ -1103,6 +1137,224 @@
         });
       })(cards[i]);
     }
+  }
+
+  // ===================== ENTITY MODAL =====================
+  var entityModalInited = false;
+  var entityLabels = {
+    status: { 1:'SEGURO \u2014 INOFENSIVO', 2:'BAJO \u2014 CAUTELOSO', 3:'MODERADO \u2014 PELIGROSO', 4:'ALTO \u2014 MUY PELIGROSO', 5:'EXTREMO \u2014 MORTAL' },
+    behavior: { 1:'Pasivo \u2014 No ataca a no ser que sea provocado', 2:'Pasivo \u2014 Territorial, evita confrontaci\u00f3n', 3:'Reactivo \u2014 Ataca si detecta presencia', 4:'Agresivo \u2014 Caza activamente', 5:'Letal \u2014 Caza y elimina todo a su paso' },
+    classL: { 1:'CLASE I \u2014 Inofensiva', 2:'CLASE II \u2014 Baja amenaza', 3:'CLASE III \u2014 Amenaza media', 4:'CLASE IV \u2014 Alta amenaza', 5:'CLASE V \u2014 Amenaza letal' },
+    speed: { 1:'NULA', 2:'BAJA', 3:'MEDIA', 4:'ALTA', 5:'EXTREMA' },
+    senses: { 1:'Vis\u00f3n b\u00e1sica', 2:'Olfato / O\u00eddo', 3:'Vibraciones', 4:'Multisensorial', 5:'Omnisciente' },
+    origin: { 1:'Desconocido', 2:'Humanoide mutado', 3:'Anomal\u00eda dimensional', 4:'H\u00edbrido', 5:'Origen incierto' }
+  };
+  function getEntityStatus(s) { return t('surv.' + s) || entityLabels.status[s] || 'NO CLASIFICADO'; }
+  function pickEntityWeak(name) {
+    var n = (name || '').toLowerCase();
+    if (n.indexOf('part') >= 0) return 'Luz brillante';
+    if (n.indexOf('skin') >= 0 || n.indexOf('piel') >= 0) return 'Exposici\u00f3n a agua';
+    if (n.indexOf('hounds') >= 0 || n.indexOf('sabueso') >= 0) return 'Distracciones sonoras';
+    if (n.indexOf('clumps') >= 0) return 'Velocidad de huida';
+    if (n.indexOf('dullers') >= 0) return 'Silencio emocional';
+    if (n.indexOf('facelings') >= 0) return 'No interactuar';
+    if (n.indexOf('smilers') >= 0) return 'Luz constante';
+    if (n.indexOf('insan') >= 0) return 'Distancia extrema';
+    if (n.indexOf('moth') >= 0 || n.indexOf('polilla') >= 0) return 'Repelente';
+    if (n.indexOf('howler') >= 0) return 'Protegerse los o\u00eddos';
+    if (n.indexOf('crawler') >= 0) return 'Iluminar zonas altas';
+    if (n.indexOf('lighter') >= 0) return 'Inofensiva';
+    if (n.indexOf('sombra') >= 0) return 'Luz directa';
+    if (n.indexOf('maniqu') >= 0) return 'Observaci\u00f3n directa';
+    if (n.indexOf('fantasma') >= 0) return 'No mirarlos';
+    if (n.indexOf('clicker') >= 0) return 'Aislar el sonido';
+    if (n.indexOf('frowners') >= 0) return 'Evitarlos';
+    if (n.indexOf('ventana') >= 0) return 'No mirar adentro';
+    return 'Ver documentaci\u00f3n wiki';
+  }
+
+  function openEntityModal(card) {
+    var overlay = document.getElementById('entity-modal-overlay');
+    var modal = document.getElementById('entity-modal');
+    if (!overlay || !modal || !card) return;
+    if (overlay.classList.contains('active')) return;
+
+    var name = card.getAttribute('data-entity-name') || '';
+    var desc = card.getAttribute('data-entity-desc') || '';
+    var danger = parseInt(card.getAttribute('data-entity-danger')) || 1;
+    var imgSrc = card.getAttribute('data-entity-image') || '';
+    var wikiUrl = card.getAttribute('data-entity-wiki') || '';
+
+    var statusText = getEntityStatus(danger);
+    var color = SURVIVAL_COLORS[danger] || SURVIVAL_COLORS[1];
+    var nameParts = name.split(' \u2014 ');
+    var mainTitle = nameParts[0] || name;
+    var subtitle = nameParts[1] || '';
+
+    function setText(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; }
+    function setColor(id, c) { var el = document.getElementById(id); if (el) el.style.color = c; }
+
+    setText('entity-modal-title', subtitle || mainTitle);
+    setText('entity-modal-id', mainTitle);
+    var stEl = document.getElementById('entity-modal-status');
+    if (stEl) { stEl.textContent = t('levels.modal.status') + statusText; stEl.style.color = color; }
+    setText('em-diff-num', danger); setColor('em-diff-num', color);
+    setText('em-diff-label', statusText.split(' \u2014 ')[0]); setColor('em-diff-label', color);
+    var diffBox = document.getElementById('entity-modal-difficulty');
+    if (diffBox) { diffBox.style.borderColor = color; diffBox.style.boxShadow = '0 0 12px ' + color + '33'; }
+
+    var img = document.getElementById('em-modal-image');
+    if (img) { img.src = imgSrc; img.alt = name; }
+    setText('em-class', entityLabels.classL[danger] || ('CLASE ' + danger));
+    setText('em-behavior', entityLabels.behavior[danger] || 'Comportamiento desconocido.');
+    setText('em-levels', 'M\u00faltiples niveles \u2014 Ver wiki para detalles espec\u00edficos.');
+    setText('em-threat', statusText); setColor('em-threat', color);
+    setText('em-desc-text', desc || 'Sin descripci\u00f3n disponible en la wiki.');
+
+    var wLink = document.getElementById('em-wiki-link');
+    if (wLink) { if (wikiUrl) { wLink.href = wikiUrl; wLink.style.display = 'inline'; } else { wLink.style.display = 'none'; } }
+
+    setText('em-t-class', danger + '/5');
+    setText('em-t-danger', statusText.split(' \u2014 ')[0]);
+    setText('em-t-speed', entityLabels.speed[danger] || 'NULA');
+    setText('em-t-senses', entityLabels.senses[danger] || 'Visi\u00f3n');
+    setText('em-t-weak', pickEntityWeak(subtitle || mainTitle));
+    setText('em-t-origin', entityLabels.origin[danger] || 'Desconocido');
+    setText('em-t-status', 'ACTIVA'); setColor('em-t-status', '#30c460');
+
+    var border = document.getElementById('entity-modal-border');
+    if (border) { border.style.borderColor = color; border.style.boxShadow = '0 0 30px ' + color + ', inset 0 0 30px ' + color; }
+
+    overlay.classList.add('active');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeEntityModal() {
+    var overlay = document.getElementById('entity-modal-overlay');
+    var modal = document.getElementById('entity-modal');
+    if (overlay) overlay.classList.remove('active');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function initEntityModal() {
+    if (entityModalInited) return;
+    var overlay = document.getElementById('entity-modal-overlay');
+    if (!overlay) return;
+    entityModalInited = true;
+
+    var statusLabels = { 1:'SEGURO \u2014 INOFENSIVO', 2:'BAJO \u2014 CAUTELOSO', 3:'MODERADO \u2014 PELIGROSO', 4:'ALTO \u2014 MUY PELIGROSO', 5:'EXTREMO \u2014 MORTAL' };
+    var behaviorLabels = { 1:'Pasivo \u2014 No ataca a no ser que sea provocado', 2:'Pasivo \u2014 Territorial, evita confrontaci\u00f3n', 3:'Reactivo \u2014 Ataca si detecta presencia', 4:'Agresivo \u2014 Caza activamente', 5:'Letal \u2014 Caza y elimina todo a su paso' };
+    var classLabels = { 1:'CLASE I \u2014 Inofensiva', 2:'CLASE II \u2014 Baja amenaza', 3:'CLASE III \u2014 Amenaza media', 4:'CLASE IV \u2014 Alta amenaza', 5:'CLASE V \u2014 Amenaza letal' };
+    var speedLabels = { 1:'NULA', 2:'BAJA', 3:'MEDIA', 4:'ALTA', 5:'EXTREMA' };
+    var sensesLabels = { 1:'Vis\u00f3on b\u00e1sica', 2:'Olfato / O\u00eddo', 3:'Vibraciones', 4:'Multisensorial', 5:'Omnisciente' };
+    var originLabels = { 1:'Desconocido', 2:'Humanoide mutado', 3:'Anomal\u00eda dimensional', 4:'H\u00edbrido', 5:'Origen incierto' };
+    function getStatusLabel(s) { return t('surv.' + s) || statusLabels[s] || 'NO CLASIFICADO'; }
+    function pickWeakness(name) {
+      var n = (name || '').toLowerCase();
+      if (n.indexOf('part') >= 0 || n.indexOf('party') >= 0) return 'Luz brillante';
+      if (n.indexOf('skin') >= 0 || n.indexOf('piel') >= 0) return 'Exposici\u00f3n a agua';
+      if (n.indexOf('hounds') >= 0 || n.indexOf('sabueso') >= 0) return 'Distracciones sonoras';
+      if (n.indexOf('clumps') >= 0) return 'Velocidad de huida';
+      if (n.indexOf('dullers') >= 0) return 'Silencio emocional';
+      if (n.indexOf('facelings') >= 0) return 'No interactuar';
+      if (n.indexOf('smilers') >= 0) return 'Luz constante';
+      if (n.indexOf('insan') >= 0) return 'Distancia extrema';
+      if (n.indexOf('moth') >= 0 || n.indexOf('polilla') >= 0) return 'Repelente';
+      if (n.indexOf('howler') >= 0) return 'Protegi\u00e9ndose los o\u00eddos';
+      if (n.indexOf('crawler') >= 0) return 'Iluminar zonas altas';
+      if (n.indexOf('lighter') >= 0) return 'Inofensiva';
+      if (n.indexOf('sombra') >= 0 || n.indexOf('shadow') >= 0) return 'Luz directa';
+      if (n.indexOf('maniqu') >= 0 || n.indexOf('mannequin') >= 0) return 'Observaci\u00f3n directa';
+      if (n.indexOf('fantasma') >= 0 || n.indexOf('ghost') >= 0) return 'No mirarlos';
+      if (n.indexOf('clicker') >= 0) return 'Aislar el sonido';
+      if (n.indexOf('frowners') >= 0) return 'Evitarlos';
+      if (n.indexOf('ventana') >= 0 || n.indexOf('window') >= 0) return 'No mirar adentro';
+      return 'Ver documentaci\u00f3n wiki';
+    }
+
+    function openEntityModal(card) {
+      if (overlay.classList.contains('active')) return;
+      var name = card.getAttribute('data-entity-name') || '';
+      var desc = card.getAttribute('data-entity-desc') || '';
+      var danger = parseInt(card.getAttribute('data-entity-danger')) || 1;
+      var imgSrc = card.getAttribute('data-entity-image') || '';
+      var wikiUrl = card.getAttribute('data-entity-wiki') || '';
+
+      var statusText = getStatusLabel(danger);
+      var color = SURVIVAL_COLORS[danger] || SURVIVAL_COLORS[1];
+
+      var nameParts = name.split(' \u2014 ');
+      var mainTitle = nameParts[0] || name;
+      var subtitle = nameParts[1] || '';
+
+      var titleEl = document.getElementById('entity-modal-title');
+      if (titleEl) titleEl.textContent = subtitle || mainTitle;
+      var idEl = document.getElementById('entity-modal-id');
+      if (idEl) idEl.textContent = mainTitle;
+
+      var statusEl = document.getElementById('entity-modal-status');
+      if (statusEl) { statusEl.textContent = t('levels.modal.status') + statusText; statusEl.style.color = color; }
+
+      var diffNum = document.getElementById('em-diff-num');
+      var diffLabel = document.getElementById('em-diff-label');
+      var diffBox = document.getElementById('entity-modal-difficulty');
+      if (diffNum) { diffNum.textContent = danger; diffNum.style.color = color; }
+      if (diffLabel) { diffLabel.textContent = statusText.split(' \u2014 ')[0]; diffLabel.style.color = color; }
+      if (diffBox) { diffBox.style.borderColor = color; diffBox.style.boxShadow = '0 0 12px ' + color + '33'; }
+
+      var modalImg = document.getElementById('em-modal-image');
+      if (modalImg) { modalImg.src = imgSrc; modalImg.alt = name; }
+
+      var classEl = document.getElementById('em-class');
+      if (classEl) classEl.textContent = classLabels[danger] || ('CLASE ' + danger);
+
+      var behaviorEl = document.getElementById('em-behavior');
+      if (behaviorEl) behaviorEl.textContent = behaviorLabels[danger] || 'Comportamiento desconocido.';
+
+      var levelsEl = document.getElementById('em-levels');
+      if (levelsEl) levelsEl.textContent = 'M\u00faltiples niveles \u2014 Ver wiki para detalles espec\u00edficos.';
+
+      var threatEl = document.getElementById('em-threat');
+      if (threatEl) { threatEl.textContent = statusText; threatEl.style.color = color; }
+
+      var descEl = document.getElementById('em-desc-text');
+      if (descEl) descEl.textContent = desc || 'Sin descripci\u00f3n disponible en la wiki.';
+
+      var wikiLink = document.getElementById('em-wiki-link');
+      if (wikiLink) {
+        if (wikiUrl) { wikiLink.href = wikiUrl; wikiLink.style.display = 'inline'; }
+        else { wikiLink.style.display = 'none'; }
+      }
+
+      var tClass = document.getElementById('em-t-class');
+      if (tClass) tClass.textContent = danger + '/5';
+      var tDanger = document.getElementById('em-t-danger');
+      if (tDanger) tDanger.textContent = statusText.split(' \u2014 ')[0];
+      var tSpeed = document.getElementById('em-t-speed');
+      if (tSpeed) tSpeed.textContent = speedLabels[danger] || 'NULA';
+      var tSenses = document.getElementById('em-t-senses');
+      if (tSenses) tSenses.textContent = sensesLabels[danger] || 'Vis\u00f3n';
+      var tWeak = document.getElementById('em-t-weak');
+      if (tWeak) tWeak.textContent = pickWeakness(subtitle || mainTitle);
+      var tOrigin = document.getElementById('em-t-origin');
+      if (tOrigin) tOrigin.textContent = originLabels[danger] || 'Desconocido';
+      var tStatus = document.getElementById('em-t-status');
+      if (tStatus) { tStatus.textContent = 'ACTIVA'; tStatus.style.color = '#30c460'; }
+
+      var border = document.getElementById('entity-modal-border');
+      if (border) { border.style.borderColor = color; border.style.boxShadow = '0 0 30px ' + color + ', inset 0 0 30px ' + color; }
+
+      overlay.classList.add('active');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    var closeBtn = document.getElementById('entity-modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeEntityModal);
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeEntityModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && overlay.classList.contains('active')) closeEntityModal(); });
   }
 
   // ===================== RENDER: Community =====================
@@ -1500,19 +1752,97 @@
     document.getElementById('sg-btn-close').addEventListener('click', function() { closeGame(); });
   }
 
+  // Expose game control on window for the nivelesSurvivalBoost IIFE
+  window.SURVIVAL_GAME = window.SURVIVAL_GAME || {};
+  window.SURVIVAL_GAME.start = startGame;
+  window.SURVIVAL_GAME.close = closeGame;
+
+  // ----- ENTITY LOOKUP -----
+  // Parse level.entities text ("Entidad 2 (Ventanas), Entidad 17 (Crawlers)")
+  // and resolve to WIKI_ENTITIES_WIKI entries by id ('ent-2', 'ent-17' ...).
+  // Falls back to name matching for levels that list entities by alias only
+  // (e.g. "Dullers, Facelings, Sabuesos, Ladrones de Piel").
+  function lookupEntitiesForLevel(level) {
+    var ents = [];
+    if (!level) return ents;
+    var src = (level.entities || '').toString();
+    if (!src || /ninguna|desconocidas?|none/i.test(src)) return ents;
+    var list = (window.WIKI_ENTITIES_WIKI || (typeof WIKI_ENTITIES_WIKI !== 'undefined' ? WIKI_ENTITIES_WIKI : []));
+    var seen = {};
+
+    // Pass 1: explicit "Entidad N" / "Entidad N-A" tokens
+    var re = /Entidad\s*([0-9]+(?:\s*-\s*[A-Za-z])?)/gi;
+    var m;
+    while ((m = re.exec(src)) !== null) {
+      var raw = m[1].replace(/\s+/g, '').toLowerCase();
+      var key = 'ent-' + raw;
+      if (seen[key]) continue;
+      seen[key] = true;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id && list[i].id.toLowerCase() === key) { ents.push(list[i]); break; }
+      }
+      if (ents.length >= 3) break;
+    }
+
+    // Pass 2: match by alias name (e.g. "Dullers" → ent-6)
+    if (ents.length < 3) {
+      for (var j = 0; j < list.length; j++) {
+        var ent = list[j];
+        if (!ent || !ent.name || seen[ent.id]) continue;
+        // alias = part after the "—" in the canonical name
+        var alias = ent.name.split('\u2014')[1] || ent.name;
+        alias = alias.trim();
+        if (alias.length < 3) continue;
+        // match whole word (case-insensitive) in the source
+        var wordRe = new RegExp('(^|[^A-Za-z\\u00C0-\\u017F])' + alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '($|[^A-Za-z\\u00C0-\\u017F])', 'i');
+        if (wordRe.test(src)) {
+          seen[ent.id] = true;
+          ents.push(ent);
+          if (ents.length >= 3) break;
+        }
+      }
+    }
+
+    return ents;
+  }
+
+  // Map difficulty (0..4) to a label + color used by both card and modal.
+  function difficultyInfo(diff) {
+    var d = diff == null ? 0 : diff;
+    var map = [
+      { label:'SEGURO',      color:'#30c460' },
+      { label:'PRECAUCION',  color:'#9bc830' },
+      { label:'PELIGRO',     color:'#c8a415' },
+      { label:'MUY PELIGROSO', color:'#c87015' },
+      { label:'MORTAL',      color:'#c43030' }
+    ];
+    return map[Math.max(0, Math.min(4, d))] || map[0];
+  }
+
   function startGame() {
+    if (typeof BACKROOMS_AUDIO !== 'undefined' && BACKROOMS_AUDIO.playClick) BACKROOMS_AUDIO.playClick();
     GAME = { state:'playing', level:0, history:[], sanity:100 };
-    document.getElementById('survival-minigame').style.display = 'flex';
-    document.getElementById('sg-btn-start').style.display = 'none';
-    document.getElementById('sg-btn-restart').style.display = 'none';
-    document.getElementById('sg-btn-close').style.display = 'none';
-    document.getElementById('sg-glitch').className = 'sg-glitch-overlay';
-    document.getElementById('sg-flash').className = 'sg-flash';
+    var sm = document.getElementById('survival-minigame');
+    if (sm) sm.style.display = 'flex';
+    var bs = document.getElementById('sg-btn-start');
+    var br = document.getElementById('sg-btn-restart');
+    var bc = document.getElementById('sg-btn-close');
+    if (bs) bs.style.display = 'none';
+    if (br) br.style.display = 'none';
+    if (bc) bc.style.display = 'none';
+    var g = document.getElementById('sg-glitch');
+    var f = document.getElementById('sg-flash');
+    if (g) g.className = 'sg-glitch-overlay';
+    if (f) f.className = 'sg-flash';
+    document.body.style.overflow = 'hidden';
     renderGameLevel(0);
   }
 
   function closeGame() {
-    document.getElementById('survival-minigame').style.display = 'none';
+    if (typeof BACKROOMS_AUDIO !== 'undefined' && BACKROOMS_AUDIO.playClick) BACKROOMS_AUDIO.playClick();
+    var sm = document.getElementById('survival-minigame');
+    if (sm) sm.style.display = 'none';
+    document.body.style.overflow = '';
     GAME.state = 'idle';
   }
 
@@ -1545,59 +1875,134 @@
     bannerEl.textContent = ASCII_BANNER;
     document.getElementById('sg-status').textContent = 'NIVEL ' + idx + ' | INTENTO ' + GAME.history.length;
 
-    var baseSurv = Math.max(10, 100 - (level.survival * 15));
+    // Probability: scaled by the level's class (0..4) so the level alone
+    // determines the base odds — and choices tilt them up or down.
+    var baseSurv = Math.max(10, 100 - (level.class * 18) - (level.difficulty * 6));
     var survColor = baseSurv > 60 ? '#30c460' : baseSurv > 35 ? '#c8a415' : '#c43030';
+    var diff = difficultyInfo(level.difficulty != null ? level.difficulty : level.class);
 
-    // Construir HTML del nivel
+    // Resolve entity records (photo + danger) from the wiki data.
+    var ents = lookupEntitiesForLevel(level);
+    var mainEntity = ents[0] || null;
+    var extraEntities = ents.slice(1);
+
+    // Build image source — fall back gracefully if the file is missing.
+    var imgSrc = level.image || '';
+    var imgBlock = imgSrc
+      ? '<div class="sg-level-image-wrap">' +
+          '<img class="sg-level-image" src="' + imgSrc + '" alt="' + (level.alias || level.name) + '" ' +
+            'onerror="this.parentNode.classList.add(\'sg-level-image-missing\');this.remove();" />' +
+          '<div class="sg-level-image-scan"></div>' +
+          '<div class="sg-level-image-caption">FRAME ' + String(idx + 1).padStart(3, '0') + ' \u2014 STILL CAPTURE</div>' +
+        '</div>'
+      : '';
+
+    // Entity block: photo + name + danger rating + short description.
+    var entityBlock = '';
+    if (mainEntity) {
+      var eImg = mainEntity.image ? '<img class="sg-entity-photo" src="' + mainEntity.image + '" alt="' + mainEntity.name + '" ' +
+        'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />' : '';
+      var eDesc = mainEntity.description ? mainEntity.description.substring(0, 140) + (mainEntity.description.length > 140 ? '…' : '') : '';
+      var more = extraEntities.length
+        ? '<div class="sg-entity-more">+ ' + extraEntities.length + ' entidad(es) detectada(s) en este nivel: ' +
+            extraEntities.map(function(e){ return e.name; }).join(', ') + '</div>'
+        : '';
+      entityBlock =
+        '<div class="sg-entity-block">' +
+          '<div class="sg-entity-photo-wrap">' + eImg + '<div class="sg-entity-photo-tag">FOTO</div></div>' +
+          '<div class="sg-entity-info">' +
+            '<div class="sg-entity-label">&gt; ENTIDAD ACTIVA</div>' +
+            '<div class="sg-entity-name">' + mainEntity.name + '</div>' +
+            '<div class="sg-entity-danger">' +
+              '<span class="sg-entity-danger-k">PELIGRO</span>' +
+              '<span class="sg-entity-danger-stars">' +
+                Array.from({length:5}).map(function(_,i){
+                  return '<span class="sg-star ' + (i < mainEntity.danger ? 'on' : 'off') + '">\u25C6</span>';
+                }).join('') +
+              '</span>' +
+              '<span class="sg-entity-danger-v">' + mainEntity.danger + '/5</span>' +
+            '</div>' +
+            (eDesc ? '<div class="sg-entity-desc">' + eDesc + '</div>' : '') +
+            more +
+          '</div>' +
+        '</div>';
+    } else {
+      entityBlock =
+        '<div class="sg-entity-block sg-entity-block-none">' +
+          '<div class="sg-entity-photo-wrap sg-entity-photo-missing"><div class="sg-entity-photo-tag">N/A</div></div>' +
+          '<div class="sg-entity-info">' +
+            '<div class="sg-entity-label">&gt; ENTIDAD ACTIVA</div>' +
+            '<div class="sg-entity-name">SIN FIRMAS BIOL\u00d3GICAS DETECTADAS</div>' +
+            '<div class="sg-entity-desc">Los sensores de proximidad no reportan actividad an\u00f3mala. Esto no garantiza que el nivel sea seguro.</div>' +
+          '</div>' +
+        '</div>';
+    }
+
+    // Build level content
     var content = document.getElementById('sg-content');
     content.innerHTML =
-      '<div class="sg-level-sub">\u25A0 PELIGRO: ' + level.survival + '/5 &mdash; ' + level.entities + '</div>' +
-      '<div class="sg-level-title">' + level.name + '</div>' +
-      '<div class="sg-desc-line" id="sg-type-line-0"></div>' +
-      '<div class="sg-desc-line" id="sg-type-line-1"></div>' +
-      '<div class="sg-desc-line" id="sg-type-line-2"></div>' +
-      '<div class="sg-bar-section">' +
-        '<span class="sg-bar-label">PROBABILIDAD BASE DE SUPERVIVENCIA</span>' +
-        '<div class="sg-bar-row">' +
-          '<div class="sg-bar-track-big"><div class="sg-bar-fill-big" id="sg-bar-fill-big" style="width:0%;background:' + survColor + '"></div></div>' +
-          '<span class="sg-bar-pct-big" id="sg-bar-pct-big" style="color:' + survColor + '">0%</span>' +
+      '<div class="sg-level-top">' +
+        '<div class="sg-level-head">' +
+          '<div class="sg-level-head-left">' +
+            '<div class="sg-level-sub">\u25A0 NIVEL ' + idx + ' / ' + (WIKI_LEVELS.length - 1) + ' \u2014 PROFUNDIDAD ' + (level.class + 1) + '/5</div>' +
+            '<div class="sg-level-title">' + level.name + '</div>' +
+            (level.alias ? '<div class="sg-level-alias">' + level.alias + '</div>' : '') +
+          '</div>' +
+          '<div class="sg-level-head-right">' +
+            '<div class="sg-level-difficulty" style="color:' + diff.color + ';border-color:' + diff.color + '">' +
+              '<span class="sg-level-difficulty-num">' + (level.difficulty != null ? level.difficulty : level.class) + '</span>' +
+              '<span class="sg-level-difficulty-label">' + diff.label + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="sg-level-main">' +
+          imgBlock +
+          entityBlock +
+        '</div>' +
+        '<div class="sg-desc-line" id="sg-type-line-0"></div>' +
+        '<div class="sg-desc-line" id="sg-type-line-1"></div>' +
+        '<div class="sg-desc-line" id="sg-type-line-2"></div>' +
+        '<div class="sg-bar-section">' +
+          '<span class="sg-bar-label">PROBABILIDAD BASE DE SUPERVIVENCIA &mdash; SIN DECISIONES</span>' +
+          '<div class="sg-bar-row">' +
+            '<div class="sg-bar-track-big"><div class="sg-bar-fill-big" id="sg-bar-fill-big" style="width:0%;background:' + survColor + '"></div></div>' +
+            '<span class="sg-bar-pct-big" id="sg-bar-pct-big" style="color:' + survColor + '">0%</span>' +
+          '</div>' +
         '</div>' +
       '</div>';
 
     var optGrid = document.getElementById('sg-opt-grid');
     var actions = shuffleArray(ESCAPE_ACTIONS).slice(0, 2);
-    optGrid.innerHTML = actions.map(function(a) {
-      var safeSurv = Math.min(99, baseSurv + a.safe.bonus);
-      var riskySurv = Math.min(99, Math.max(5, baseSurv + a.risky.bonus));
-      var safeColor = safeSurv > 60 ? '#30c460' : safeSurv > 35 ? '#c8a415' : '#c43030';
-      var riskyColor = riskySurv > 60 ? '#30c460' : riskySurv > 35 ? '#c8a415' : '#c43030';
-      return '' +
-        '<button class="sg-card" id="sg-card-safe" data-bonus="' + a.safe.bonus + '" data-skip="' + a.safe.skip + '">' +
-          '<div class="sg-card-label">[ \u25D4 ' + a.safe.text + ' ]</div>' +
-          '<div class="sg-card-detail">' + a.safe.detail + '</div>' +
-          '<div class="sg-card-bar">' +
-            '<div class="sg-card-bar-track"><div class="sg-card-bar-fill" style="width:0%;background:' + safeColor + '"></div></div>' +
-            '<span class="sg-card-bar-pct" style="color:' + safeColor + '">0%</span>' +
-          '</div>' +
-        '</button>' +
-        '<button class="sg-card" id="sg-card-risky" data-bonus="' + a.risky.bonus + '" data-skip="' + a.risky.skip + '">' +
-          '<div class="sg-card-label">[ \u26A1 ' + a.risky.text + ' ]</div>' +
-          '<div class="sg-card-detail">' + a.risky.detail + '</div>' +
-          '<div class="sg-card-bar">' +
-            '<div class="sg-card-bar-track"><div class="sg-card-bar-fill" style="width:0%;background:' + riskyColor + '"></div></div>' +
-            '<span class="sg-card-bar-pct" style="color:' + riskyColor + '">0%</span>' +
-          '</div>' +
-        '</button>';
-    }).join('');
+    var safeSurv = Math.min(99, baseSurv + actions[0].safe.bonus);
+    var riskySurv = Math.min(99, Math.max(5, baseSurv + actions[0].risky.bonus));
+    var safeColor = safeSurv > 60 ? '#30c460' : safeSurv > 35 ? '#c8a415' : '#c43030';
+    var riskyColor = riskySurv > 60 ? '#30c460' : riskySurv > 35 ? '#c8a415' : '#c43030';
+    var a = actions[0];
+    optGrid.innerHTML =
+      '<button class="sg-card" id="sg-card-safe" data-bonus="' + a.safe.bonus + '" data-skip="' + a.safe.skip + '">' +
+        '<div class="sg-card-label">[ \u25D4 ' + a.safe.text + ' ]</div>' +
+        '<div class="sg-card-detail">' + a.safe.detail + '</div>' +
+        '<div class="sg-card-bar">' +
+          '<div class="sg-card-bar-track"><div class="sg-card-bar-fill" style="width:0%;background:' + safeColor + '"></div></div>' +
+          '<span class="sg-card-bar-pct" style="color:' + safeColor + '">0%</span>' +
+        '</div>' +
+      '</button>' +
+      '<button class="sg-card" id="sg-card-risky" data-bonus="' + a.risky.bonus + '" data-skip="' + a.risky.skip + '">' +
+        '<div class="sg-card-label">[ \u26A1 ' + a.risky.text + ' ]</div>' +
+        '<div class="sg-card-detail">' + a.risky.detail + '</div>' +
+        '<div class="sg-card-bar">' +
+          '<div class="sg-card-bar-track"><div class="sg-card-bar-fill" style="width:0%;background:' + riskyColor + '"></div></div>' +
+          '<span class="sg-card-bar-pct" style="color:' + riskyColor + '">0%</span>' +
+        '</div>' +
+      '</button>';
 
-    // Escribir descripciones con typewriter
+    // Typewriter description lines
     var descLines = [
-      'Sistema de detecci\u00f3n de anomal\u00edas activo.',
-      'Tags de nivel: <span class="hl">' + level.tags.join('</span> \u2022 <span class="hl">') + '</span>.',
-      'Firma entidad: <span class="hl">' + level.entities + '</span>. Peligro <span class="hl-danger">' + level.survival + '/5</span>.'
+      'Sistema de detecci\u00f3n de anomal\u00edas activo. Escaneando entorno...',
+      'Tags: <span class="hl">' + level.tags.join('</span> \u2022 <span class="hl">') + '</span>.',
+      'Elige una ruta. Tus decisiones alteran la probabilidad final de salir con vida.'
     ];
     typeWriterLines(descLines, 0, function() {
-      // Una vez escritas las descripciones, animar las barras
       animateBars(baseSurv, safeSurv, riskySurv, safeColor, riskyColor);
     });
 
@@ -1676,7 +2081,7 @@
   function chooseOption(bonus, skip) {
     GAME.state = 'animating';
     var level = WIKI_LEVELS[GAME.level];
-    var baseSurv = Math.max(10, 100 - (level.survival * 15));
+    var baseSurv = Math.max(10, 100 - (level.class * 18) - (level.difficulty * 6));
     var prob = Math.min(99, Math.max(5, baseSurv + bonus));
     var probColor = prob > 60 ? '#30c460' : prob > 35 ? '#c8a415' : '#c43030';
 
@@ -1883,11 +2288,26 @@
           var statusText = getStatusLabel(parseInt(survival));
           var statusColor = color;
 
-          modal.querySelector('.level-modal-title').textContent = name;
+          // Split title into "Nivel X" and alias
+          var nameParts = (name || '').split(' \u2014 ');
+          var mainTitle = nameParts[0] || name;
+          var aliasText = nameParts[1] || '';
+          modal.querySelector('.level-modal-title').textContent = mainTitle;
+          var aliasEl = modal.querySelector('#level-modal-alias');
+          if (aliasEl) aliasEl.textContent = aliasText;
           modal.querySelector('.level-modal-status').textContent = t('levels.modal.status') + statusText;
           modal.querySelector('.level-modal-status').style.color = statusColor;
           modal.querySelector('.level-modal-border').style.borderColor = statusColor;
           modal.querySelector('.level-modal-border').style.boxShadow = '0 0 30px ' + statusColor + ', inset 0 0 30px ' + statusColor;
+
+          // Difficulty badge
+          var survInt = parseInt(survival) || 0;
+          var diffNumEl = document.getElementById('lm-diff-num');
+          var diffLabelEl = document.getElementById('lm-diff-label');
+          var diffBox = document.getElementById('level-modal-difficulty');
+          if (diffNumEl) { diffNumEl.textContent = survInt; diffNumEl.style.color = statusColor; }
+          if (diffLabelEl) { diffLabelEl.textContent = statusText; diffLabelEl.style.color = statusColor; }
+          if (diffBox) { diffBox.style.borderColor = statusColor; diffBox.style.boxShadow = '0 0 12px ' + statusColor + '33'; }
 
           modal.querySelector('.lm-props').innerHTML = tags;
           modal.querySelector('.lm-reading').textContent = reading;
@@ -2019,6 +2439,247 @@
     return false;
   }
 
+  // ===================== MUSIC PLAYER =====================
+  // ===================== AMBIENT AUDIO (unified) =====================
+  var AMBIENT_AUDIO = (function() {
+    var active = false;
+    var muted = false;
+    var userActivated = false;
+    var clickSoundsBound = false;
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateUI() {
+      var btn = document.getElementById('mute-toggle');
+      var icon = document.getElementById('mute-icon');
+      var label = document.getElementById('mute-label');
+      if (!btn) return;
+      if (active && !muted) {
+        btn.classList.add('active');
+        if (icon) icon.innerHTML = '&#x1F50A;';
+        if (label) label.textContent = 'AUDIO ON';
+      } else {
+        btn.classList.remove('active');
+        if (icon) icon.innerHTML = '&#x1F507;';
+        if (label) label.textContent = muted ? 'MUDO' : 'AUDIO';
+      }
+    }
+
+    function tryActivate() {
+      if (userActivated) return;
+      userActivated = true;
+      try { BACKROOMS_AUDIO.init(); } catch(e) { console.warn('[AUDIO] init fail', e); }
+      try { BACKROOMS_AUDIO.resume(); } catch(e) {}
+      if (!prefersReduced) {
+        try { BACKROOMS_AUDIO.playHum(); } catch(e) { console.warn('[AUDIO] hum fail', e); }
+        try { BACKROOMS_MUSIC.play(); } catch(e) {}
+      }
+      active = true;
+      updateUI();
+    }
+
+    function toggle() {
+      if (!userActivated) { tryActivate(); return; }
+      muted = !muted;
+      if (muted) {
+        try { BACKROOMS_AUDIO.stopAll(); } catch(e) {}
+        try { BACKROOMS_MUSIC.pause(); } catch(e) {}
+        active = false;
+      } else {
+        try { BACKROOMS_AUDIO.resume(); } catch(e) {}
+        if (!prefersReduced) {
+          try { BACKROOMS_AUDIO.playHum(); } catch(e) {}
+          try { BACKROOMS_MUSIC.play(); } catch(e) {}
+        }
+        active = true;
+      }
+      updateUI();
+    }
+
+    function bindClickSounds() {
+      if (clickSoundsBound) return;
+      clickSoundsBound = true;
+      var lastClick = 0;
+      document.addEventListener('click', function(e) {
+        if (!userActivated) return;
+        var now = Date.now();
+        if (now - lastClick < 60) return;
+        lastClick = now;
+        try { BACKROOMS_AUDIO.playClick(); } catch(e) {}
+      }, true);
+      var hoverTimer = null;
+      document.addEventListener('mouseover', function(e) {
+        if (!userActivated || muted) return;
+        var tgt = e.target;
+        if (tgt.closest && tgt.closest('.level-card, .entity-card')) {
+          if (hoverTimer) return;
+          hoverTimer = setTimeout(function() { hoverTimer = null; }, 800);
+          try { BACKROOMS_AUDIO.playSteps(); } catch(e) {}
+        }
+      });
+      var visibilityHandler = function() {
+        if (document.hidden) {
+          try { BACKROOMS_AUDIO.stopAll(); } catch(e) {}
+        } else if (userActivated && active && !muted && !prefersReduced) {
+          try { BACKROOMS_AUDIO.playHum(); } catch(e) {}
+        }
+      };
+      document.addEventListener('visibilitychange', visibilityHandler);
+    }
+
+    return {
+      init: function() {
+        var btn = document.getElementById('mute-toggle');
+        if (btn) {
+          btn.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); toggle(); });
+        }
+        var activateOnce = function() {
+          tryActivate();
+          document.removeEventListener('click', activateOnce, true);
+          document.removeEventListener('keydown', activateOnce, true);
+          document.removeEventListener('touchstart', activateOnce, true);
+        };
+        document.addEventListener('click', activateOnce, true);
+        document.addEventListener('keydown', activateOnce, true);
+        document.addEventListener('touchstart', activateOnce, true);
+        bindClickSounds();
+        updateUI();
+      },
+      isActive: function() { return active && !muted; },
+      unmute: function() { if (muted) toggle(); },
+      mute: function() { if (!muted) toggle(); }
+    };
+  })();
+
+  var BACKROOMS_MUSIC = (function() {
+    var player = null;
+    var playing = false;
+    var ready = false;
+    var loading = false;
+    var STORAGE_KEY = 'br_music_playing';
+    var VIDEO_ID = 'HbOWkd71uE4';
+
+    function updateButton() {
+      var btn = document.getElementById('btn-music');
+      if (!btn) return;
+      var label = t('music.toggle');
+      var icon = loading ? '\u22EF ' : (playing ? '\u25A0 ' : '\u25B6 ');
+      btn.textContent = icon + label;
+      if (loading) { btn.style.opacity = '0.6'; btn.style.cursor = 'wait'; }
+      else { btn.style.opacity = ''; btn.style.cursor = 'pointer'; }
+    }
+
+    function loadYTAPI() {
+      if (window.YT && window.YT.Player) return Promise.resolve();
+      if (loading) return new Promise(function(r) { setTimeout(function() { r(loadYTAPI()); }, 200); });
+      loading = true;
+      updateButton();
+      return new Promise(function(resolve, reject) {
+        var resolved = false;
+        var prev = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function() { if (prev) prev(); resolved = true; resolve(); };
+        var tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        tag.onerror = function() { if (!resolved) { resolved = true; reject(new Error('YT_API_LOAD_FAIL')); } };
+        document.head.appendChild(tag);
+        setTimeout(function() { if (!resolved) { resolved = true; reject(new Error('YT_API_TIMEOUT')); } }, 8000);
+      });
+    }
+
+    function saveState() {
+      try { localStorage.setItem(STORAGE_KEY, playing ? '1' : '0'); } catch(e) {}
+    }
+
+    function loadSavedState() {
+      try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch(e) {}
+      return false;
+    }
+
+    function createPlayer() {
+      if (document.getElementById('yt-dreamcore-player')) return;
+      var div = document.createElement('div');
+      div.id = 'yt-dreamcore-player';
+      div.style.cssText = 'position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1;';
+      document.body.appendChild(div);
+
+      try {
+        player = new YT.Player('yt-dreamcore-player', {
+          videoId: VIDEO_ID,
+          playerVars: { autoplay: 0, controls: 0, disablekb: 1, fs: 0, iv_load_policy: 3, modestbranding: 1, rel: 0 },
+          events: {
+            onReady: function() {
+              ready = true;
+              loading = false;
+              try { player.setVolume(50); } catch(e) {}
+              if (loadSavedState()) {
+                var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (!prefersReduced) {
+                  try { player.playVideo(); playing = true; saveState(); } catch(e) {}
+                }
+              }
+              updateButton();
+            },
+            onStateChange: function(e) {
+              if (e.data === YT.PlayerState.PLAYING) { playing = true; }
+              else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) { playing = false; }
+              saveState();
+              updateButton();
+            },
+            onError: function() { playing = false; updateButton(); }
+          }
+        });
+      } catch(err) {
+        console.warn('[BACKROOMS_MUSIC] Player init failed:', err);
+        ready = false; loading = false; updateButton();
+      }
+    }
+
+    function handleClick() {
+      if (loading) return;
+      if (!player || !ready) {
+        loading = true; updateButton();
+        showNotification('Cargando reproductor...', 'info');
+        loadYTAPI().then(function() { createPlayer(); }).catch(function(err) {
+          console.warn('[BACKROOMS_MUSIC] API load failed:', err);
+          loading = false; updateButton();
+          showNotification('No se pudo cargar YouTube. Desactiva el bloqueador de anuncios o recarga la página.', 'error');
+        });
+        return;
+      }
+      if (playing) { try { player.pauseVideo(); } catch(e) {} playing = false; }
+      else { try { player.playVideo(); } catch(e) {} playing = true; }
+      saveState();
+      updateButton();
+    }
+
+    return {
+      init: function() {
+        var btn = document.getElementById('btn-music');
+        if (btn) {
+          btn.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); handleClick(); });
+        }
+        updateButton();
+        loadYTAPI().then(function() { createPlayer(); }).catch(function() { loading = false; updateButton(); });
+      },
+      play: function() {
+        if (player && ready) { try { player.playVideo(); } catch(e) {} return; }
+        if (!player) {
+          loading = true; updateButton();
+          loadYTAPI().then(function() {
+            createPlayer();
+            var wait = setInterval(function() {
+              if (ready) { clearInterval(wait); try { player.playVideo(); } catch(e) {} }
+            }, 200);
+            setTimeout(function() { clearInterval(wait); }, 8000);
+          }).catch(function() { loading = false; updateButton(); });
+        }
+      },
+      pause: function() { if (player && ready) { try { player.pauseVideo(); } catch(e) {} } },
+      toggle: function() { handleClick(); },
+      isPlaying: function() { return playing; },
+      setVolume: function(vol) { if (player && ready) { try { player.setVolume(Math.max(0, Math.min(100, vol))); } catch(e) {} } }
+    };
+  })();
+
   // ===================== INIT =====================
   async function init() {
     loadState();
@@ -2026,6 +2687,11 @@
     // Cargar niveles de la wiki local (CC-BY-SA) como fuente de verdad
     if (typeof WIKI_LEVELS_WIKI !== 'undefined' && Array.isArray(WIKI_LEVELS_WIKI) && WIKI_LEVELS_WIKI.length) {
       WIKI_LEVELS = WIKI_LEVELS_WIKI;
+    }
+
+    // Cargar entidades de la wiki local (CC-BY-SA)
+    if (typeof WIKI_ENTITIES_WIKI !== 'undefined' && Array.isArray(WIKI_ENTITIES_WIKI) && WIKI_ENTITIES_WIKI.length) {
+      ENTITIES = WIKI_ENTITIES_WIKI;
     }
 
     // Detectar si el backend API está disponible
@@ -2062,6 +2728,8 @@
     initVideoModal();
 
     initSurvivalGame();
+    BACKROOMS_MUSIC.init();
+    AMBIENT_AUDIO.init();
 
     // Re-render dynamic content on language change
     document.addEventListener('langchange', function() {
@@ -2071,12 +2739,13 @@
         var vg = document.getElementById('videos-grid');
         if (vg) renderVideos('videos-grid');
         var eg = document.getElementById('entities-grid');
-        if (eg) renderEntities('entities-grid');
+        if (eg) { renderEntities('entities-grid'); initEntityModal(); }
         var cg = document.getElementById('community-grid');
         if (cg) renderCommunity('community-grid', 'community-sub');
         // Re-bind modal handlers
         initLevelScan();
-        initVideoModal();
+    initVideoModal();
+    initEntityModal();
       } catch(e) { console.error('langchange re-render', e); }
     });
 
@@ -2093,6 +2762,8 @@
       else { closeGame(); }
     });
 
+    initAmbientAudio();
+
     updateHeroCount();
 
     var sc = document.getElementById('stat-community');
@@ -2102,6 +2773,275 @@
       showNotification('Sesi\u00f3n reanudada. Bienvenido, ' + state.currentUser + '.', 'success');
     }
   }
+
+  var BACKROOMS_AUDIO = {
+    _ctx: null,
+    _masterGain: null,
+    _humNodes: null,
+    _volume: 0.6,
+    _initialized: false,
+
+    isInitialized: function() {
+      return this._initialized;
+    },
+
+    init: function() {
+      if (this._ctx) {
+        if (this._ctx.state === 'suspended') { try { this._ctx.resume(); } catch(e) {} }
+        return;
+      }
+      try {
+        this._ctx = new (window.AudioContext || window.webkitAudioContext)();
+      } catch(e) { console.warn('[AUDIO] AudioContext fail', e); return; }
+      this._masterGain = this._ctx.createGain();
+      this._masterGain.gain.value = this._volume;
+      this._masterGain.connect(this._ctx.destination);
+      this._initialized = true;
+      if (this._ctx.state === 'suspended') { try { this._ctx.resume(); } catch(e) {} }
+    },
+
+    resume: function() {
+      if (this._ctx && this._ctx.state === 'suspended') {
+        try { this._ctx.resume(); } catch(e) {}
+      }
+    },
+
+    setVolume: function(v) {
+      this._volume = Math.max(0, Math.min(1, v));
+      if (this._masterGain) this._masterGain.gain.value = this._volume;
+    },
+
+    _createNoise: function(duration) {
+      var ctx = this._ctx;
+      var len = Math.floor(ctx.sampleRate * duration);
+      var buf = ctx.createBuffer(1, len, ctx.sampleRate);
+      var ch = buf.getChannelData(0);
+      for (var i = 0; i < len; i++) ch[i] = Math.random() * 2 - 1;
+      var src = ctx.createBufferSource();
+      src.buffer = buf;
+      return src;
+    },
+
+    playHum: function() {
+      if (!this._ctx) return;
+      this.stopHum();
+      var ctx = this._ctx;
+      var now = ctx.currentTime;
+
+      var noise = this._createNoise(2);
+      noise.loop = true;
+      var noiseFilt = ctx.createBiquadFilter();
+      noiseFilt.type = 'lowpass';
+      noiseFilt.frequency.value = 200;
+      var noiseGain = ctx.createGain();
+      noiseGain.gain.value = 0.08;
+      noise.connect(noiseFilt);
+      noiseFilt.connect(noiseGain);
+      noiseGain.connect(this._masterGain);
+      noise.start(now);
+
+      var osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.value = 60;
+      var oscGain = ctx.createGain();
+      oscGain.gain.value = 0.06;
+      osc.connect(oscGain);
+      oscGain.connect(this._masterGain);
+      osc.start(now);
+
+      this._humNodes = {
+        noise: noise, osc: osc,
+        noiseGain: noiseGain, oscGain: oscGain,
+        noiseFilt: noiseFilt
+      };
+    },
+
+    stopHum: function() {
+      if (!this._humNodes) return;
+      var n = this._humNodes;
+      try { n.noise.stop(); } catch(e) {}
+      try { n.osc.stop(); } catch(e) {}
+      try {
+        n.noise.disconnect(); n.osc.disconnect();
+        n.noiseGain.disconnect(); n.oscGain.disconnect();
+        n.noiseFilt.disconnect();
+      } catch(e) {}
+      this._humNodes = null;
+    },
+
+    playSteps: function() {
+      if (!this._ctx) return;
+      var ctx = this._ctx;
+      var count = 3 + Math.floor(Math.random() * 2);
+      var self = this;
+      for (var i = 0; i < count; i++) {
+        (function(idx) {
+          setTimeout(function() {
+            if (!self._ctx) return;
+            var now = ctx.currentTime;
+            var n = self._createNoise(0.1);
+            var f = ctx.createBiquadFilter();
+            f.type = 'bandpass';
+            f.frequency.value = 300 + Math.random() * 200;
+            f.Q.value = 2;
+            var g = ctx.createGain();
+            g.gain.setValueAtTime(0.35, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+            n.connect(f); f.connect(g); g.connect(self._masterGain);
+            n.start(now); n.stop(now + 0.12);
+            setTimeout(function() {
+              try { n.disconnect(); f.disconnect(); g.disconnect(); } catch(e) {}
+            }, 200);
+          }, idx * 280);
+        })(i);
+      }
+    },
+
+    playNoClip: function() {
+      if (!this._ctx) return;
+      var ctx = this._ctx;
+      var now = ctx.currentTime;
+      var self = this;
+
+      var osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, now);
+      osc.frequency.exponentialRampToValueAtTime(60, now + 1.5);
+      var oscGain = ctx.createGain();
+      oscGain.gain.setValueAtTime(0.2, now);
+      oscGain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
+      var filt = ctx.createBiquadFilter();
+      filt.type = 'lowpass';
+      filt.frequency.setValueAtTime(2000, now);
+      filt.frequency.exponentialRampToValueAtTime(200, now + 1.5);
+      osc.connect(filt); filt.connect(oscGain); oscGain.connect(self._masterGain);
+      osc.start(now); osc.stop(now + 1.6);
+
+      var n = this._createNoise(1.5);
+      var nGain = ctx.createGain();
+      nGain.gain.setValueAtTime(0.05, now);
+      nGain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
+      var nFilt = ctx.createBiquadFilter();
+      nFilt.type = 'highpass';
+      nFilt.frequency.value = 1000;
+      n.connect(nFilt); nFilt.connect(nGain); nGain.connect(self._masterGain);
+      n.start(now); n.stop(now + 1.6);
+
+      setTimeout(function() {
+        try {
+          osc.disconnect(); oscGain.disconnect(); filt.disconnect();
+          n.disconnect(); nGain.disconnect(); nFilt.disconnect();
+        } catch(e) {}
+      }, 1700);
+    },
+
+    playHeartbeat: function() {
+      if (!this._ctx) return;
+      var ctx = this._ctx;
+      var self = this;
+      var beats = 4;
+      for (var i = 0; i < beats; i++) {
+        (function(idx) {
+          setTimeout(function() {
+            if (!self._ctx) return;
+            var now = ctx.currentTime;
+            var osc = ctx.createOscillator();
+            osc.type = 'sine';
+            osc.frequency.value = 50;
+            var g = ctx.createGain();
+            g.gain.setValueAtTime(0, now);
+            g.gain.linearRampToValueAtTime(0.25, now + 0.05);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+            osc.connect(g); g.connect(self._masterGain);
+            osc.start(now); osc.stop(now + 0.35);
+            setTimeout(function() {
+              try { osc.disconnect(); g.disconnect(); } catch(e) {}
+            }, 400);
+          }, idx * 600);
+        })(i);
+      }
+    },
+
+    playDeath: function() {
+      if (!this._ctx) return;
+      var ctx = this._ctx;
+      var now = ctx.currentTime;
+      var self = this;
+
+      var rumble = ctx.createOscillator();
+      rumble.type = 'sawtooth';
+      rumble.frequency.value = 30;
+      var rGain = ctx.createGain();
+      rGain.gain.setValueAtTime(0.2, now);
+      rGain.gain.exponentialRampToValueAtTime(0.001, now + 3);
+      var rFilt = ctx.createBiquadFilter();
+      rFilt.type = 'lowpass';
+      rFilt.frequency.value = 100;
+      rumble.connect(rFilt); rFilt.connect(rGain); rGain.connect(self._masterGain);
+      rumble.start(now); rumble.stop(now + 3.1);
+
+      var tone = ctx.createOscillator();
+      tone.type = 'sine';
+      tone.frequency.value = 1200;
+      var tGain = ctx.createGain();
+      tGain.gain.setValueAtTime(0.1, now);
+      tGain.gain.exponentialRampToValueAtTime(0.001, now + 2.5);
+      tone.connect(tGain); tGain.connect(self._masterGain);
+      tone.start(now); tone.stop(now + 2.6);
+
+      setTimeout(function() {
+        try {
+          rumble.disconnect(); rGain.disconnect(); rFilt.disconnect();
+          tone.disconnect(); tGain.disconnect();
+        } catch(e) {}
+      }, 3200);
+    },
+
+    playStatic: function() {
+      if (!this._ctx) return;
+      var ctx = this._ctx;
+      var now = ctx.currentTime;
+      var self = this;
+      var n = this._createNoise(0.5);
+      var f = ctx.createBiquadFilter();
+      f.type = 'bandpass';
+      f.frequency.value = 3000;
+      f.Q.value = 0.5;
+      var g = ctx.createGain();
+      g.gain.setValueAtTime(0.25, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+      n.connect(f); f.connect(g); g.connect(self._masterGain);
+      n.start(now); n.stop(now + 0.55);
+      setTimeout(function() {
+        try { n.disconnect(); f.disconnect(); g.disconnect(); } catch(e) {}
+      }, 600);
+    },
+
+    playClick: function() {
+      if (!this._ctx) { this.init(); if (!this._ctx) return; }
+      if (this._ctx.state === 'suspended') { try { this._ctx.resume(); } catch(e) {} }
+      var ctx = this._ctx;
+      var now = ctx.currentTime;
+      var self = this;
+      var n = this._createNoise(0.05);
+      var f = ctx.createBiquadFilter();
+      f.type = 'bandpass';
+      f.frequency.value = 1800;
+      f.Q.value = 4;
+      var g = ctx.createGain();
+      g.gain.setValueAtTime(0.5, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+      n.connect(f); f.connect(g); g.connect(self._masterGain);
+      n.start(now); n.stop(now + 0.06);
+      setTimeout(function() {
+        try { n.disconnect(); f.disconnect(); g.disconnect(); } catch(e) {}
+      }, 100);
+    },
+
+    stopAll: function() {
+      this.stopHum();
+    }
+  };
 
   document.addEventListener('DOMContentLoaded', init);
 })();
@@ -2337,11 +3277,11 @@
   ready(function() {
     var btn = document.getElementById('ns-start-btn');
     if (btn) {
-      btn.addEventListener('click', function() {
-        var gameBtn = document.getElementById('btn-game');
-        if (gameBtn) { gameBtn.click(); return; }
-        var link = document.querySelector('a[href*="index.html"]');
-        if (link) window.location.href = 'index.html';
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (typeof window.SURVIVAL_GAME !== 'undefined' && typeof window.SURVIVAL_GAME.start === 'function') {
+          window.SURVIVAL_GAME.start();
+        }
       });
     }
     var surv = document.getElementById('ns-survivors');
