@@ -138,52 +138,61 @@
           </div>
         </div>
 
-        <div class="level-modal-body">
-          <div class="lm-image-frame">
-            <img src="" alt="" class="lm-modal-image" id="em-modal-image">
-            <div class="lm-image-caption" data-i18n="levels.frame.cap">FRAME 001 &mdash; STILL CAPTURE</div>
-          </div>
-
-          <div class="lm-content-grid">
-            <div class="lm-col-left">
-              <div class="lm-row">
-                <span class="lm-label">&gt; CLASIFICACI&Oacute;N</span>
-                <span class="lm-value" id="em-class">&mdash;</span>
-              </div>
-              <div class="lm-row">
-                <span class="lm-label">&gt; COMPORTAMIENTO</span>
-                <span class="lm-value" id="em-behavior">&mdash;</span>
-              </div>
-              <div class="lm-row">
-                <span class="lm-label">&gt; NIVELES DONDE APARECE</span>
-                <span class="lm-value" id="em-levels">&mdash;</span>
-              </div>
-              <div class="lm-row">
-                <span class="lm-label">&gt; NIVEL DE AMENAZA</span>
-                <span class="lm-value" id="em-threat">&mdash;</span>
-              </div>
-
-              <div class="lm-desc-block" style="margin-top:18px;padding:14px 18px;background:rgba(20,18,8,0.7);border:1px solid rgba(255,234,0,0.25);">
-                <div class="lm-conn-title" style="font-size:11px;letter-spacing:0.22em;color:#ffea00;margin-bottom:8px;font-family:'Courier New',monospace;">&gt; DESCRIPCI&Oacute;N / REGISTRO</div>
-                <p class="lm-desc-text" id="em-desc-text" style="margin:0 0 10px;font-size:13px;line-height:1.6;color:rgba(255,234,0,0.85);font-family:'Courier New',monospace;">&mdash;</p>
-                <div class="lm-wiki-attr" style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,234,0,0.15);font-size:10px;color:rgba(255,234,0,0.6);font-family:'Courier New',monospace;letter-spacing:0.08em;">
-                  <span>&#x29D6; FUENTE:</span>
-                  <a href="" target="_blank" rel="noopener" class="lm-wiki-link" id="em-wiki-link" style="color:#ff2a2a;text-decoration:underline;margin-left:6px;">Wiki Hispana Backrooms (CC-BY-SA)</a>
-                </div>
-              </div>
+        <div class="level-modal-body em-body">
+          <div class="em-layout">
+            <div class="em-poster-frame">
+              <div class="em-poster-corner em-poster-corner-tl"></div>
+              <div class="em-poster-corner em-poster-corner-tr"></div>
+              <div class="em-poster-corner em-poster-corner-bl"></div>
+              <div class="em-poster-corner em-poster-corner-br"></div>
+              <img src="" alt="" class="em-poster-image" id="em-modal-image">
+              <div class="em-poster-scanlines"></div>
+              <div class="em-poster-grain"></div>
+              <div class="em-poster-rec">REC</div>
+              <div class="lm-image-caption" data-i18n="levels.frame.cap">FRAME 001 &mdash; STILL CAPTURE</div>
             </div>
 
-            <div class="lm-col-right">
-              <div class="lm-tech-block">
-                <div class="lm-tech-title">&gt; FICHA T&Eacute;CNICA</div>
-                <div class="lm-tech-grid">
-                  <div class="lm-tech-cell"><span class="lm-tech-k">CLASE</span><span class="lm-tech-v" id="em-t-class">&mdash;</span></div>
-                  <div class="lm-tech-cell"><span class="lm-tech-k">PELIGRO</span><span class="lm-tech-v" id="em-t-danger">&mdash;</span></div>
-                  <div class="lm-tech-cell"><span class="lm-tech-k">VELOC.</span><span class="lm-tech-v" id="em-t-speed">&mdash;</span></div>
-                  <div class="lm-tech-cell"><span class="lm-tech-k">SENTIDOS</span><span class="lm-tech-v" id="em-t-senses">&mdash;</span></div>
-                  <div class="lm-tech-cell"><span class="lm-tech-k">DEBILIDAD</span><span class="lm-tech-v" id="em-t-weak">&mdash;</span></div>
-                  <div class="lm-tech-cell"><span class="lm-tech-k">ORIGEN</span><span class="lm-tech-v" id="em-t-origin">&mdash;</span></div>
-                  <div class="lm-tech-cell lm-tech-cell-wide"><span class="lm-tech-k">ESTADO</span><span class="lm-tech-v" id="em-t-status">&mdash;</span></div>
+            <div class="em-content-cols">
+              <div class="em-col-left">
+                <div class="lm-row">
+                  <span class="lm-label">&gt; CLASIFICACI&Oacute;N</span>
+                  <span class="lm-value" id="em-class">&mdash;</span>
+                </div>
+                <div class="lm-row">
+                  <span class="lm-label">&gt; COMPORTAMIENTO</span>
+                  <span class="lm-value" id="em-behavior">&mdash;</span>
+                </div>
+                <div class="lm-row">
+                  <span class="lm-label">&gt; NIVELES DONDE APARECE</span>
+                  <span class="lm-value" id="em-levels">&mdash;</span>
+                </div>
+                <div class="lm-row">
+                  <span class="lm-label">&gt; NIVEL DE AMENAZA</span>
+                  <span class="lm-value" id="em-threat">&mdash;</span>
+                </div>
+
+                <div class="lm-desc-block" style="margin-top:18px;padding:14px 18px;background:rgba(20,18,8,0.7);border:1px solid rgba(255,234,0,0.25);">
+                  <div class="lm-conn-title" style="font-size:11px;letter-spacing:0.22em;color:#ffea00;margin-bottom:8px;font-family:'Courier New',monospace;">&gt; DESCRIPCI&Oacute;N / REGISTRO</div>
+                  <p class="lm-desc-text" id="em-desc-text" style="margin:0 0 10px;font-size:13px;line-height:1.6;color:rgba(255,234,0,0.85);font-family:'Courier New',monospace;">&mdash;</p>
+                  <div class="lm-wiki-attr" style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,234,0,0.15);font-size:10px;color:rgba(255,234,0,0.6);font-family:'Courier New',monospace;letter-spacing:0.08em;">
+                    <span>&#x29D6; FUENTE:</span>
+                    <a href="" target="_blank" rel="noopener" class="lm-wiki-link" id="em-wiki-link" style="color:#ff2a2a;text-decoration:underline;margin-left:6px;">Wiki Hispana Backrooms (CC-BY-SA)</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="em-col-right">
+                <div class="lm-tech-block">
+                  <div class="lm-tech-title">&gt; FICHA T&Eacute;CNICA</div>
+                  <div class="lm-tech-grid">
+                    <div class="lm-tech-cell"><span class="lm-tech-k">CLASE</span><span class="lm-tech-v" id="em-t-class">&mdash;</span></div>
+                    <div class="lm-tech-cell"><span class="lm-tech-k">PELIGRO</span><span class="lm-tech-v" id="em-t-danger">&mdash;</span></div>
+                    <div class="lm-tech-cell"><span class="lm-tech-k">VELOC.</span><span class="lm-tech-v" id="em-t-speed">&mdash;</span></div>
+                    <div class="lm-tech-cell"><span class="lm-tech-k">SENTIDOS</span><span class="lm-tech-v" id="em-t-senses">&mdash;</span></div>
+                    <div class="lm-tech-cell"><span class="lm-tech-k">DEBILIDAD</span><span class="lm-tech-v" id="em-t-weak">&mdash;</span></div>
+                    <div class="lm-tech-cell"><span class="lm-tech-k">ORIGEN</span><span class="lm-tech-v" id="em-t-origin">&mdash;</span></div>
+                    <div class="lm-tech-cell lm-tech-cell-wide"><span class="lm-tech-k">ESTADO</span><span class="lm-tech-v" id="em-t-status">&mdash;</span></div>
+                  </div>
                 </div>
               </div>
             </div>

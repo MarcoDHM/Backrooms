@@ -3,8 +3,78 @@
    Imágenes y descripciones © sus respectivos autores, ver wiki_url por entrada. */
 (function(global){
   function E(id,name,desc,danger,img,wiki){
+    // Extract "Nivel N" / "Niveles N y M" / "Nivel Fun" / "Nivel !"
+    // references from the description. Used to link the entity to its
+    // level(s) in the UI.
+    var levels = [];
+    try {
+      var src = (desc || '').toString();
+      // Match "Nivel" followed by a number (Nivel 2), a roman/word (Nivel Fun),
+      // a special token (Nivel !, Nivel ?), or a hyphenated id (Nivel 3-A).
+      var re = /Nivel(?:es)?\s+([0-9]+(?:\s*-\s*[A-Za-z0-9]+)?|Fun|Hub|The\s+End|Tierra\s+Prometida|!|\?|L4|!|S0MBR4)/gi;
+      var m;
+      var seen = {};
+      while ((m = re.exec(src)) !== null) {
+        var raw = m[1].trim();
+        var norm = raw.replace(/\s+/g,'');
+        // Normalize special names
+        if (/^Fun$/i.test(norm)) norm = 'Fun';
+        if (/^Hub$/i.test(norm)) norm = 'The Hub';
+        if (/^End$/i.test(norm)) norm = 'The End';
+        if (/^TierraPrometida$/i.test(norm)) norm = 'La Tierra Prometida';
+        if (/^!$/.test(norm)) norm = '!';
+        if (/^\?$/.test(norm)) norm = '?';
+        if (/^L4$/i.test(norm)) norm = 'L4 S0MBR4 GR1S';
+        if (/^S0MBR4$/i.test(norm)) norm = 'L4 S0MBR4 GR1S';
+        if (seen[norm]) continue;
+        seen[norm] = true;
+        levels.push(norm);
+      }
+    } catch (eL) { levels = []; }
     return { id:id, name:name, description:desc||'', danger:danger==null?1:danger,
-      image:img, wiki_url:wiki };
+      image:img, wiki_url:wiki, levels:levels };
+  }
+
+  // Manual level mapping. Used to enrich the auto-extracted levels with
+  // canonical mappings from the wiki (entities often have a single "home"
+  // level that is not always mentioned by name in the description).
+  // Keys are entity ids; values are arrays of level display labels as
+  // used in levelKeyForName().
+  var MANUAL_LEVELS = {
+    'ent-2':   ['2'],                // Nivel 2 (Sistema de Tuberías)
+    'ent-3':   ['6'],                // Smilers - oscuros (Nivel 6 / Luces Fuera)
+    'ent-4':   ['4'],                // Polilla - muchos niveles
+    'ent-5':   ['2'],                // Clumps - Nivel 2
+    'ent-6':   ['1','2','4'],        // Dullers - múltiples
+    'ent-8':   ['1','2','4','6'],    // Sabuesos - oscuros
+    'ent-9':   ['1','4','-1'],       // Facelings - muchos
+    'ent-10':  ['1','4'],            // Ladrones de Piel
+    'ent-12':  ['6','7'],            // Howlers
+    'ent-15':  ['1','2','4'],        // Insanos
+    'ent-17':  ['2','8'],            // Crawlers
+    'ent-36':  ['1','4'],            // Lighters
+    'ent-50':  ['6','L4 S0MBR4 GR1S'], // Las Sombras
+    'ent-65':  ['1','4'],            // Maniquíes
+    'ent-66':  ['1','4','5'],        // Fantasmas
+    'ent-67':  ['5','!'],            // Partygoers - Nivel 5 / Nivel Fun (!)
+    'ent-68':  ['!'],                // Partypoopers - Nivel Fun
+    'ent-94':  ['2','4'],            // Clickers
+    'ent-111': ['-2','-3'],          // Ætinerrabú
+    'ent-3a':  ['-1']                // Frowners
+  };
+
+  // Merge auto-extracted + manual mapping. Manual wins for entries the
+  // description didn't mention, but we keep auto values too.
+  function enrichLevels() {
+    for (var i = 0; i < DATA.length; i++) {
+      var e = DATA[i];
+      var manual = MANUAL_LEVELS[e.id] || [];
+      var merged = (e.levels || []).slice();
+      for (var m = 0; m < manual.length; m++) {
+        if (merged.indexOf(manual[m]) < 0) merged.push(manual[m]);
+      }
+      e.levels = merged;
+    }
   }
   var DATA = [
     E('ent-2','Entidad 2 — Ventanas','Las Ventanas son entidades que se manifiestan como ventanas en las paredes de los Backrooms. Cuando una Ventana se activa, muestra una habitación vacía detrás de ella que atrae a los vagabundos hacia adentro. Una vez dentro, la víctima queda atrapada en una dimensión de espejos de la que es muy difícil escapar. Son comunes en el Nivel 2 y otros niveles oscuros.',3,'images/Entidades/entidad_2_ventanas.jpg',
@@ -67,5 +137,6 @@
     E('ent-3a','Entidad 3-A — Frowners','Los Frowners son una variante de los Smilers pero con expresiones tristes en lugar de sonrientes. Son igualmente peligrosos que los Smilers regulares, pero su presencia causa una sensación intensa de tristeza y desesperación en los vagabundos. Se encuentran principalmente en niveles oscuros y melancólicos.',3,'images/Entidades/entidad_3a_frowners.jpg',
       'https://backrooms.fandom.com/es/wiki/Entidad_3-A')
   ];
+  enrichLevels();
   global.WIKI_ENTITIES_WIKI = DATA;
 })(typeof window !== 'undefined' ? window : this);

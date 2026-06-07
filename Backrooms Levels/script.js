@@ -63,11 +63,12 @@
       'levels.sub':          'Los 5 niveles fundacionales documentados por el archivo.',
       'levels.tag':          '[ REGISTRO DE NIVEL ]',
       'levels.reading':      '> LECTURA DE ANOMALÍA',
-      'levels.entities':     '> ENTIDADES DETECTADAS',
       'levels.props':        '> PROPIEDADES DEL ENTORNO',
       'levels.tech':         '> DATOS TÉCNICOS',
       'levels.conn':         '> CONEXIONES / RELACIONES',
       'levels.conn.empty':   'Sin conexiones documentadas.',
+      'levels.entities':     '> ENTIDADES ENCONTRADAS',
+      'levels.entities.empty': 'Sin entidades documentadas en este nivel.',
       'levels.modal.status': 'STATUS: ',
       'levels.modal.close':  'CERRAR: ESC o [X]',
       'levels.modal.footer': 'ARCHIVO BACKROOMS — ACCESO RESTRINGIDO',
@@ -154,6 +155,16 @@
       'index.sg.restart':   '[ REINICIAR ]',
       'index.sg.close':     '[ CERRAR ]',
       'index.sg.heart':     'CORAZÓN DEL ARCHIVO — MÓDULO DE SUPERVIVENCIA',
+      // VHS minigame tile (home)
+      'index.cdb.title':    'THE BACKROOMS',
+      'index.vhs.header':   'PROTOCOLO DE EXTRACCIÓN — MINIJUEGO · NIVEL DE AMENAZA: ROJO',
+      'index.vhs.headline': 'NO CLIP · HAS ENTRADO',
+      'index.vhs.camera':   'CAM-07 / LIMINAL',
+      'index.vhs.q1':       '"Has cruzado el umbral. Dos entidades te observan desde el pasillo. Elige con quién interactuar — o huye mientras puedas."',
+      'index.vhs.q2':       'Cada decisión altera tu cordura. Sobrevive a 9 niveles. Documenta todo. No vayas solo.',
+      'index.vhs.q3':       'Se han reportado incursiones en niveles secretos. Procede bajo tu propio riesgo.',
+      'index.vhs.src':      '— Archivo Backrooms · Módulo de Supervivencia v3.1',
+      'index.vhs.stamp':    'JUGAR',
       // Survival minigame steps
       'sg.step.system.started': 'SISTEMA INICIADO',
       // Footer
@@ -206,11 +217,12 @@
       'levels.sub':          'The 5 foundational levels documented by the archive.',
       'levels.tag':          '[ LEVEL RECORD ]',
       'levels.reading':      '> ANOMALY READING',
-      'levels.entities':     '> DETECTED ENTITIES',
       'levels.props':        '> ENVIRONMENT PROPERTIES',
       'levels.tech':         '> TECHNICAL DATA',
       'levels.conn':         '> CONNECTIONS / RELATIONS',
       'levels.conn.empty':   'No connections documented.',
+      'levels.entities':     '> ENTITIES FOUND',
+      'levels.entities.empty': 'No entities documented at this level.',
       'levels.modal.status': 'STATUS: ',
       'levels.modal.close':  'CLOSE: ESC or [X]',
       'levels.modal.footer': 'BACKROOMS ARCHIVE — RESTRICTED ACCESS',
@@ -290,6 +302,16 @@
       'index.sg.restart':   '[ RESTART ]',
       'index.sg.close':     '[ CLOSE ]',
       'index.sg.heart':     'ARCHIVE HEART — SURVIVAL MODULE',
+      // VHS minigame tile (home)
+      'index.cdb.title':    'THE BACKROOMS',
+      'index.vhs.header':   'EXTRACTION PROTOCOL — MINIGAME · THREAT LEVEL: RED',
+      'index.vhs.headline': 'NO CLIP · YOU ARE IN',
+      'index.vhs.camera':   'CAM-07 / LIMINAL',
+      'index.vhs.q1':       '"You crossed the threshold. Two entities watch you from the hallway. Choose whom to interact with — or flee while you still can."',
+      'index.vhs.q2':       'Every decision alters your sanity. Survive 9 levels. Document everything. Do not go alone.',
+      'index.vhs.q3':       'Incursions into secret levels have been reported. Proceed at your own risk.',
+      'index.vhs.src':      '— Backrooms Archive · Survival Module v3.1',
+      'index.vhs.stamp':    'PLAY',
       'sg.step.system.started': 'SYSTEM STARTED',
       'footer.quote': 'This archive is not fiction. If you are here, you have already crossed the threshold.',
       'footer.attr': '⧖ Level and entity content extracted from the Backrooms Spanish Wiki (CC-BY-SA). Images and texts © their respective authors.',
@@ -339,11 +361,12 @@
       'levels.sub':          'Os 5 níveis fundamentais documentados pelo arquivo.',
       'levels.tag':          '[ REGISTRO DE NÍVEL ]',
       'levels.reading':      '> LEITURA DE ANOMALIA',
-      'levels.entities':     '> ENTIDADES DETECTADAS',
       'levels.props':        '> PROPRIEDADES DO AMBIENTE',
       'levels.tech':         '> DADOS TÉCNICOS',
       'levels.conn':         '> CONEXÕES / RELAÇÕES',
       'levels.conn.empty':   'Sem conexões documentadas.',
+      'levels.entities':     '> ENTIDADES ENCONTRADAS',
+      'levels.entities.empty': 'Nenhuma entidade documentada neste nível.',
       'levels.modal.status': 'STATUS: ',
       'levels.modal.close':  'FECHAR: ESC ou [X]',
       'levels.modal.footer': 'ARQUIVO BACKROOMS — ACESSO RESTRITO',
@@ -423,6 +446,16 @@
       'index.sg.restart':   '[ REINICIAR ]',
       'index.sg.close':     '[ FECHAR ]',
       'index.sg.heart':     'CORAÇÃO DO ARQUIVO — MÓDULO DE SOBREVIVÊNCIA',
+      // VHS minigame tile (home)
+      'index.cdb.title':    'THE BACKROOMS',
+      'index.vhs.header':   'PROTOCOLO DE EXTRAÇÃO — MINIJOGO · NÍVEL DE AMEAÇA: VERMELHO',
+      'index.vhs.headline': 'NO CLIP · VOCÊ ENTROU',
+      'index.vhs.camera':   'CAM-07 / LIMINAL',
+      'index.vhs.q1':       '"Você cruzou o limiar. Duas entidades te observam pelo corredor. Escolha com quem interagir — ou fuja enquanto ainda pode."',
+      'index.vhs.q2':       'Cada decisão altera sua sanidade. Sobreviva a 9 níveis. Documente tudo. Não vá sozinho.',
+      'index.vhs.q3':       'Incursões em níveis secretos foram relatadas. Prossiga por sua conta e risco.',
+      'index.vhs.src':      '— Arquivo Backrooms · Módulo de Sobrevivência v3.1',
+      'index.vhs.stamp':    'JOGAR',
       'sg.step.system.started': 'SISTEMA INICIADO',
       'footer.quote': 'Este arquivo não é ficção. Se você está aqui, já cruzou o limiar.',
       'footer.attr': '⧖ Conteúdo de níveis e entidades extraído da Wiki Hispânica dos Backrooms (CC-BY-SA). Imagens e textos © seus respectivos autores.',
@@ -891,7 +924,7 @@
     var alias = l.alias || '';
     var survivalLabels = { 1:'SEGURO', 2:'BAJO', 3:'MODERADO', 4:'PELIGROSO', 5:'MORTAL' };
     var diffLabel = survivalLabels[l.survival] || 'CLASE ' + l.survival;
-    return '<div class="level-card" data-level-id="' + l.id + '" data-level-name="' + l.name.replace(/"/g,'&quot;') + '" data-level-tags="' + tagsHtml.replace(/"/g,'&quot;') + '" data-level-video="' + videoUrl + '" data-level-survival="' + l.survival + '" data-level-color="' + color + '" data-level-image="' + imgSrc + '" data-level-technical="' + technicalJson + '" data-level-connections="' + connectionsJson + '" data-level-description="' + descJson + '" data-level-exits="' + exitsJson + '" data-level-wiki="' + wikiUrl.replace(/"/g,'&quot;') + '" data-level-alias="' + alias.replace(/"/g,'&quot;') + '">'
+    return '<div class="level-card" data-level-id="' + l.id + '" data-level-name="' + l.name.replace(/"/g,'&quot;') + '" data-level-tags="' + tagsHtml.replace(/"/g,'&quot;') + '" data-level-video="' + videoUrl + '" data-level-survival="' + l.survival + '" data-level-color="' + color + '" data-level-image="' + imgSrc + '" data-level-technical="' + technicalJson + '" data-level-connections="' + connectionsJson + '" data-level-description="' + descJson + '" data-level-exits="' + exitsJson + '" data-level-wiki="' + wikiUrl.replace(/"/g,'&quot;') + '" data-level-alias="' + alias.replace(/"/g,'&quot;') + '" data-level-entities="' + (l.entities || 'Ninguna').replace(/"/g,'&quot;') + '">'
       + '<div class="level-visual">'
         + '<img src="' + imgSrc + '" alt="' + l.name + '" class="level-img" loading="lazy" onerror="this.src=\'images/Niveles/level_0.jpg\'">'
         + '<span class="level-badge">' + (l.tags && l.tags[0] || 'Nivel') + '</span>'
@@ -920,6 +953,14 @@
       var desc = e.description || '';
       var wikiUrl = e.wiki_url || '';
       var shortDesc = desc.length > 80 ? desc.substring(0, 80) + '...' : desc;
+      // Level badges (linked to niveles.html?openLevel=...)
+      var levelsArr = Array.isArray(e.levels) ? e.levels : [];
+      var levelsHtml = levelsArr.length
+        ? '<div class="entity-levels">' + levelsArr.map(function(lv) {
+            var lvKey = levelKeyForName(lv);
+            return '<a class="entity-level-badge" href="niveles.html?openLevel=' + lvKey + '" data-lv-key="' + lvKey + '" title="Ver nivel">' + lv + '</a>';
+          }).join('') + '</div>'
+        : '<div class="entity-levels"><span class="entity-level-badge entity-level-badge-none">MULTI</span></div>';
       return '<div class="entity-card" data-entity-id="' + e.id + '" data-entity-name="' + (e.name || '').replace(/"/g,'&quot;') + '" data-entity-desc="' + desc.replace(/"/g,'&quot;').replace(/'/g,'&#39;') + '" data-entity-danger="' + e.danger + '" data-entity-image="' + imgSrc + '" data-entity-wiki="' + wikiUrl.replace(/"/g,'&quot;') + '">'
         + '<div class="entity-visual">'
           + '<img src="' + imgSrc + '" alt="' + (e.name || '') + '" class="entity-img" loading="lazy" onerror="this.style.display=\'none\'">'
@@ -930,9 +971,43 @@
           + '<span class="ei-name">' + (e.name || '') + '</span>'
           + '<span class="ei-tag" style="color:' + color + '">' + label + '</span>'
         + '</div>'
+        + levelsHtml
       + '</div>';
     }).join('');
     bindEntityCardClicks();
+    bindEntityLevelBadges();
+  }
+
+  // Build the wiki-level key for a level name extracted from an entity
+  // description (e.g. "2" -> "wiki-2", "Fun" -> "wiki-corre", etc.).
+  function levelKeyForName(name) {
+    if (!name) return '';
+    var n = String(name).trim();
+    // Negative levels: -0, -1, -2, -3
+    if (/^-\d+$/.test(n)) return 'wiki-neg' + n.replace('-','');
+    if (/^\d+$/.test(n)) return 'wiki-' + n;
+    if (/^\d+-[A-Za-z]$/.test(n)) return 'wiki-' + n.toLowerCase();
+    if (/^!$/.test(n)) return 'wiki-corre';
+    if (/^\?$/.test(n)) return 'wiki-corre';
+    if (/^Fun$/i.test(n)) return 'wiki-corre';
+    if (/^The\s*End$/i.test(n)) return 'wiki-the_end';
+    if (/^The\s*Hub$/i.test(n)) return 'wiki-the_hub';
+    if (/Tierra\s*Prometida/i.test(n)) return 'wiki-tierra_prometida';
+    if (/L4.*S0MBR4.*GR1S/i.test(n)) return 'wiki-l4_s0mbr4_gr1s';
+    return '';
+  }
+
+  // Prevent the entity-card click from firing when the user clicks a
+  // level-badge (which navigates to niveles.html?openLevel=...).
+  function bindEntityLevelBadges() {
+    var badges = document.querySelectorAll('.entity-level-badge[data-lv-key]');
+    for (var i = 0; i < badges.length; i++) {
+      if (badges[i]._bound) continue;
+      badges[i]._bound = true;
+      badges[i].addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
   }
 
   function bindEntityCardClicks() {
@@ -1184,6 +1259,7 @@
     var danger = parseInt(card.getAttribute('data-entity-danger')) || 1;
     var imgSrc = card.getAttribute('data-entity-image') || '';
     var wikiUrl = card.getAttribute('data-entity-wiki') || '';
+    var entIdAttr = card.getAttribute('data-entity-id') || '';
 
     var statusText = getEntityStatus(danger);
     var color = SURVIVAL_COLORS[danger] || SURVIVAL_COLORS[1];
@@ -1207,7 +1283,24 @@
     if (img) { img.src = imgSrc; img.alt = name; }
     setText('em-class', entityLabels.classL[danger] || ('CLASE ' + danger));
     setText('em-behavior', entityLabels.behavior[danger] || 'Comportamiento desconocido.');
-    setText('em-levels', 'M\u00faltiples niveles \u2014 Ver wiki para detalles espec\u00edficos.');
+    // Levels: look up by id in ENTITIES to get the parsed levels array.
+    var levelsEl = document.getElementById('em-levels');
+    if (levelsEl) {
+      var entRec = null;
+      try { entRec = (ENTITIES || []).filter(function(en){ return en && en.id === entIdAttr; })[0] || null; } catch (e1) {}
+      var lvArr = (entRec && Array.isArray(entRec.levels)) ? entRec.levels : [];
+      if (lvArr.length) {
+        levelsEl.innerHTML = lvArr.map(function(lv){
+          var k = levelKeyForName(lv);
+          if (k) {
+            return '<a class="em-level-link" href="niveles.html?openLevel=' + k + '" title="Abrir nivel">' + lv + ' \u25B6</a>';
+          }
+          return '<span class="em-level-link em-level-link-plain">' + lv + '</span>';
+        }).join(' ');
+      } else {
+        levelsEl.textContent = 'M\u00faltiples niveles \u2014 Ver wiki para detalles.';
+      }
+    }
     setText('em-threat', statusText); setColor('em-threat', color);
     setText('em-desc-text', desc || 'Sin descripci\u00f3n disponible en la wiki.');
 
@@ -1281,6 +1374,7 @@
       var danger = parseInt(card.getAttribute('data-entity-danger')) || 1;
       var imgSrc = card.getAttribute('data-entity-image') || '';
       var wikiUrl = card.getAttribute('data-entity-wiki') || '';
+      var entIdAttr = card.getAttribute('data-entity-id') || '';
 
       var statusText = getStatusLabel(danger);
       var color = SURVIVAL_COLORS[danger] || SURVIVAL_COLORS[1];
@@ -1314,7 +1408,22 @@
       if (behaviorEl) behaviorEl.textContent = behaviorLabels[danger] || 'Comportamiento desconocido.';
 
       var levelsEl = document.getElementById('em-levels');
-      if (levelsEl) levelsEl.textContent = 'M\u00faltiples niveles \u2014 Ver wiki para detalles espec\u00edficos.';
+      if (levelsEl) {
+        var entRec = null;
+        try { entRec = (ENTITIES || []).filter(function(en){ return en && en.id === entIdAttr; })[0] || null; } catch (e2) {}
+        var lvArr = (entRec && Array.isArray(entRec.levels)) ? entRec.levels : [];
+        if (lvArr.length) {
+          levelsEl.innerHTML = lvArr.map(function(lv){
+            var k = levelKeyForName(lv);
+            if (k) {
+              return '<a class="em-level-link" href="niveles.html?openLevel=' + k + '" title="Abrir nivel">' + lv + ' \u25B6</a>';
+            }
+            return '<span class="em-level-link em-level-link-plain">' + lv + '</span>';
+          }).join(' ');
+        } else {
+          levelsEl.textContent = 'M\u00faltiples niveles \u2014 Ver wiki para detalles.';
+        }
+      }
 
       var threatEl = document.getElementById('em-threat');
       if (threatEl) { threatEl.textContent = statusText; threatEl.style.color = color; }
@@ -1724,11 +1833,170 @@
     }, 4800);
   }
 
-  // ===================== MINIJUEGO DE SUPERVIVENCIA — REDISEÑO =====================
-  var GAME = { state:'idle', level:0, history:[], sanity:0 };
-  var SECRET_LEVEL = { name:'Nivel \u2588\u2588\u2588\u2588 \u2014 Corrupci\u00f3n de Realidad', desc:'El c\u00f3digo fuente del universo est\u00e1 corrupto. Las leyes de la f\u00edsica no aplican. Has atravesado un fallo cr\u00edtico en la matriz y ahora est\u00e1s en un lugar que no deber\u00eda existir. Las entidades aqu\u00ed no siguen patrones conocidos. Tu cordura se desmorona.' };
+// ===================== MINIJUEGO DE SUPERVIVENCIA — REDISEÑO =====================
+   var GAME = { state:'idle', level:0, history:[], sanity:0 };
+   var SECRET_LEVEL = { name:'Nivel \u2588\u2588\u2588\u2588 \u2014 Corrupci\u00f3n de Realidad', desc:'El c\u00f3digo fuente del universo est\u00e1 corrupto. Las leyes de la f\u00edsica no aplican. Has atravesado un fallo cr\u00edtico en la matriz y ahora est\u00e1s en un lugar que no deber\u00eda existir. Las entidades aqu\u00ed no siguen patrones conocidos. Tu cordura se desmorona.' };
 
-  var ESCAPE_ACTIONS = [
+   // Outcomes narrativos fijos por entidad. NO usan RNG: cada nivel elige
+   // uno de los outcomes disponibles en orden (rotaci\u00f3n determin\u00edstica).
+   // Formato: { obey: [outcomes], disobey: [outcomes] }.
+   //   outcome = { txt:'...', fate:'advance'|'death' }
+   //   - 'advance' = pasa al siguiente nivel
+   //   - 'death'   = muestra la pantalla de muerte
+   //   - Tambi\u00e9n puede incluir 'levelIdx' para saltar a un nivel espec\u00edfico.
+   var ENTITY_OUTCOMES = {
+     'smilers': {
+       obey: [
+         { fate:'death',   txt:'Apagas la linterna como te indican. Oyes pasos que se acercan, pero la puerta se cierra detr\u00e1s de ti antes de que la sonrisa pueda verte. En la oscuridad, una segunda sonrisa aparece justo frente a tu cara. El flash blanco de tu c\u00e1mara te delata. Los flashes se multiplican.' },
+         { fate:'advance', txt:'Ignoras la luz que parpadea al fondo del pasillo. Smilers no te detecta. Cruzas la siguiente puerta sin mirar atr\u00e1s.' },
+         { fate:'advance', txt:'Cierras los ojos y dejas que el sonido te gu\u00ede. Terminas en el Nivel 1 \u2014 el pasillo de servicio. Sigues avanzando.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Decides no hacerle caso a la sonrisa. La observas de frente. La sonrisa se ensancha. Tu c\u00e1mara se apaga sola. El \u00faltimo frame muestra 47 sonrisas rode\u00e1ndote.' },
+         { fate:'death',   txt:'Iluminas a la entidad con tu linterna. Pensabas que la luz la ahuyentar\u00eda. Sonr\u00ede m\u00e1s. Tus o\u00eddos empiezan a zumbar.' },
+         { fate:'advance', txt:'Sales corriendo en direcci\u00f3n opuesta. La entidad te persigue un tramo, pero te internas en un conducto donde no cabe. Escuchas su risa a lo lejos, amortiguada.' }
+       ]
+     },
+     'hounds': {
+       obey: [
+         { fate:'advance', txt:'Te quedas quieto cuando el hocico pasa junto a tu cuello. El aliento es fr\u00edo. Los pasos se alejan. Hounds no te detect\u00f3.' },
+         { fate:'advance', txt:'Cubres tu olor con polvo de las paredes. Hounds pierde tu rastro y se desv\u00eda hacia un pasillo lateral.' },
+         { fate:'death',   txt:'Contienes la respiraci\u00f3n. Demasiado tiempo. Cuando el hocico se aleja, ya es tarde. Tu cuerpo aparece tres niveles m\u00e1s abajo.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Sales corriendo. Hounds detecta el movimiento y a\u00falla. Lo \u00faltico que escuchas antes del final son tus propios pasos.' },
+         { fate:'advance', txt:'Hounds te persigue, pero conoces un atajo por las tuber\u00edas. El aullido se pierde detr\u00e1s del conducto.' },
+         { fate:'death',   txt:'Encuentras un hueco. Te metes. Hounds no cabe, pero hay otra cosa dentro que lleva mucho tiempo esperando.' }
+       ]
+     },
+     'skin stealers': {
+       obey: [
+         { fate:'advance', txt:'No miras la piel colgada en las paredes. Sigues tu camino. Cuando Sales, los maniqu\u00edes siguen en su sitio. Quietos.' },
+         { fate:'advance', txt:'Aceptas la advertencia silenciosa: la entidad no quiere que la veas. Mantienes la mirada baja. Te deja pasar.' },
+         { fate:'death',   txt:'La piel que ves en la pared es exactamente tu talla. Cierras los ojos. Demasiado tarde. El traje ya est\u00e1 listo.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Estiras la piel de la pared. Est\u00e1 caliente. Cuando te das cuenta, la pared ya tiene tu forma exacta. Vac\u00eda.' },
+         { fate:'death',   txt:'Te pones la piel que encontraste colgada. Es perfecta. Demasiado perfecta. Ya no puedes quit\u00e1rtela.' },
+         { fate:'advance', txt:'Ignoras la advertencia. Sales caminando como si nada. Los Skin Stealers est\u00e1n confundidos. Te dejan ir.' }
+       ]
+     },
+     'facelings': {
+       obey: [
+         { fate:'advance', txt:'Apartas la mirada de la pared. La cara sigue imitando tus gestos, pero no puede tocarte si no la miras. Sigues tu camino.' },
+         { fate:'death',   txt:'Apartas la mirada. Pero Facelings se ha adherido a tu espalda. Cuando finalmente lo notas, ya tiene tu forma exacta.' },
+         { fate:'advance', txt:'Cierras los ojos y avanzas. La imitaci\u00f3n se detiene. Facelings pierde inter\u00e9s cuando no hay nada que copiar.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Le devuelves la mirada a la cara de la pared. La cara sonr\u00ede. Tu cara tambi\u00e9n. Solo que ya no es la tuya.' },
+         { fate:'advance', txt:'Observas a Facelings con curiosidad cient\u00edfica. Se confunde. Cree que t\u00fa eres el original. Te deja.' },
+         { fate:'death',   txt:'Intentas hablar con la cara de la pared. Te responde con tu propia voz. Te acercas. Tu reflejo camina hacia ti.' }
+       ]
+     },
+     'partygoers': {
+       obey: [
+         { fate:'death',   txt:'Aceptas la fiesta. Una m\u00e1scara se ajusta a tu cara. Ya no recuerdas tu nombre, pero todos te llaman por uno nuevo.' },
+         { fate:'advance', txt:'Aceptas la fiesta desde la distancia, sin unirte. Los Partygoers te confunden con un mueble m\u00e1s. Sigues caminando.' },
+         { fate:'death',   txt:'Los m\u00fasicos te invitan a bailar. Es el \u00faltico baile que tendr\u00e1s en tu vida. La m\u00fasica no se detiene nunca.' }
+       ],
+       disobey: [
+         { fate:'advance', txt:'Rechazas la invitaci\u00f3n. Los Partygoers se ofenden, pero contin\u00faan su ruta. Sales por una ventana lateral.' },
+         { fate:'death',   txt:'Cierras la puerta de la fiesta. Los m\u00fasicos dejan de tocar uno a uno. Cuando se hace el silencio, la puerta ya no existe detr\u00e1s de ti.' },
+         { fate:'advance', txt:'Ignoras la m\u00fasica. Sigues el camino contrario. Los Partygoers no pueden salir del sal\u00f3n. Est\u00e1s a salvo, por ahora.' }
+       ]
+     },
+     'death moths': {
+       obey: [
+         { fate:'advance', txt:'Apagas la luz y contienes el aliento. Las polillas pasan a tu lado en silencio. No te detectan.' },
+         { fate:'death',   txt:'Te quedas quieto, pero una polilla se posa en tu mano. No la ahuyentas. Despiertan a las dem\u00e1s.' },
+         { fate:'advance', txt:'Sigues la corriente de aire contrario. Las polillas no pueden seguirte. Encuentras una salida lateral.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Enciendes la linterna para verlas mejor. Decenas de polillas caen sobre tu rostro. Tu grito activa a todas las dem\u00e1s.' },
+         { fate:'death',   txt:'Intentas espantarlas con las manos. Se aferran a tu ropa. Tu piel. Tu calor.' },
+         { fate:'advance', txt:'Corres hacia el ruido. Las polillas te siguen, pero no pueden cruzar el fuego de la siguiente sala.' }
+       ]
+     },
+     'cameras': {
+       obey: [
+         { fate:'advance', txt:'No miras directamente a la lente. Pasas desapercibido. Las C\u00e1maras registran un pasillo vac\u00edo.' },
+         { fate:'advance', txt:'Cubres tu cara con la manga. La C\u00e1mara pierde tu rastro. Sigues avanzando.' },
+         { fate:'death',   txt:'Piensas que es solo una c\u00e1mara. La luz roja parpadea. El \u00faltico sonido que escuchas es el obturador cerr\u00e1ndose.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Saludas a la c\u00e1mara. El flash es instant\u00e1neo. El siguiente nivel ya tiene tu foto pegada en todas las paredes.' },
+         { fate:'advance', txt:'Rompes la c\u00e1mara con un extintor. El sistema pierde tu posici\u00f3n. Tienes unos minutos antes de que env\u00eden otras.' },
+         { fate:'death',   txt:'Le sacas una foto. La c\u00e1mara te devuelve la foto. Pero en la imagen, t\u00fa no est\u00e1s sonriendo.' }
+       ]
+     },
+     'bacteria': {
+       obey: [
+         { fate:'advance', txt:'Te tapas la nariz y la boca. Sales del \u00e1rea antes de que el hongo eche ra\u00edces en tus pulmones.' },
+         { fate:'death',   txt:'Te tapas, pero el ambiente ya estaba demasiado tiempo en tu sangre. El s\u00edntoma aparece tres niveles m\u00e1s tarde.' },
+         { fate:'advance', txt:'Cubres los filtros de tu m\u00e1scara. La Bacteria no puede instalarse. Respiras tranquilo.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Respiras profundo para orientarte. El aire sabe dulce. Demasiado dulce. La Bacteria ya ha colonizado tus alv\u00e9olos.' },
+         { fate:'death',   txt:'Quitas la m\u00e1scara. La Bacteria te estaba esperando. Crece en tu garganta. En tus ojos. En todo.' },
+         { fate:'advance', txt:'Sales corriendo sin protecci\u00f3n. Tienes suerte. La colonia estaba en el lado opuesto del conducto.' }
+       ]
+     },
+     'dullers': {
+       obey: [
+         { fate:'advance', txt:'No estableces contacto visual con el Duller. La entidad no se inmuta. Sigue su patr\u00f3n habitual.' },
+         { fate:'death',   txt:'Intentas no mirarlo, pero Duller ya te ha detectado. Su grito congela tu sangre. Tu cuerpo se desvanece.' },
+         { fate:'advance', txt:'Te escondes detr\u00e1s de una columna. Duller pasa a tu lado. No te ha olido. Sigues adelante.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Miras a Duller a los ojos. La entidad sonr\u00ede por primera vez. Tu cuerpo no responde. Duller te arrastra.' },
+         { fate:'death',   txt:'Le gritas a Duller. La entidad acelera. Su grito perfora tus o\u00eddos. Es lo \u00faltico que escuchas.' },
+         { fate:'advance', txt:'Le haces un gesto obsceno. Duller se confunde. Las Dullers no entienden el sarcasmo. Pasas.' }
+       ]
+     },
+     'generic': {
+       obey: [
+         { fate:'advance', txt:'Haces lo que la entidad sugiere. El camino se despeja. Encuentras una salida lateral.' },
+         { fate:'death',   txt:'La entidad te gui\u00f3 directo a una trampa. Los sensores registran tu \u00faltima se\u00f1al de calor.' },
+         { fate:'advance', txt:'Sigues sus indicaciones al pie de la letra. El siguiente nivel se abre frente a ti.' }
+       ],
+       disobey: [
+         { fate:'death',   txt:'Ignoras la advertencia. La entidad te encuentra. Tu cuerpo aparece en un pasillo tres niveles m\u00e1s abajo.' },
+         { fate:'advance', txt:'Haces caso omiso. La entidad no puede seguirte hasta el siguiente corredor. Est\u00e1s a salvo por ahora.' },
+         { fate:'death',   txt:'Vas por tu cuenta. La entidad no estaba mintiendo. El conducto lleva a una trampa que lleva a otra trampa.' }
+       ]
+     }
+   };
+
+   // Mapeo nombre-llave de outcomes. Si la entidad no tiene key, usa 'generic'.
+   function outcomeKeyForEntity(name) {
+     if (!name) return 'generic';
+     var n = name.toLowerCase();
+     if (n.indexOf('smiler') >= 0) return 'smilers';
+     if (n.indexOf('hound') >= 0) return 'hounds';
+     if (n.indexOf('skin') >= 0 || n.indexOf('stealer') >= 0) return 'skin stealers';
+     if (n.indexOf('face') >= 0 || n.indexOf('faceling') >= 0) return 'facelings';
+     if (n.indexOf('party') >= 0 || n.indexOf('fiesta') >= 0) return 'partygoers';
+     if (n.indexOf('moth') >= 0 || n.indexOf('polilla') >= 0) return 'death moths';
+     if (n.indexOf('c\u00e1mara') >= 0 || n.indexOf('camera') >= 0) return 'cameras';
+     if (n.indexOf('bacteria') >= 0 || n.indexOf('hongo') >= 0) return 'bacteria';
+     if (n.indexOf('duller') >= 0) return 'dullers';
+     return 'generic';
+   }
+
+   function pickOutcome(entity, obey, levelIdx) {
+     var key = outcomeKeyForEntity(entity && entity.name);
+     var set = ENTITY_OUTCOMES[key] || ENTITY_OUTCOMES['generic'];
+     var list = obey ? set.obey : set.disobey;
+     if (!list || !list.length) return { fate:'advance', txt:'El camino se abre frente a ti.' };
+     return list[levelIdx % list.length];
+   }
+
+   // Stubs de compatibilidad - se usan antes de initSurvivalGame
+   window.SURVIVAL_GAME = window.SURVIVAL_GAME || {};
+   window.SURVIVAL_GAME.start = function() {};
+   window.SURVIVAL_GAME.close = function() {};
+
+   var ESCAPE_ACTIONS = [
     { safe:{ text:'Hacer no-clip a trav\u00e9s de la pared deste\u00f1ida', detail:'Avance lento pero estable. Las entidades rara vez cruzan el umbral.', bonus:20, skip:0 },
       risky:{ text:'Forzar una grieta en el suelo con un extintor', detail:'Puedes saltar niveles, pero el ruido atrae a las entidades.', bonus:-30, skip:2 } },
     { safe:{ text:'Cruzar la puerta de servicio entreabierta', detail:'Camino verificado por exploradores previos. Baja exposici\u00f3n.', bonus:20, skip:0 },
@@ -1750,6 +2018,33 @@
     document.getElementById('sg-btn-start').addEventListener('click', function() { startGame(); });
     document.getElementById('sg-btn-restart').addEventListener('click', function() { startGame(); });
     document.getElementById('sg-btn-close').addEventListener('click', function() { closeGame(); });
+    var vhsTile = document.getElementById('vhs-tile');
+    if (vhsTile) {
+      vhsTile.addEventListener('click', function() {
+        if (typeof playClick === 'function') playClick();
+        startGame();
+      });
+      vhsTile.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (typeof playClick === 'function') playClick();
+          startGame();
+        }
+      });
+    }
+    var ts = document.getElementById('vhs-timestamp');
+    if (ts) {
+      var _vhsT0 = Date.now();
+      setInterval(function() {
+        var ms = Date.now() - _vhsT0;
+        var totalCs = Math.floor(ms / 10);
+        var hh = String(Math.floor(totalCs / 360000)).padStart(2, '0');
+        var mm = String(Math.floor((totalCs / 6000) % 60)).padStart(2, '0');
+        var ss = String(Math.floor((totalCs / 100) % 60)).padStart(2, '0');
+        var ff = String(totalCs % 100).padStart(2, '0');
+        ts.textContent = hh + ':' + mm + ':' + ss + ':' + ff;
+      }, 33);
+    }
   }
 
   // Expose game control on window for the nivelesSurvivalBoost IIFE
@@ -1897,24 +2192,23 @@
         '</div>'
       : '';
 
-    // Entity block: photo + name + danger rating + short description.
+    // Right column: compact info card with arrows (per the user's mock-up).
+    // Shows a small photo of the active entity (or a discreet "none" state).
     var entityBlock = '';
     if (mainEntity) {
       var eImg = mainEntity.image ? '<img class="sg-entity-photo" src="' + mainEntity.image + '" alt="' + mainEntity.name + '" ' +
         'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />' : '';
-      var eDesc = mainEntity.description ? mainEntity.description.substring(0, 140) + (mainEntity.description.length > 140 ? '…' : '') : '';
       var more = extraEntities.length
-        ? '<div class="sg-entity-more">+ ' + extraEntities.length + ' entidad(es) detectada(s) en este nivel: ' +
+        ? '<div class="sg-entity-more">+ ' + extraEntities.length + ': ' +
             extraEntities.map(function(e){ return e.name; }).join(', ') + '</div>'
         : '';
       entityBlock =
-        '<div class="sg-entity-block">' +
+        '<div class="sg-entity-block sg-entity-block-compact">' +
           '<div class="sg-entity-photo-wrap">' + eImg + '<div class="sg-entity-photo-tag">FOTO</div></div>' +
           '<div class="sg-entity-info">' +
             '<div class="sg-entity-label">&gt; ENTIDAD ACTIVA</div>' +
             '<div class="sg-entity-name">' + mainEntity.name + '</div>' +
             '<div class="sg-entity-danger">' +
-              '<span class="sg-entity-danger-k">PELIGRO</span>' +
               '<span class="sg-entity-danger-stars">' +
                 Array.from({length:5}).map(function(_,i){
                   return '<span class="sg-star ' + (i < mainEntity.danger ? 'on' : 'off') + '">\u25C6</span>';
@@ -1922,21 +2216,22 @@
               '</span>' +
               '<span class="sg-entity-danger-v">' + mainEntity.danger + '/5</span>' +
             '</div>' +
-            (eDesc ? '<div class="sg-entity-desc">' + eDesc + '</div>' : '') +
             more +
           '</div>' +
         '</div>';
     } else {
       entityBlock =
-        '<div class="sg-entity-block sg-entity-block-none">' +
-          '<div class="sg-entity-photo-wrap sg-entity-photo-missing"><div class="sg-entity-photo-tag">N/A</div></div>' +
-          '<div class="sg-entity-info">' +
+        '<div class="sg-entity-block sg-entity-block-compact sg-entity-block-none">' +
+          '<div class="sg-entity-info sg-entity-info-full">' +
             '<div class="sg-entity-label">&gt; ENTIDAD ACTIVA</div>' +
             '<div class="sg-entity-name">SIN FIRMAS BIOL\u00d3GICAS DETECTADAS</div>' +
-            '<div class="sg-entity-desc">Los sensores de proximidad no reportan actividad an\u00f3mala. Esto no garantiza que el nivel sea seguro.</div>' +
+            '<div class="sg-entity-desc">Los sensores de proximidad no reportan actividad an\u00f3mala.</div>' +
           '</div>' +
         '</div>';
     }
+
+    // Difficulty arrow indicator (compact, sits next to the level name)
+    var arrow = '\u25B6';
 
     // Build level content
     var content = document.getElementById('sg-content');
@@ -1945,7 +2240,7 @@
         '<div class="sg-level-head">' +
           '<div class="sg-level-head-left">' +
             '<div class="sg-level-sub">\u25A0 NIVEL ' + idx + ' / ' + (WIKI_LEVELS.length - 1) + ' \u2014 PROFUNDIDAD ' + (level.class + 1) + '/5</div>' +
-            '<div class="sg-level-title">' + level.name + '</div>' +
+            '<div class="sg-level-title">' + level.name + ' ' + arrow + '</div>' +
             (level.alias ? '<div class="sg-level-alias">' + level.alias + '</div>' : '') +
           '</div>' +
           '<div class="sg-level-head-right">' +
@@ -1962,53 +2257,271 @@
         '<div class="sg-desc-line" id="sg-type-line-0"></div>' +
         '<div class="sg-desc-line" id="sg-type-line-1"></div>' +
         '<div class="sg-desc-line" id="sg-type-line-2"></div>' +
-        '<div class="sg-bar-section">' +
-          '<span class="sg-bar-label">PROBABILIDAD BASE DE SUPERVIVENCIA &mdash; SIN DECISIONES</span>' +
-          '<div class="sg-bar-row">' +
-            '<div class="sg-bar-track-big"><div class="sg-bar-fill-big" id="sg-bar-fill-big" style="width:0%;background:' + survColor + '"></div></div>' +
-            '<span class="sg-bar-pct-big" id="sg-bar-pct-big" style="color:' + survColor + '">0%</span>' +
-          '</div>' +
-        '</div>' +
       '</div>';
 
     var optGrid = document.getElementById('sg-opt-grid');
-    var actions = shuffleArray(ESCAPE_ACTIONS).slice(0, 2);
-    var safeSurv = Math.min(99, baseSurv + actions[0].safe.bonus);
-    var riskySurv = Math.min(99, Math.max(5, baseSurv + actions[0].risky.bonus));
-    var safeColor = safeSurv > 60 ? '#30c460' : safeSurv > 35 ? '#c8a415' : '#c43030';
-    var riskyColor = riskySurv > 60 ? '#30c460' : riskySurv > 35 ? '#c8a415' : '#c43030';
-    var a = actions[0];
-    optGrid.innerHTML =
-      '<button class="sg-card" id="sg-card-safe" data-bonus="' + a.safe.bonus + '" data-skip="' + a.safe.skip + '">' +
-        '<div class="sg-card-label">[ \u25D4 ' + a.safe.text + ' ]</div>' +
-        '<div class="sg-card-detail">' + a.safe.detail + '</div>' +
-        '<div class="sg-card-bar">' +
-          '<div class="sg-card-bar-track"><div class="sg-card-bar-fill" style="width:0%;background:' + safeColor + '"></div></div>' +
-          '<span class="sg-card-bar-pct" style="color:' + safeColor + '">0%</span>' +
-        '</div>' +
-      '</button>' +
-      '<button class="sg-card" id="sg-card-risky" data-bonus="' + a.risky.bonus + '" data-skip="' + a.risky.skip + '">' +
-        '<div class="sg-card-label">[ \u26A1 ' + a.risky.text + ' ]</div>' +
-        '<div class="sg-card-detail">' + a.risky.detail + '</div>' +
-        '<div class="sg-card-bar">' +
-          '<div class="sg-card-bar-track"><div class="sg-card-bar-fill" style="width:0%;background:' + riskyColor + '"></div></div>' +
-          '<span class="sg-card-bar-pct" style="color:' + riskyColor + '">0%</span>' +
-        '</div>' +
-      '</button>';
+    optGrid.innerHTML = '';
 
-    // Typewriter description lines
+    // Reset picked entity at start of every level
+    GAME.pickedEntity = null;
+
+    // TikTok-style entity picker: choose 1 of 2 entities (or "no entity" option).
+    // Once chosen, the entity's profile determines the escape odds and flavor text.
+    var allEnts = (ents && ents.length) ? ents.slice() : [];
+    var options = [];
+    if (allEnts.length >= 2) {
+      options.push(allEnts[0]);
+      options.push(allEnts[1]);
+    } else if (allEnts.length === 1) {
+      options.push(allEnts[0]);
+      options.push({ __none:true, name:'SECTOR DESPEJADO', hint:'Sin firmas biol\u00f3gicas. Avanza con precauci\u00f3n.', danger:0 });
+    } else {
+      options.push({ __none:true, name:'SECTOR DESPEJADO', hint:'Los sensores no reportan amenazas activas.', danger:0 });
+      options.push({ __none:true, name:'AVANCE SILENCIOSO', hint:'Mant\u00e9n el ruido al m\u00ednimo. No enciendas la linterna.', danger:0 });
+    }
+
+    // Render pick cards (compact list with arrow on the right, like the mock-up)
+    var pickHtml = '<div class="sg-pick-stage">' +
+      '<div class="sg-pick-prompt">Desliza o pulsa <span class="arrow">\u25B6</span> elige tu entidad</div>' +
+      '<div class="sg-pick-list" id="sg-pick-grid">';
+    for (var pi = 0; pi < options.length; pi++) {
+      var opt = options[pi];
+      var isNone = opt.__none;
+      var photoStyle = isNone
+        ? ''
+        : ' style="background-image:url(\'' + (opt.image || '') + '\');"';
+      var photoImg = isNone
+        ? ''
+        : '<img class="sg-entity-photo" src="' + (opt.image || '') + '" alt="' + opt.name + '" ' +
+          'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />';
+      // data-entity-* mirror what entidades.html uses to open the modal.
+      // The empty/fake options (no wiki entity) still expose name + image
+      // so the photo is clickable to view a "sector despejado" info card.
+      var entId = (opt && opt.id) ? opt.id : (isNone ? 'sector-despejado' : '');
+      var entName = (opt && opt.name) ? opt.name : (isNone ? 'Sector despejado' : 'Entidad');
+      var entDesc = (opt && opt.description) ? opt.description : (isNone ? 'Los sensores de proximidad no reportan actividad biol\u00f3gica. Sector despejado para avance.' : '');
+      var entDanger = (opt && opt.danger != null) ? opt.danger : (isNone ? 1 : 2);
+      var entImg = (opt && opt.image) ? opt.image : '';
+      var entWiki = (opt && opt.wiki_url) ? opt.wiki_url : '';
+      pickHtml +=
+        '<button class="sg-pick-row ' + (isNone ? 'sg-pick-row-none' : '') + '" ' +
+          'data-idx="' + pi + '" data-none="' + (isNone ? '1' : '0') + '" ' +
+          'data-entity-id="' + entId + '" data-entity-name="' + entName + '" ' +
+          'data-entity-desc="' + entDesc.replace(/"/g,'&quot;') + '" ' +
+          'data-entity-danger="' + entDanger + '" data-entity-image="' + entImg + '" ' +
+          'data-entity-wiki="' + entWiki + '">' +
+          '<div class="pick-row-photo pick-row-photo-zoom"' + photoStyle + ' title="Ver ficha">' + photoImg + '</div>' +
+          '<div class="pick-row-text">' +
+            '<div class="pick-row-name">' + opt.name + '</div>' +
+            '<div class="pick-row-hint">' + (opt.hint || (opt.description ? opt.description.substring(0, 100) : 'Entidad registrada en este sector.')) + '</div>' +
+          '</div>' +
+          '<div class="pick-row-arrow">\u25B6</div>' +
+        '</button>';
+    }
+    pickHtml += '</div></div>';
+    optGrid.innerHTML = pickHtml;
+
+    // Typewriter description lines (pick stage)
     var descLines = [
       'Sistema de detecci\u00f3n de anomal\u00edas activo. Escaneando entorno...',
       'Tags: <span class="hl">' + level.tags.join('</span> \u2022 <span class="hl">') + '</span>.',
-      'Elige una ruta. Tus decisiones alteran la probabilidad final de salir con vida.'
+      'Elige con qu\u00e9 entidad te tocar\u00e1 enfrentarte. Tu selecci\u00f3n define el plan de extracci\u00f3n.'
     ];
-    typeWriterLines(descLines, 0, function() {
-      animateBars(baseSurv, safeSurv, riskySurv, safeColor, riskyColor);
-    });
+    typeWriterLines(descLines, 0, function() {});
 
-    // Bind option clicks
-    document.getElementById('sg-card-safe').addEventListener('click', function() { if (GAME.state !== 'playing') return; chooseOption(parseInt(this.getAttribute('data-bonus')), parseInt(this.getAttribute('data-skip'))); });
-    document.getElementById('sg-card-risky').addEventListener('click', function() { if (GAME.state !== 'playing') return; chooseOption(parseInt(this.getAttribute('data-bonus')), parseInt(this.getAttribute('data-skip'))); });
+    // Bind option clicks (entity pick).
+    // Click on the photo opens the entity info modal (like entidades.html).
+    // Click anywhere else on the row chooses the entity for the run.
+    var pickCards = optGrid.querySelectorAll('.sg-pick-row');
+    for (var ci = 0; ci < pickCards.length; ci++) {
+      pickCards[ci].addEventListener('click', function(e) {
+        if (GAME.state !== 'playing') return;
+        // If the click was on the photo, open the entity modal instead of
+        // choosing the entity for the run.
+        if (e.target && e.target.closest && e.target.closest('.pick-row-photo')) {
+          if (typeof openEntityModal === 'function') {
+            e.stopPropagation();
+            e.preventDefault();
+            openEntityModal(this);
+            return;
+          }
+        }
+        var idx = parseInt(this.getAttribute('data-idx'));
+        onEntityPicked(idx, options, level, idx);
+      });
+    }
+
+    // Swipeable mobile: detect horizontal swipe on the picker and choose
+    var pickGrid = document.getElementById('sg-pick-grid');
+    if (pickGrid) {
+      var sx = 0, sy = 0;
+      pickGrid.addEventListener('touchstart', function(e) {
+        if (!e.touches || !e.touches[0]) return;
+        sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+      }, { passive:true });
+      pickGrid.addEventListener('touchend', function(e) {
+        if (!e.changedTouches || !e.changedTouches[0]) return;
+        var dx = e.changedTouches[0].clientX - sx;
+        var dy = e.changedTouches[0].clientY - sy;
+        if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+        if (GAME.state !== 'playing') return;
+        var cards = pickGrid.querySelectorAll('.sg-pick-row');
+        if (dx < 0) { var last = cards[cards.length - 1]; if (last) last.click(); }
+        else { var first = cards[0]; if (first) first.click(); }
+      }, { passive:true });
+    }
+  }
+
+  // After the user picks an entity, render the decision stage with the
+  // entity's portrait and TWO options: "obey" and "disobey". The outcome
+  // is narrative, not probabilistic: every entity has a fixed list of
+  // 3 outcomes that rotates with the level number.
+  function onEntityPicked(pickIdx, options, level, baseSurv, survColor) {
+    if (GAME.state !== 'playing') return;
+    var opt = options[pickIdx];
+    if (!opt) return;
+    GAME.pickedEntity = opt;
+    GAME.state = 'animating';
+
+    var isNone = !!opt.__none;
+    var danger = opt.danger != null ? opt.danger : (isNone ? 0 : 2);
+    var photo = isNone ? '' : (opt.image || '');
+
+    // What the entity "says" — context-aware advice that the user can obey
+    // or ignore. Generated from the entity's wiki description when possible.
+    var says;
+    if (isNone) {
+      says = 'El sector est\u00e1 vac\u00edo. Mant\u00e9n el paso firme, sin forzar puertas.';
+    } else {
+      // Pull a short phrase from the entity description, or fall back.
+      var descr = (opt.description || '').replace(/[\r\n]+/g, ' ').trim();
+      if (descr.length > 90) descr = descr.substring(0, 87) + '...';
+      says = descr || 'Firma an\u00f3mala detectada. Procede con precauci\u00f3n.';
+    }
+
+    // Build the two decision labels dynamically.
+    var obeyText, obeyHint, disobeyText, disobeyHint;
+    if (isNone) {
+      obeyText = 'Seguir la corriente de aire';
+      obeyHint = 'Avanza por donde sopla el aire. Sin sorpresas.';
+      disobeyText = 'Forzar una puerta lateral';
+      disobeyHint = 'Tomar una ruta que nadie ha verificado.';
+    } else {
+      var shortName = opt.name.split(' ')[0];
+      obeyText = 'Hacerle caso a ' + shortName;
+      obeyHint = 'Obedecer lo que sea que est\u00e9 intentando decirte.';
+      disobeyText = 'No hacerle caso a ' + shortName;
+      disobeyHint = 'Ir por tu cuenta, ignorando la se\u00f1al.';
+    }
+
+    // Full description for the info card (HTML-escaped via textContent path).
+    var fullDesc = opt.description || 'Sin descripci\u00f3n disponible.';
+    // Danger stars (filled vs empty)
+    var stars = '';
+    for (var si = 0; si < 5; si++) {
+      stars += '<span class="sg-star ' + (si < danger ? 'on' : 'off') + '">\u25C6</span>';
+    }
+
+    var photoStyle = photo ? ' style="background-image:url(\'' + photo + '\');"' : '';
+    var photoBlock = isNone
+      ? '<div class="eis-photo eis-photo-empty">\u2205</div>'
+      : '<div class="eis-photo"' + photoStyle + '>' +
+          '<img src="' + photo + '" alt="' + opt.name + '" ' +
+            'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />' +
+        '</div>';
+
+    // Build a virtual card with the same data-entity-* attributes that
+    // entidades.html uses, so openEntityModal(card) works here too.
+    var entId = (opt && opt.id) ? opt.id : (isNone ? 'sector-despejado' : '');
+    var entName = (opt && opt.name) ? opt.name : (isNone ? 'Sector despejado' : 'Entidad');
+    var entDesc = (opt && opt.description) ? opt.description : (isNone ? 'Los sensores de proximidad no reportan actividad biol\u00f3gica. Sector despejado para avance.' : '');
+    var entDanger = (opt && opt.danger != null) ? opt.danger : (isNone ? 1 : 2);
+    var entImg = (opt && opt.image) ? opt.image : '';
+    var entWiki = (opt && opt.wiki_url) ? opt.wiki_url : '';
+    var entityCardAttrs =
+      ' data-entity-id="' + entId + '" data-entity-name="' + entName + '" ' +
+      'data-entity-desc="' + entDesc.replace(/"/g,'&quot;') + '" ' +
+      'data-entity-danger="' + entDanger + '" data-entity-image="' + entImg + '" ' +
+      'data-entity-wiki="' + entWiki + '"';
+
+    var optGrid = document.getElementById('sg-opt-grid');
+    optGrid.innerHTML =
+      '<div class="sg-entity-info-stage"' + entityCardAttrs + '>' +
+        '<div class="eis-head">' +
+          '<span class="eis-head-arrow">\u25B6</span>' +
+          'Entidad seleccionada' +
+        '</div>' +
+        '<div class="eis-card">' +
+          photoBlock +
+          '<div class="eis-data">' +
+            '<div class="eis-label">&gt; FICHA R\u00c1PIDA</div>' +
+            '<div class="eis-name">' + opt.name + '</div>' +
+            '<div class="eis-danger">' +
+              '<span>PELIGRO</span>' +
+              '<span class="eis-stars">' + stars + '</span>' +
+              '<span>' + danger + '/5</span>' +
+            '</div>' +
+            '<div class="eis-desc" id="eis-desc">' + fullDesc + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="eis-actions" id="eis-actions">' +
+          '<button class="eis-btn eis-btn-obey" id="sg-card-safe" data-pick="obey">' +
+            '<span class="eis-btn-icon">\u2713</span>' +
+            '<span class="eis-btn-text">' +
+              '<span class="eis-btn-name">' + obeyText + '</span>' +
+              '<span class="eis-btn-hint">' + obeyHint + '</span>' +
+            '</span>' +
+            '<span class="eis-btn-arrow">\u25B6</span>' +
+          '</button>' +
+          '<button class="eis-btn eis-btn-disobey" id="sg-card-risky" data-pick="disobey">' +
+            '<span class="eis-btn-icon">\u2715</span>' +
+            '<span class="eis-btn-text">' +
+              '<span class="eis-btn-name">' + disobeyText + '</span>' +
+              '<span class="eis-btn-hint">' + disobeyHint + '</span>' +
+            '</span>' +
+            '<span class="eis-btn-arrow">\u25B6</span>' +
+          '</button>' +
+        '</div>' +
+      '</div>';
+
+    // Bind clicks on the new obey/disobey buttons
+    var obeyBtn = document.getElementById('sg-card-safe');
+    var disobeyBtn = document.getElementById('sg-card-risky');
+    if (obeyBtn) obeyBtn.addEventListener('click', function() { chooseOption('obey', opt, level, 0); });
+    if (disobeyBtn) disobeyBtn.addEventListener('click', function() { chooseOption('disobey', opt, level, 0); });
+
+    // Click on the entity photo (in the info card on the right) opens the
+    // full entity modal — same as clicking a card on entidades.html.
+    var eisPhoto = optGrid.querySelector('.eis-photo');
+    var eisStage = optGrid.querySelector('.sg-entity-info-stage');
+    if (eisPhoto && eisStage && typeof openEntityModal === 'function') {
+      eisPhoto.addEventListener('click', function(ev) {
+        ev.stopPropagation();
+        ev.preventDefault();
+        openEntityModal(eisStage);
+      });
+    }
+
+    // Swipeable on the action grid
+    var agrid = document.getElementById('eis-actions');
+    if (agrid) {
+      var sx2 = 0, sy2 = 0;
+      agrid.addEventListener('touchstart', function(e) {
+        if (!e.touches || !e.touches[0]) return;
+        sx2 = e.touches[0].clientX; sy2 = e.touches[0].clientY;
+      }, { passive:true });
+      agrid.addEventListener('touchend', function(e) {
+        if (!e.changedTouches || !e.changedTouches[0]) return;
+        var dx = e.changedTouches[0].clientX - sx2;
+        var dy = e.changedTouches[0].clientY - sy2;
+        if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+        if (dx < 0) { if (disobeyBtn) disobeyBtn.click(); }
+        else { if (obeyBtn) obeyBtn.click(); }
+      }, { passive:true });
+    }
+
+    // Resume input
+    GAME.state = 'playing';
   }
 
   function typeWriterLines(lines, idx, callback) {
@@ -2078,46 +2591,95 @@
     }, 300);
   }
 
-  function chooseOption(bonus, skip) {
+  // Choose option: 'obey' or 'disobey' the picked entity.
+  // The outcome is a fixed narrative beat (no RNG). The user reads a short
+  // scene describing what happened, then either advances to the next level
+  // or dies.
+  function chooseOption(pick, entity, level, skip) {
     GAME.state = 'animating';
-    var level = WIKI_LEVELS[GAME.level];
-    var baseSurv = Math.max(10, 100 - (level.class * 18) - (level.difficulty * 6));
-    var prob = Math.min(99, Math.max(5, baseSurv + bonus));
-    var probColor = prob > 60 ? '#30c460' : prob > 35 ? '#c8a415' : '#c43030';
+    var obey = (pick === 'obey');
+    var outcome = pickOutcome(entity, obey, GAME.level);
 
-    // Deshabilitar botones y animar barra final
-    document.getElementById('sg-card-safe').disabled = true;
-    document.getElementById('sg-card-risky').disabled = true;
+    // Disable buttons
+    var safeBtn = document.getElementById('sg-card-safe');
+    var riskyBtn = document.getElementById('sg-card-risky');
+    if (safeBtn) safeBtn.disabled = true;
+    if (riskyBtn) riskyBtn.disabled = true;
 
-    var bigFill = document.getElementById('sg-bar-fill-big');
-    var bigPct = document.getElementById('sg-bar-pct-big');
-    if (bigFill) { bigFill.style.width = prob + '%'; bigFill.style.background = probColor; }
-    if (bigPct) { bigPct.textContent = prob + '%'; bigPct.style.color = probColor; }
+    // Render the outcome scene in the OPT grid (replaces the decision UI).
+    var optGrid = document.getElementById('sg-opt-grid');
+    var entityName = entity && entity.name ? entity.name : 'Entidad';
+    var verdictColor = outcome.fate === 'death' ? '#c43030' : '#30c460';
+    var verdictLabel = outcome.fate === 'death' ? 'FIN DE LA EXTRACCI\u00d3N' : 'EXTRACCI\u00d3N CONTIN\u00daA';
+    var verdictIcon = outcome.fate === 'death' ? '\u2620' : '\u2713';
+    var obeyLabel = obey ? 'LE HICISTE CASO A ' + entityName.split(' ')[0].toUpperCase()
+                        : 'NO LE HICISTE CASO A ' + entityName.split(' ')[0].toUpperCase();
+    var continueLabel = outcome.fate === 'death' ? 'ACEPTAR EL FINAL' : 'CONTINUAR \u25B6';
 
-    setTimeout(function() {
-      var roll = Math.random() * 100;
-      if (roll <= prob) {
-        // SOBREVIVE — glitch rápido
-        sgFlash();
-        sgGlitch('active');
-        var nextIdx = GAME.level + 1 + skip;
-        if (Math.random() < 0.03) {
-          setTimeout(function() { triggerSecretLevel(); }, 400);
-          return;
+    optGrid.innerHTML =
+      '<div class="sg-outcome-stage">' +
+        '<div class="sg-outcome-verdict" style="color:' + verdictColor + ';border-color:' + verdictColor + '">' +
+          '<span class="sg-outcome-icon">' + verdictIcon + '</span>' +
+          '<span class="sg-outcome-label">' + verdictLabel + '</span>' +
+        '</div>' +
+        '<div class="sg-outcome-choice">' + obeyLabel + '</div>' +
+        '<div class="sg-outcome-narrative" id="sg-outcome-narr"></div>' +
+        '<button class="sg-pick-row sg-outcome-continue" id="sg-outcome-continue">' +
+          '<div class="pick-row-photo pick-row-photo-empty">' + (outcome.fate === 'death' ? '\u2620' : '\u25B6') + '</div>' +
+          '<div class="pick-row-text"><div class="pick-row-name">' + continueLabel + '</div></div>' +
+          '<div class="pick-row-arrow">\u25B6</div>' +
+        '</button>' +
+      '</div>';
+
+    // Typewriter the narrative
+    var narrEl = document.getElementById('sg-outcome-narr');
+    if (narrEl) {
+      var txt = outcome.txt;
+      var pos = 0;
+      narrEl.textContent = '';
+      function tick() {
+        if (pos < txt.length) {
+          narrEl.textContent = txt.substring(0, pos + 1);
+          pos++;
+          setTimeout(tick, 18 + Math.random() * 10);
         }
-        setTimeout(function() {
-          sgStopGlitch();
-          GAME.state = 'playing';
-          if (nextIdx >= WIKI_LEVELS.length) { showVictoryScreen(); }
-          else { renderGameLevel(nextIdx); }
-        }, 500);
-      } else {
-        // MUERE
-        sgFlash();
-        sgGlitch('severe');
-        setTimeout(function() { showDeathScreen(); }, 800);
       }
-    }, 900);
+      tick();
+    }
+
+    // Brief visual effects tied to the outcome
+    if (outcome.fate === 'death') {
+      sgFlash();
+      sgGlitch('severe');
+    } else {
+      sgFlash();
+      sgGlitch('active');
+    }
+
+    // Bind continue button
+    var contBtn = document.getElementById('sg-outcome-continue');
+    if (contBtn) {
+      contBtn.addEventListener('click', function() { advanceFromOutcome(outcome, level); });
+    }
+  }
+
+  // After the outcome scene, either show the death screen or render the next
+  // level. Optionally, a 3% chance per advance to trigger the secret level
+  // (the only random element in the game, kept low for narrative surprise).
+  function advanceFromOutcome(outcome, level) {
+    if (outcome.fate === 'death') {
+      showDeathScreen();
+      return;
+    }
+    var nextIdx = GAME.level + 1;
+    if (Math.random() < 0.04) {
+      triggerSecretLevel();
+      return;
+    }
+    sgStopGlitch();
+    GAME.state = 'playing';
+    if (nextIdx >= WIKI_LEVELS.length) { showVictoryScreen(); }
+    else { renderGameLevel(nextIdx); }
   }
 
   function triggerSecretLevel() {
@@ -2393,6 +2955,53 @@
             }
           }
 
+          // Resolve linked entities (with photos) for this level and render them.
+          var entitiesRaw = card.getAttribute('data-level-entities') || 'Ninguna';
+          var entsList = [];
+          try { entsList = lookupEntitiesForLevel({ entities: entitiesRaw }); } catch(err) { entsList = []; }
+          var entsBox = modal.querySelector('.lm-entities-list');
+          var entsBlock = modal.querySelector('.lm-entities-block');
+          if (entsBox && entsBlock) {
+            if (!entsList || entsList.length === 0) {
+              entsBlock.style.display = 'none';
+            } else {
+              entsBlock.style.display = '';
+              var entsHtml = '';
+              var dangerLabels = { 0:'NULA', 1:'BAJA', 2:'MODERADA', 3:'ALTA', 4:'EXTREMA' };
+              var dangerColors = { 0:'#5b8a3a', 1:'#9bc830', 2:'#ffae00', 3:'#ff5a14', 4:'#ff2a2a' };
+              for (var en = 0; en < entsList.length; en++) {
+                var ent = entsList[en] || {};
+                var entName = ent.name || ('Entidad ' + (ent.id || '').replace(/^ent-/i,''));
+                var entAlias = entName.split('\u2014')[1] ? entName.split('\u2014')[1].trim() : (ent.name || '');
+                var entImg = ent.image || ('images/Entidades/' + (ent.id || 'entidad_0') + '.jpg');
+                var danger = (ent.danger != null) ? ent.danger : (ent.class != null ? ent.class : 2);
+                var dColor = dangerColors[Math.max(0, Math.min(4, danger))] || dangerColors[2];
+                var dLabel = dangerLabels[Math.max(0, Math.min(4, danger))] || dangerLabels[2];
+                var entId = (ent.id || '').replace(/[^A-Za-z0-9_\-]/g,'');
+                var entFallback = 'images/Entidades/entidad_0.jpg';
+                entsHtml += '<a href="entidades.html?openEntity=' + entId + '" class="lm-entity-card" data-entity-id="' + entId + '">'
+                          +   '<div class="lm-entity-photo" style="background-image:url(\'' + entImg + '\')" onerror="this.style.backgroundImage=\'url(' + entFallback + ')\';"></div>'
+                          +   '<div class="lm-entity-info">'
+                          +     '<span class="lm-entity-name">' + entAlias + '</span>'
+                          +     '<span class="lm-entity-id">' + (ent.id || '').toUpperCase() + '</span>'
+                          +     '<span class="lm-entity-danger" style="color:' + dColor + ';border-color:' + dColor + ';">' + dLabel + '</span>'
+                          +   '</div>'
+                          + '</a>';
+              }
+              entsBox.innerHTML = entsHtml;
+              // Bind click → navigate to entidades.html and auto-open the entity modal
+              var entLinks = entsBox.querySelectorAll('.lm-entity-card');
+              for (var k = 0; k < entLinks.length; k++) {
+                entLinks[k].addEventListener('click', function(e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  var eid = this.getAttribute('data-entity-id');
+                  window.location.href = 'entidades.html?openEntity=' + encodeURIComponent(eid);
+                });
+              }
+            }
+          }
+
           var wikiUrl = card.getAttribute('data-level-wiki') || '';
           var wikiLink = modal.querySelector('.lm-wiki-link');
           if (wikiLink) {
@@ -2408,6 +3017,42 @@
         });
       })(cards[i]);
     }
+
+    // Expose a public helper so other pages (or a ?openLevel= query string)
+    // can open the level modal by id without needing the card on screen.
+    window.__openLevelModalById = function(id) {
+      var sel = '.level-card[data-level-id="' + (id || '').replace(/[^A-Za-z0-9_\-]/g,'') + '"]';
+      var card = document.querySelector(sel);
+      if (card) { card.click(); return true; }
+      return false;
+    };
+
+    // Expose a public helper to open the entity modal by id.
+    // Tries the real card first; falls back to a virtual card built from
+    // the WIKI_ENTITIES_WIKI entry so it works from cross-page navigation.
+    window.__openEntityModalById = function(id) {
+      var safeId = (id || '').replace(/[^A-Za-z0-9_\-]/g,'');
+      var card = document.querySelector('.entity-card[data-entity-id="' + safeId + '"]');
+      if (card && typeof openEntityModal === 'function') { openEntityModal(card); return true; }
+      if (typeof openEntityModal !== 'function') return false;
+      var list = window.WIKI_ENTITIES_WIKI || (typeof WIKI_ENTITIES_WIKI !== 'undefined' ? WIKI_ENTITIES_WIKI : []);
+      var entry = null;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i] && list[i].id === safeId) { entry = list[i]; break; }
+      }
+      if (!entry) return false;
+      var v = document.createElement('div');
+      v.setAttribute('data-entity-id', entry.id || '');
+      v.setAttribute('data-entity-name', entry.name || '');
+      v.setAttribute('data-entity-desc', entry.description || entry.desc || '');
+      v.setAttribute('data-entity-danger', String(entry.danger != null ? entry.danger : (entry.class || 2)));
+      v.setAttribute('data-entity-image', entry.image || ('images/Entidades/' + (entry.id || 'entidad_0') + '.jpg'));
+      v.setAttribute('data-entity-wiki', entry.wiki_url || '');
+      v.style.display = 'none';
+      document.body.appendChild(v);
+      try { openEntityModal(v); } finally { v.remove(); }
+      return true;
+    };
   }
 
   // ===================== MIGRACIÓN DESDE LOCALSTORAGE =====================
@@ -2448,6 +3093,20 @@
     var clickSoundsBound = false;
     var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Estado persistido del audio: si el usuario lo dejó silenciado, respetarlo
+    var STORAGE_KEY = 'br_ambient_state';
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        var s = JSON.parse(saved);
+        if (s && typeof s.muted === 'boolean') muted = s.muted;
+      }
+    } catch(e) {}
+
+    function saveState() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ muted: muted, ts: Date.now() })); } catch(e) {}
+    }
+
     function updateUI() {
       var btn = document.getElementById('mute-toggle');
       var icon = document.getElementById('mute-icon');
@@ -2464,17 +3123,24 @@
       }
     }
 
-    function tryActivate() {
-      if (userActivated) return;
+    // Inicia el audio sin esperar gesto. Si el navegador bloquea
+    // (política de autoplay), se reagenda para el primer gesto del usuario.
+    function tryActivate(silent) {
+      if (userActivated) { resumeLoop(); return; }
       userActivated = true;
       try { BACKROOMS_AUDIO.init(); } catch(e) { console.warn('[AUDIO] init fail', e); }
       try { BACKROOMS_AUDIO.resume(); } catch(e) {}
-      if (!prefersReduced) {
+      if (!muted && !prefersReduced) {
         try { BACKROOMS_AUDIO.playHum(); } catch(e) { console.warn('[AUDIO] hum fail', e); }
-        try { BACKROOMS_MUSIC.play(); } catch(e) {}
       }
       active = true;
       updateUI();
+    }
+
+    function resumeLoop() {
+      if (!userActivated || muted || prefersReduced) return;
+      try { BACKROOMS_AUDIO.resume(); } catch(e) {}
+      try { BACKROOMS_AUDIO.playHum(); } catch(e) {}
     }
 
     function toggle() {
@@ -2482,16 +3148,13 @@
       muted = !muted;
       if (muted) {
         try { BACKROOMS_AUDIO.stopAll(); } catch(e) {}
-        try { BACKROOMS_MUSIC.pause(); } catch(e) {}
-        active = false;
       } else {
         try { BACKROOMS_AUDIO.resume(); } catch(e) {}
         if (!prefersReduced) {
           try { BACKROOMS_AUDIO.playHum(); } catch(e) {}
-          try { BACKROOMS_MUSIC.play(); } catch(e) {}
         }
-        active = true;
       }
+      saveState();
       updateUI();
     }
 
@@ -2499,31 +3162,38 @@
       if (clickSoundsBound) return;
       clickSoundsBound = true;
       var lastClick = 0;
+      // Click sound en TODO el documento, silencioso si el usuario lo pidió
       document.addEventListener('click', function(e) {
-        if (!userActivated) return;
+        if (muted) return;
         var now = Date.now();
-        if (now - lastClick < 60) return;
+        if (now - lastClick < 50) return;
         lastClick = now;
-        try { BACKROOMS_AUDIO.playClick(); } catch(e) {}
+        try {
+          if (BACKROOMS_AUDIO._ctx && BACKROOMS_AUDIO._ctx.state === 'suspended') {
+            BACKROOMS_AUDIO._ctx.resume();
+          }
+          BACKROOMS_AUDIO.playClick();
+        } catch(err) {}
       }, true);
+      // Pasos al pasar sobre cards (con throttle)
       var hoverTimer = null;
       document.addEventListener('mouseover', function(e) {
-        if (!userActivated || muted) return;
+        if (muted || prefersReduced) return;
         var tgt = e.target;
-        if (tgt.closest && tgt.closest('.level-card, .entity-card')) {
+        if (tgt.closest && tgt.closest('.level-card, .entity-card, .db-card')) {
           if (hoverTimer) return;
           hoverTimer = setTimeout(function() { hoverTimer = null; }, 800);
           try { BACKROOMS_AUDIO.playSteps(); } catch(e) {}
         }
       });
-      var visibilityHandler = function() {
+      // Reanudar hum al volver a la pestaña
+      document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
           try { BACKROOMS_AUDIO.stopAll(); } catch(e) {}
-        } else if (userActivated && active && !muted && !prefersReduced) {
-          try { BACKROOMS_AUDIO.playHum(); } catch(e) {}
+        } else {
+          resumeLoop();
         }
-      };
-      document.addEventListener('visibilitychange', visibilityHandler);
+      });
     }
 
     return {
@@ -2532,15 +3202,25 @@
         if (btn) {
           btn.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); toggle(); });
         }
-        var activateOnce = function() {
-          tryActivate();
-          document.removeEventListener('click', activateOnce, true);
-          document.removeEventListener('keydown', activateOnce, true);
-          document.removeEventListener('touchstart', activateOnce, true);
+        // Activar el hum lo antes posible.
+        // La política de autoplay puede bloquear el AudioContext, por eso
+        // reagendamos al primer gesto. El click sound sigue funcionando
+        // porque solo necesita el contexto creado (no resucitado).
+        tryActivate();
+        // Fallback: primer gesto reactiva el contexto si estaba suspendido
+        var resumeOnGesture = function() {
+          try {
+            if (BACKROOMS_AUDIO._ctx && BACKROOMS_AUDIO._ctx.state === 'suspended') {
+              BACKROOMS_AUDIO._ctx.resume();
+            }
+            if (!userActivated) tryActivate();
+            else resumeLoop();
+          } catch(e) {}
         };
-        document.addEventListener('click', activateOnce, true);
-        document.addEventListener('keydown', activateOnce, true);
-        document.addEventListener('touchstart', activateOnce, true);
+        document.addEventListener('click', resumeOnGesture, true);
+        document.addEventListener('keydown', resumeOnGesture, true);
+        document.addEventListener('touchstart', resumeOnGesture, true);
+        document.addEventListener('mousemove', resumeOnGesture, { passive: true, once: true });
         bindClickSounds();
         updateUI();
       },
@@ -2726,10 +3406,56 @@
     initTerminalLogs();
     initLevelScan();
     initVideoModal();
+    if (document.getElementById('entity-modal-overlay')) initEntityModal();
 
     initSurvivalGame();
     BACKROOMS_MUSIC.init();
     AMBIENT_AUDIO.init();
+
+    // Open a level modal if the URL contains ?openLevel=ID
+    // (e.g. when arriving from entidades.html via a level badge).
+    try {
+      var openLv = null;
+      if (typeof URLSearchParams !== 'undefined') {
+        openLv = new URLSearchParams(window.location.search).get('openLevel');
+      } else {
+        var m = window.location.search.match(/[?&]openLevel=([^&]+)/);
+        if (m) openLv = decodeURIComponent(m[1]);
+      }
+      if (openLv) {
+        // Wait a tick for the grid to render
+        setTimeout(function() {
+          if (window.__openLevelModalById && !window.__openLevelModalById(openLv)) {
+            // Fallback: try matching by name (e.g. "Nivel 2")
+            var byName = false;
+            var wanted = openLv.toLowerCase();
+            var nameMap = {
+              'wiki-0':0,'wiki-1':1,'wiki-2':2,'wiki-3':3,'wiki-4':4,'wiki-5':5,'wiki-6':6,'wiki-7':7,'wiki-8':8,
+              'wiki-neg0':9,'wiki-neg1':10,'wiki-neg2':11,'wiki-neg3':12,
+              'wiki-the_end':13,'wiki-l4_s0mbr4_gr1s':14,'wiki-corre':15,'wiki-tierra_prometida':16,'wiki-the_hub':17
+            };
+            if (nameMap[openLv] != null) window.__openLevelModalById(openLv);
+          }
+        }, 250);
+      }
+    } catch(eO) { console.warn('[openLevel]', eO); }
+
+    // Open an entity modal if the URL contains ?openEntity=ID
+    // (e.g. when arriving from niveles.html via a linked entity card).
+    try {
+      var openEnt = null;
+      if (typeof URLSearchParams !== 'undefined') {
+        openEnt = new URLSearchParams(window.location.search).get('openEntity');
+      } else {
+        var mE = window.location.search.match(/[?&]openEntity=([^&]+)/);
+        if (mE) openEnt = decodeURIComponent(mE[1]);
+      }
+      if (openEnt) {
+        setTimeout(function() {
+          if (window.__openEntityModalById) window.__openEntityModalById(openEnt);
+        }, 350);
+      }
+    } catch(eEnt) { console.warn('[openEntity]', eEnt); }
 
     // Re-render dynamic content on language change
     document.addEventListener('langchange', function() {
@@ -3269,51 +3995,3 @@
   });
 })();
 
-(function nivelesSurvivalBoost() {
-  function ready(fn) {
-    if (document.readyState !== 'loading') fn();
-    else document.addEventListener('DOMContentLoaded', fn);
-  }
-  ready(function() {
-    var btn = document.getElementById('ns-start-btn');
-    if (btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (typeof window.SURVIVAL_GAME !== 'undefined' && typeof window.SURVIVAL_GAME.start === 'function') {
-          window.SURVIVAL_GAME.start();
-        }
-      });
-    }
-    var surv = document.getElementById('ns-survivors');
-    var ent = document.getElementById('ns-entities');
-    var threat = document.getElementById('ns-threat');
-    var avg = document.getElementById('ns-avgtime');
-    var last = document.getElementById('ns-last');
-    if (last) {
-      var d = new Date();
-      var pad = function(n) { return (n < 10 ? '0' : '') + n; };
-      last.textContent = pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
-    }
-    setInterval(function() {
-      if (surv) {
-        var n = 1247 + Math.floor(Math.random() * 11 - 5);
-        surv.textContent = n.toLocaleString();
-      }
-      if (ent) {
-        var v = parseInt(ent.textContent.replace(/\D/g, ''), 10) || 14;
-        if (Math.random() < 0.35) v = v + (Math.random() < 0.5 ? 1 : -1);
-        if (v < 8) v = 8; if (v > 22) v = 22;
-        ent.textContent = v;
-      }
-      if (threat && Math.random() < 0.25) {
-        var t = (3.5 + Math.random() * 0.9).toFixed(1);
-        threat.textContent = t + ' / 5';
-      }
-      if (avg && Math.random() < 0.15) {
-        var s = 240 + Math.floor(Math.random() * 30);
-        var mm = Math.floor(s / 60), ss = s % 60;
-        avg.textContent = (mm < 10 ? '0' : '') + mm + ':' + (ss < 10 ? '0' : '') + ss;
-      }
-    }, 2000);
-  });
-})();
