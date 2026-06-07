@@ -1248,6 +1248,66 @@
     return 'Ver documentaci\u00f3n wiki';
   }
 
+  function getEntitySurvivalHint(name, danger) {
+    var n = (name || '').toLowerCase();
+    if (n.indexOf('maniqu') >= 0) return 'No soportan movimiento. No le hagas caso.';
+    if (n.indexOf('ventana') >= 0) return 'Miran de vuelta. Obedece su advertencia.';
+    if (n.indexOf('smiler') >= 0 || n.indexOf('sonrisa') >= 0) return 'Te quiere a oscuras. No le obedezcas. Mant\u00e9n la luz.';
+    if (n.indexOf('partygoer') >= 0) return 'Su fiesta es una trampa. No le obedezcas.';
+    if (n.indexOf('faceling') >= 0) return 'Te imita si lo miras. Obedece su advertencia, no mires.';
+    if (n.indexOf('lighter') >= 0) return 'Entidad benigna. Obed\u00e9cela, te guiar\u00e1.';
+    if (n.indexOf('piel') >= 0 || n.indexOf('ladrone') >= 0) return 'Quiere tu piel. No le obedezcas.';
+    if (n.indexOf('sabueso') >= 0 || n.indexOf('hound') >= 0) return 'Quiere que huyas para cazarte. No le obedezcas.';
+    if (n.indexOf('duller') >= 0) return 'Se alimenta de tu mirada. No le obedezcas.';
+    if (n.indexOf('insano') >= 0) return 'Quiere que te acerques. No le obedezcas.';
+    if (n.indexOf('crawler') >= 0) return 'Quiere que mires arriba. No le obedezcas.';
+    if (n.indexOf('howler') >= 0) return 'Quiere que grites. No le obedezcas.';
+    if (n.indexOf('polilla') >= 0 || n.indexOf('death') >= 0) return 'Te avisa del peligro. Obedece su advertencia.';
+    if (n.indexOf('clump') >= 0) return 'Quiere que te acerques. No le obedezcas.';
+    if (n.indexOf('fantasma') >= 0) return 'No agresivos. Obed\u00e9celos y vete.';
+    if (n.indexOf('partypooper') >= 0) return 'Pac\u00edficos. Obed\u00e9celos.';
+    if (n.indexOf('clicker') >= 0) return 'Quiere que hables. No le obedezcas.';
+    if (n.indexOf('sombra') >= 0) return 'Absorben energ\u00eda. Obedece su orden.';
+    if (n.indexOf('frowner') >= 0) return 'Quiere que sonr\u00edas. No le obedezcas.';
+    if (n.indexOf('bacteria') >= 0) return 'Quiere que respires profundo. No le obedezcas.';
+    if (n.indexOf('neutrino') >= 0) return 'Quiere que te quedes. No le obedezcas.';
+    if (n.indexOf('cazador') >= 0) return 'Quiere que te escondas. Obed\u00e9celo.';
+    if (n.indexOf('aetinerrabu') >= 0) return 'Entidad antigua y poderosa. Obed\u00e9cela.';
+    if (danger >= 5) return 'MORTAL. No le obedezcas bajo ning\u00fan concepto.';
+    if (danger >= 4) return 'Extremadamente peligrosa. No le obedezcas.';
+    if (danger >= 3) return 'Peligrosa. Posiblemente miente. No le obedezcas.';
+    if (danger >= 2) return 'Poco peligrosa. Obedecer puede ser seguro.';
+    return 'Entidad benigna. Obed\u00e9cela sin miedo.';
+  }
+
+  function getEntityCommand(name) {
+    var n = (name || '').toLowerCase();
+    if (n.indexOf('ventana') >= 0) return 'No mires.';
+    if (n.indexOf('smiler') >= 0 || n.indexOf('sonrisa') >= 0) return 'Apaga la linterna.';
+    if (n.indexOf('partygoer') >= 0) return '\u00danete a la fiesta.';
+    if (n.indexOf('faceling') >= 0) return 'No mires.';
+    if (n.indexOf('lighter') >= 0) return 'S\u00edgueme.';
+    if (n.indexOf('piel') >= 0 || n.indexOf('ladrone') >= 0) return 'Ponte esta piel.';
+    if (n.indexOf('sabueso') >= 0 || n.indexOf('hound') >= 0) return 'Corre.';
+    if (n.indexOf('duller') >= 0) return 'M\u00edrame a los ojos.';
+    if (n.indexOf('insano') >= 0) return 'Ac\u00e9rcate.';
+    if (n.indexOf('crawler') >= 0) return 'Mira arriba.';
+    if (n.indexOf('howler') >= 0) return 'Grita.';
+    if (n.indexOf('polilla') >= 0 || n.indexOf('moth') >= 0) return 'Apaga la luz.';
+    if (n.indexOf('clump') >= 0) return 'Ven aqu\u00ed.';
+    if (n.indexOf('fantasma') >= 0) return 'Vete.';
+    if (n.indexOf('partypooper') >= 0) return 'Al\u00e9grate.';
+    if (n.indexOf('clicker') >= 0) return 'Habla.';
+    if (n.indexOf('maniqu') >= 0) return 'No parpadees.';
+    if (n.indexOf('sombra') >= 0) return 'Enciende la luz.';
+    if (n.indexOf('frowner') >= 0) return 'Sonr\u00ede.';
+    if (n.indexOf('bacteria') >= 0) return 'Respira profundo.';
+    if (n.indexOf('neutrino') >= 0) return 'Qu\u00e9date.';
+    if (n.indexOf('cazador') >= 0) return 'Esc\u00f3ndete.';
+    if (n.indexOf('aetinerrabu') >= 0) return 'R\u00edndete.';
+    return '';
+  }
+
   function openEntityModal(card) {
     var overlay = document.getElementById('entity-modal-overlay');
     var modal = document.getElementById('entity-modal');
@@ -1280,14 +1340,24 @@
     if (diffBox) { diffBox.style.borderColor = color; diffBox.style.boxShadow = '0 0 12px ' + color + '33'; }
 
     var img = document.getElementById('em-modal-image');
-    if (img) { img.src = imgSrc; img.alt = name; }
+    if (img) {
+      if (imgSrc) { img.src = imgSrc; img.alt = name; img.style.display = ''; }
+      else { img.src = ''; img.style.display = 'none'; }
+    }
+    var posterFrame = document.querySelector('.em-poster-frame');
+    if (posterFrame) {
+      posterFrame.style.display = imgSrc ? '' : 'none';
+    }
     setText('em-class', entityLabels.classL[danger] || ('CLASE ' + danger));
     setText('em-behavior', entityLabels.behavior[danger] || 'Comportamiento desconocido.');
-    // Levels: look up by id in ENTITIES to get the parsed levels array.
+    // Levels: look up by id in ENTITIES / WIKI_ENTITIES_WIKI
     var levelsEl = document.getElementById('em-levels');
     if (levelsEl) {
       var entRec = null;
       try { entRec = (ENTITIES || []).filter(function(en){ return en && en.id === entIdAttr; })[0] || null; } catch (e1) {}
+      if (!entRec && typeof WIKI_ENTITIES_WIKI !== 'undefined') {
+        try { entRec = WIKI_ENTITIES_WIKI.filter(function(en){ return en && en.id === entIdAttr; })[0] || null; } catch (e2) {}
+      }
       var lvArr = (entRec && Array.isArray(entRec.levels)) ? entRec.levels : [];
       if (lvArr.length) {
         levelsEl.innerHTML = lvArr.map(function(lv){
@@ -1303,6 +1373,7 @@
     }
     setText('em-threat', statusText); setColor('em-threat', color);
     setText('em-desc-text', desc || 'Sin descripci\u00f3n disponible en la wiki.');
+    setText('em-survival-hint', getEntitySurvivalHint(name, danger));
 
     var wLink = document.getElementById('em-wiki-link');
     if (wLink) { if (wikiUrl) { wLink.href = wikiUrl; wLink.style.display = 'inline'; } else { wLink.style.display = 'none'; } }
@@ -1399,7 +1470,12 @@
       if (diffBox) { diffBox.style.borderColor = color; diffBox.style.boxShadow = '0 0 12px ' + color + '33'; }
 
       var modalImg = document.getElementById('em-modal-image');
-      if (modalImg) { modalImg.src = imgSrc; modalImg.alt = name; }
+      if (modalImg) {
+        if (imgSrc) { modalImg.src = imgSrc; modalImg.alt = name; modalImg.style.display = ''; }
+        else { modalImg.src = ''; modalImg.style.display = 'none'; }
+      }
+      var posterFrame = document.querySelector('.em-poster-frame');
+      if (posterFrame) posterFrame.style.display = imgSrc ? '' : 'none';
 
       var classEl = document.getElementById('em-class');
       if (classEl) classEl.textContent = classLabels[danger] || ('CLASE ' + danger);
@@ -1411,6 +1487,9 @@
       if (levelsEl) {
         var entRec = null;
         try { entRec = (ENTITIES || []).filter(function(en){ return en && en.id === entIdAttr; })[0] || null; } catch (e2) {}
+        if (!entRec && typeof WIKI_ENTITIES_WIKI !== 'undefined') {
+          try { entRec = WIKI_ENTITIES_WIKI.filter(function(en){ return en && en.id === entIdAttr; })[0] || null; } catch (e3) {}
+        }
         var lvArr = (entRec && Array.isArray(entRec.levels)) ? entRec.levels : [];
         if (lvArr.length) {
           levelsEl.innerHTML = lvArr.map(function(lv){
@@ -1430,6 +1509,8 @@
 
       var descEl = document.getElementById('em-desc-text');
       if (descEl) descEl.textContent = desc || 'Sin descripci\u00f3n disponible en la wiki.';
+      var hintEl = document.getElementById('em-survival-hint');
+      if (hintEl) hintEl.textContent = getEntitySurvivalHint(name, danger);
 
       var wikiLink = document.getElementById('em-wiki-link');
       if (wikiLink) {
@@ -1845,114 +1926,114 @@
    //   - 'death'   = muestra la pantalla de muerte
    //   - Tambi\u00e9n puede incluir 'levelIdx' para saltar a un nivel espec\u00edfico.
    var ENTITY_OUTCOMES = {
-     'smilers': {
-       obey: [
-         { fate:'death',   txt:'Apagas la linterna como te indican. Oyes pasos que se acercan, pero la puerta se cierra detr\u00e1s de ti antes de que la sonrisa pueda verte. En la oscuridad, una segunda sonrisa aparece justo frente a tu cara. El flash blanco de tu c\u00e1mara te delata. Los flashes se multiplican.' },
-         { fate:'advance', txt:'Ignoras la luz que parpadea al fondo del pasillo. Smilers no te detecta. Cruzas la siguiente puerta sin mirar atr\u00e1s.' },
-         { fate:'advance', txt:'Cierras los ojos y dejas que el sonido te gu\u00ede. Terminas en el Nivel 1 \u2014 el pasillo de servicio. Sigues avanzando.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Decides no hacerle caso a la sonrisa. La observas de frente. La sonrisa se ensancha. Tu c\u00e1mara se apaga sola. El \u00faltimo frame muestra 47 sonrisas rode\u00e1ndote.' },
-         { fate:'death',   txt:'Iluminas a la entidad con tu linterna. Pensabas que la luz la ahuyentar\u00eda. Sonr\u00ede m\u00e1s. Tus o\u00eddos empiezan a zumbar.' },
-         { fate:'advance', txt:'Sales corriendo en direcci\u00f3n opuesta. La entidad te persigue un tramo, pero te internas en un conducto donde no cabe. Escuchas su risa a lo lejos, amortiguada.' }
-       ]
-     },
-     'hounds': {
-       obey: [
-         { fate:'advance', txt:'Te quedas quieto cuando el hocico pasa junto a tu cuello. El aliento es fr\u00edo. Los pasos se alejan. Hounds no te detect\u00f3.' },
-         { fate:'advance', txt:'Cubres tu olor con polvo de las paredes. Hounds pierde tu rastro y se desv\u00eda hacia un pasillo lateral.' },
-         { fate:'death',   txt:'Contienes la respiraci\u00f3n. Demasiado tiempo. Cuando el hocico se aleja, ya es tarde. Tu cuerpo aparece tres niveles m\u00e1s abajo.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Sales corriendo. Hounds detecta el movimiento y a\u00falla. Lo \u00faltico que escuchas antes del final son tus propios pasos.' },
-         { fate:'advance', txt:'Hounds te persigue, pero conoces un atajo por las tuber\u00edas. El aullido se pierde detr\u00e1s del conducto.' },
-         { fate:'death',   txt:'Encuentras un hueco. Te metes. Hounds no cabe, pero hay otra cosa dentro que lleva mucho tiempo esperando.' }
-       ]
-     },
-     'skin stealers': {
-       obey: [
-         { fate:'advance', txt:'No miras la piel colgada en las paredes. Sigues tu camino. Cuando Sales, los maniqu\u00edes siguen en su sitio. Quietos.' },
-         { fate:'advance', txt:'Aceptas la advertencia silenciosa: la entidad no quiere que la veas. Mantienes la mirada baja. Te deja pasar.' },
-         { fate:'death',   txt:'La piel que ves en la pared es exactamente tu talla. Cierras los ojos. Demasiado tarde. El traje ya est\u00e1 listo.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Estiras la piel de la pared. Est\u00e1 caliente. Cuando te das cuenta, la pared ya tiene tu forma exacta. Vac\u00eda.' },
-         { fate:'death',   txt:'Te pones la piel que encontraste colgada. Es perfecta. Demasiado perfecta. Ya no puedes quit\u00e1rtela.' },
-         { fate:'advance', txt:'Ignoras la advertencia. Sales caminando como si nada. Los Skin Stealers est\u00e1n confundidos. Te dejan ir.' }
-       ]
-     },
-     'facelings': {
-       obey: [
-         { fate:'advance', txt:'Apartas la mirada de la pared. La cara sigue imitando tus gestos, pero no puede tocarte si no la miras. Sigues tu camino.' },
-         { fate:'death',   txt:'Apartas la mirada. Pero Facelings se ha adherido a tu espalda. Cuando finalmente lo notas, ya tiene tu forma exacta.' },
-         { fate:'advance', txt:'Cierras los ojos y avanzas. La imitaci\u00f3n se detiene. Facelings pierde inter\u00e9s cuando no hay nada que copiar.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Le devuelves la mirada a la cara de la pared. La cara sonr\u00ede. Tu cara tambi\u00e9n. Solo que ya no es la tuya.' },
-         { fate:'advance', txt:'Observas a Facelings con curiosidad cient\u00edfica. Se confunde. Cree que t\u00fa eres el original. Te deja.' },
-         { fate:'death',   txt:'Intentas hablar con la cara de la pared. Te responde con tu propia voz. Te acercas. Tu reflejo camina hacia ti.' }
-       ]
-     },
-     'partygoers': {
-       obey: [
-         { fate:'death',   txt:'Aceptas la fiesta. Una m\u00e1scara se ajusta a tu cara. Ya no recuerdas tu nombre, pero todos te llaman por uno nuevo.' },
-         { fate:'advance', txt:'Aceptas la fiesta desde la distancia, sin unirte. Los Partygoers te confunden con un mueble m\u00e1s. Sigues caminando.' },
-         { fate:'death',   txt:'Los m\u00fasicos te invitan a bailar. Es el \u00faltico baile que tendr\u00e1s en tu vida. La m\u00fasica no se detiene nunca.' }
-       ],
-       disobey: [
-         { fate:'advance', txt:'Rechazas la invitaci\u00f3n. Los Partygoers se ofenden, pero contin\u00faan su ruta. Sales por una ventana lateral.' },
-         { fate:'death',   txt:'Cierras la puerta de la fiesta. Los m\u00fasicos dejan de tocar uno a uno. Cuando se hace el silencio, la puerta ya no existe detr\u00e1s de ti.' },
-         { fate:'advance', txt:'Ignoras la m\u00fasica. Sigues el camino contrario. Los Partygoers no pueden salir del sal\u00f3n. Est\u00e1s a salvo, por ahora.' }
-       ]
-     },
-     'death moths': {
-       obey: [
-         { fate:'advance', txt:'Apagas la luz y contienes el aliento. Las polillas pasan a tu lado en silencio. No te detectan.' },
-         { fate:'death',   txt:'Te quedas quieto, pero una polilla se posa en tu mano. No la ahuyentas. Despiertan a las dem\u00e1s.' },
-         { fate:'advance', txt:'Sigues la corriente de aire contrario. Las polillas no pueden seguirte. Encuentras una salida lateral.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Enciendes la linterna para verlas mejor. Decenas de polillas caen sobre tu rostro. Tu grito activa a todas las dem\u00e1s.' },
-         { fate:'death',   txt:'Intentas espantarlas con las manos. Se aferran a tu ropa. Tu piel. Tu calor.' },
-         { fate:'advance', txt:'Corres hacia el ruido. Las polillas te siguen, pero no pueden cruzar el fuego de la siguiente sala.' }
-       ]
-     },
-     'cameras': {
-       obey: [
-         { fate:'advance', txt:'No miras directamente a la lente. Pasas desapercibido. Las C\u00e1maras registran un pasillo vac\u00edo.' },
-         { fate:'advance', txt:'Cubres tu cara con la manga. La C\u00e1mara pierde tu rastro. Sigues avanzando.' },
-         { fate:'death',   txt:'Piensas que es solo una c\u00e1mara. La luz roja parpadea. El \u00faltico sonido que escuchas es el obturador cerr\u00e1ndose.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Saludas a la c\u00e1mara. El flash es instant\u00e1neo. El siguiente nivel ya tiene tu foto pegada en todas las paredes.' },
-         { fate:'advance', txt:'Rompes la c\u00e1mara con un extintor. El sistema pierde tu posici\u00f3n. Tienes unos minutos antes de que env\u00eden otras.' },
-         { fate:'death',   txt:'Le sacas una foto. La c\u00e1mara te devuelve la foto. Pero en la imagen, t\u00fa no est\u00e1s sonriendo.' }
-       ]
-     },
-     'bacteria': {
-       obey: [
-         { fate:'advance', txt:'Te tapas la nariz y la boca. Sales del \u00e1rea antes de que el hongo eche ra\u00edces en tus pulmones.' },
-         { fate:'death',   txt:'Te tapas, pero el ambiente ya estaba demasiado tiempo en tu sangre. El s\u00edntoma aparece tres niveles m\u00e1s tarde.' },
-         { fate:'advance', txt:'Cubres los filtros de tu m\u00e1scara. La Bacteria no puede instalarse. Respiras tranquilo.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Respiras profundo para orientarte. El aire sabe dulce. Demasiado dulce. La Bacteria ya ha colonizado tus alv\u00e9olos.' },
-         { fate:'death',   txt:'Quitas la m\u00e1scara. La Bacteria te estaba esperando. Crece en tu garganta. En tus ojos. En todo.' },
-         { fate:'advance', txt:'Sales corriendo sin protecci\u00f3n. Tienes suerte. La colonia estaba en el lado opuesto del conducto.' }
-       ]
-     },
-     'dullers': {
-       obey: [
-         { fate:'advance', txt:'No estableces contacto visual con el Duller. La entidad no se inmuta. Sigue su patr\u00f3n habitual.' },
-         { fate:'death',   txt:'Intentas no mirarlo, pero Duller ya te ha detectado. Su grito congela tu sangre. Tu cuerpo se desvanece.' },
-         { fate:'advance', txt:'Te escondes detr\u00e1s de una columna. Duller pasa a tu lado. No te ha olido. Sigues adelante.' }
-       ],
-       disobey: [
-         { fate:'death',   txt:'Miras a Duller a los ojos. La entidad sonr\u00ede por primera vez. Tu cuerpo no responde. Duller te arrastra.' },
-         { fate:'death',   txt:'Le gritas a Duller. La entidad acelera. Su grito perfora tus o\u00eddos. Es lo \u00faltico que escuchas.' },
-         { fate:'advance', txt:'Le haces un gesto obsceno. Duller se confunde. Las Dullers no entienden el sarcasmo. Pasas.' }
-       ]
-     },
+      'smilers': {
+        obey: [
+          { fate:'death',   txt:'Apagas la linterna como te ordena. En la oscuridad, una sonrisa aparece justo frente a tu cara. El flash blanco de tu c\u00e1mara te delata. Los flashes se multiplican.' },
+          { fate:'advance', txt:'Ignoras la luz que parpadea al fondo del pasillo. Smilers no te detecta. Cruzas la siguiente puerta sin mirar atr\u00e1s.' },
+          { fate:'advance', txt:'Cierras los ojos y dejas que el sonido te gu\u00ede. Terminas en el Nivel 1 \u2014 el pasillo de servicio. Sigues avanzando.' }
+        ],
+        disobey: [
+          { fate:'advance', txt:'Sales corriendo en direcci\u00f3n opuesta. La entidad te persigue un tramo, pero te internas en un conducto donde no cabe. Escuchas su risa a lo lejos, amortiguada.' },
+          { fate:'death',   txt:'Decides no hacerle caso a la sonrisa. La observas de frente. La sonrisa se ensancha. Tu c\u00e1mara se apaga sola. El \u00faltimo frame muestra 47 sonrisas rode\u00e1ndote.' },
+          { fate:'death',   txt:'Iluminas a la entidad con tu linterna. Pensabas que la luz la ahuyentar\u00eda. Sonr\u00ede m\u00e1s. Tus o\u00eddos empiezan a zumbar.' }
+        ]
+      },
+      'hounds': {
+        obey: [
+          { fate:'death',   txt:'Sales corriendo porque te lo orden\u00f3. Hounds detecta el movimiento y a\u00falla. Lo \u00faltico que escuchas antes del final son tus propios pasos.' },
+          { fate:'advance', txt:'Te quedas quieto cuando el hocico pasa junto a tu cuello. El aliento es fr\u00edo. Los pasos se alejan. Hounds no te detect\u00f3.' },
+          { fate:'death',   txt:'Encuentras un hueco para esconderte. Hounds no cabe, pero hay otra cosa dentro que lleva mucho tiempo esperando.' }
+        ],
+        disobey: [
+          { fate:'advance', txt:'No corres. Hounds pasa a tu lado sin detectarte. Sigues caminando en silencio.' },
+          { fate:'death',   txt:'Sales corriendo. Hounds ya te vio. Las garras encuentran tu espalda antes de llegar al final del pasillo.' },
+          { fate:'advance', txt:'Hounds te persigue, pero conoces un atajo por las tuber\u00edas. El aullido se pierde detr\u00e1s del conducto.' }
+        ]
+      },
+      'skin stealers': {
+        obey: [
+          { fate:'death',   txt:'Te pones la piel que encontraste colgada, como te orden\u00f3. Es perfecta. Demasiado perfecta. Ya no puedes quit\u00e1rtela.' },
+          { fate:'advance', txt:'No miras la piel colgada en las paredes. Sigues tu camino. Cuando sales, los maniqu\u00edes siguen en su sitio. Quietos.' },
+          { fate:'death',   txt:'Estiras la piel de la pared. Est\u00e1 caliente. Cuando te das cuenta, la pared ya tiene tu forma exacta. Vac\u00eda.' }
+        ],
+        disobey: [
+          { fate:'advance', txt:'Ignoras su orden. Los Skin Stealers se confunden. Te dejan ir sin problemas.' },
+          { fate:'death',   txt:'Aceptas la advertencia silenciosa: la entidad no quiere que la veas. Mantienes la mirada baja. Demasiado tarde. La pared tiene tu forma.' },
+          { fate:'advance', txt:'Sales caminando como si nada. Los Skin Stealers ni te registran.' }
+        ]
+      },
+      'facelings': {
+        obey: [
+          { fate:'advance', txt:'Apartas la mirada. Facelings no puede copiar lo que no ve. Sigues tu camino sin incidentes.' },
+          { fate:'death',   txt:'Apartas la mirada, pero Facelings se ha adherido a tu espalda. Cuando finalmente lo notas, ya tiene tu forma exacta.' },
+          { fate:'advance', txt:'Cierras los ojos y avanzas. La imitaci\u00f3n se detiene. Pierde inter\u00e9s cuando no hay nada que copiar.' }
+        ],
+        disobey: [
+          { fate:'death',   txt:'Miras directamente a la pared. Facelings sonr\u00ede. Tu cara cambia. Ya no eres t\u00fa.' },
+          { fate:'advance', txt:'Observas a Facelings con curiosidad cient\u00edfica. Se confunde. Cree que t\u00fa eres el original. Te deja.' },
+          { fate:'death',   txt:'Intentas hablar con la cara de la pared. Te responde con tu propia voz. Te acercas. Tu reflejo camina hacia ti.' }
+        ]
+      },
+      'partygoers': {
+        obey: [
+          { fate:'death',   txt:'Aceptas la fiesta. Una m\u00e1scara se ajusta a tu cara. Ya no recuerdas tu nombre, pero todos te llaman por uno nuevo.' },
+          { fate:'advance', txt:'Aceptas la fiesta desde la distancia, sin unirte. Los Partygoers te confunden con un mueble m\u00e1s. Sigues caminando.' },
+          { fate:'death',   txt:'Los m\u00fasicos te invitan a bailar. Es el \u00faltico baile que tendr\u00e1s en tu vida. La m\u00fasica no se detiene nunca.' }
+        ],
+        disobey: [
+          { fate:'advance', txt:'Rechazas la invitaci\u00f3n. Los Partygoers se ofenden, pero contin\u00faan su ruta. Sales por una ventana lateral.' },
+          { fate:'death',   txt:'Cierras la puerta de la fiesta. Los m\u00fasicos dejan de tocar uno a uno. Cuando se hace el silencio, la puerta ya no existe detr\u00e1s de ti.' },
+          { fate:'advance', txt:'Ignoras la m\u00fasica. Sigues el camino contrario. Los Partygoers no pueden salir del sal\u00f3n. Est\u00e1s a salvo, por ahora.' }
+        ]
+      },
+      'death moths': {
+        obey: [
+          { fate:'advance', txt:'Apagas la luz como advierten. Las polillas no tienen referencia. Pasan de largo sin detectarte.' },
+          { fate:'death',   txt:'Te quedas quieto, pero una polilla se posa en tu mano. No la ahuyentas. Despiertan a las dem\u00e1s.' },
+          { fate:'advance', txt:'Sigues la corriente de aire contrario. Las polillas no pueden seguirte. Encuentras una salida lateral.' }
+        ],
+        disobey: [
+          { fate:'death',   txt:'Enciendes la linterna. Las polillas se sienten atra\u00eddas. Un enjambre te cubre por completo.' },
+          { fate:'advance', txt:'Intentas espantarlas con las manos. Milagrosamente, se alejan hacia la luz de otra habitaci\u00f3n.' },
+          { fate:'death',   txt:'Corres hacia el ruido. Las polillas te siguen. El fuego de la siguiente sala no es suficiente.' }
+        ]
+      },
+      'cameras': {
+        obey: [
+          { fate:'death',   txt:'Miras al lente como te ordena. El flash es instant\u00e1neo. Tu imagen queda atrapada. Tu cuerpo se desvanece.' },
+          { fate:'advance', txt:'No miras directamente a la lente. Pasas desapercibido. Las C\u00e1maras registran un pasillo vac\u00edo.' },
+          { fate:'advance', txt:'Cubres tu cara con la manga. La C\u00e1mara pierde tu rastro. Sigues avanzando.' }
+        ],
+        disobey: [
+          { fate:'advance', txt:'Rompes la c\u00e1mara con un extintor. El sistema pierde tu posici\u00f3n. Tienes unos minutos antes de que env\u00eden otras.' },
+          { fate:'death',   txt:'Saludas a la c\u00e1mara. El flash es instant\u00e1neo. El siguiente nivel ya tiene tu foto pegada en todas las paredes.' },
+          { fate:'death',   txt:'Le sacas una foto a la c\u00e1mara. Te devuelve la foto. En la imagen, t\u00fa no est\u00e1s sonriendo.' }
+        ]
+      },
+      'bacteria': {
+        obey: [
+          { fate:'death',   txt:'Respiras profundo como te ordena. El aire sabe dulce. La Bacteria ya ha colonizado tus alv\u00e9olos.' },
+          { fate:'advance', txt:'Te tapas la nariz y la boca. Sales del \u00e1rea antes de que el hongo eche ra\u00edces en tus pulmones.' },
+          { fate:'advance', txt:'Cubres los filtros de tu m\u00e1scara. La Bacteria no puede instalarse. Respiras tranquilo.' }
+        ],
+        disobey: [
+          { fate:'advance', txt:'Contienes la respiraci\u00f3n. La Bacteria no encuentra entrada. Cruzas la zona contaminada a salvo.' },
+          { fate:'death',   txt:'Quitas la m\u00e1scara. La Bacteria te estaba esperando. Crece en tu garganta. En tus ojos. En todo.' },
+          { fate:'death',   txt:'Sales corriendo sin protecci\u00f3n. La colonia estaba en el lado opuesto del conducto. Llega a tus pulmones.' }
+        ]
+      },
+      'dullers': {
+        obey: [
+          { fate:'death',   txt:'Lo miras a los ojos como exige. Duller sonr\u00ede. Tu cuerpo no responde. Te arrastra a la oscuridad.' },
+          { fate:'advance', txt:'No estableces contacto visual. Duller sigue su patr\u00f3n habitual sin notarte.' },
+          { fate:'advance', txt:'Te escondes detr\u00e1s de una columna. Duller pasa a tu lado. No te ha olido. Sigues adelante.' }
+        ],
+        disobey: [
+          { fate:'advance', txt:'Desv\u00edas la mirada. Duller se confunde. Las Dullers no entienden por qu\u00e9 no las miras. Pasan de largo.' },
+          { fate:'death',   txt:'Le gritas a Duller. Acelera. Su grito perfora tus o\u00eddos.' },
+          { fate:'death',   txt:'Le haces un gesto obsceno. Duller se enfurece. No te da tiempo a reaccionar.' }
+        ]
+      },
      'generic': {
        obey: [
          { fate:'advance', txt:'Haces lo que la entidad sugiere. El camino se despeja. Encuentras una salida lateral.' },
@@ -2015,9 +2096,12 @@
     '\u2588\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2584\u2588\n';
 
   function initSurvivalGame() {
-    document.getElementById('sg-btn-start').addEventListener('click', function() { startGame(); });
-    document.getElementById('sg-btn-restart').addEventListener('click', function() { startGame(); });
-    document.getElementById('sg-btn-close').addEventListener('click', function() { closeGame(); });
+    var btnStart = document.getElementById('sg-btn-start');
+    if (btnStart) btnStart.addEventListener('click', function() { startGame(); });
+    var btnRestart = document.getElementById('sg-btn-restart');
+    if (btnRestart) btnRestart.addEventListener('click', function() { startGame(); });
+    var btnClose = document.getElementById('sg-btn-close');
+    if (btnClose) btnClose.addEventListener('click', function() { closeGame(); });
     var vhsTile = document.getElementById('vhs-tile');
     if (vhsTile) {
       vhsTile.addEventListener('click', function() {
@@ -2065,7 +2149,7 @@
     var list = (window.WIKI_ENTITIES_WIKI || (typeof WIKI_ENTITIES_WIKI !== 'undefined' ? WIKI_ENTITIES_WIKI : []));
     var seen = {};
 
-    // Pass 1: explicit "Entidad N" / "Entidad N-A" tokens
+    // Pass 1: explicit "Entidad N" / "Entidad N-A" tokens — skip if not in local wiki
     var re = /Entidad\s*([0-9]+(?:\s*-\s*[A-Za-z])?)/gi;
     var m;
     while ((m = re.exec(src)) !== null) {
@@ -2084,17 +2168,33 @@
       for (var j = 0; j < list.length; j++) {
         var ent = list[j];
         if (!ent || !ent.name || seen[ent.id]) continue;
-        // alias = part after the "—" in the canonical name
         var alias = ent.name.split('\u2014')[1] || ent.name;
         alias = alias.trim();
         if (alias.length < 3) continue;
-        // match whole word (case-insensitive) in the source
         var wordRe = new RegExp('(^|[^A-Za-z\\u00C0-\\u017F])' + alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '($|[^A-Za-z\\u00C0-\\u017F])', 'i');
         if (wordRe.test(src)) {
           seen[ent.id] = true;
           ents.push(ent);
           if (ents.length >= 3) break;
         }
+      }
+    }
+
+    // Pass 3: extract any capitalized entity-like names from comma/sep lists
+    if (ents.length < 3) {
+      var parts = src.split(/[,;]/).map(function(s){ return s.trim(); }).filter(function(s){ return s.length > 3 && !/entidad|entidades|varias?|sin|ninguna|documentad[ao]/i.test(s); });
+      for (var p = 0; p < parts.length && ents.length < 3; p++) {
+        var clean = parts[p].replace(/\s*\([^)]*\)/g, '').trim();
+        if (clean.length < 3) continue;
+        var fuzzy = false;
+        for (var k = 0; k < list.length; k++) {
+          var eName = (list[k].name || '').toLowerCase();
+          var search = clean.toLowerCase();
+          if (eName.indexOf(search) >= 0 || (eName.split('\u2014')[1]||'').trim().toLowerCase().indexOf(search) >= 0) {
+            if (!seen[list[k].id]) { ents.push(list[k]); seen[list[k].id] = true; fuzzy = true; break; }
+          }
+        }
+        // skip unmatched names — the pool will fill real entities later
       }
     }
 
@@ -2196,15 +2296,30 @@
     // Shows a small photo of the active entity (or a discreet "none" state).
     var entityBlock = '';
     if (mainEntity) {
-      var eImg = mainEntity.image ? '<img class="sg-entity-photo" src="' + mainEntity.image + '" alt="' + mainEntity.name + '" ' +
-        'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />' : '';
+      var entImageSrc = mainEntity.image || mainEntity.visual || '';
+      if (entImageSrc && !/\.(jpe?g|png|gif|webp|svg|bmp)(\?|$)/i.test(entImageSrc)) entImageSrc = '';
+      var eHasImg = !!entImageSrc;
+      var eImg = eHasImg
+        ? '<img class="sg-entity-photo" src="' + entImageSrc + '" alt="' + mainEntity.name + '" ' +
+          'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />'
+        : '<span class="pick-row-photo-icon">\u25C8</span>';
       var more = extraEntities.length
         ? '<div class="sg-entity-more">+ ' + extraEntities.length + ': ' +
             extraEntities.map(function(e){ return e.name; }).join(', ') + '</div>'
         : '';
+      var entNameEsc = (mainEntity.name || '').replace(/"/g,'&quot;');
+      var entDescEsc = (mainEntity.description || '').replace(/"/g,'&quot;');
+      var entImg = mainEntity.image || mainEntity.visual || '';
+      if (entImg && !/\.(jpe?g|png|gif|webp|svg|bmp)(\?|$)/i.test(entImg)) entImg = '';
       entityBlock =
-        '<div class="sg-entity-block sg-entity-block-compact">' +
-          '<div class="sg-entity-photo-wrap">' + eImg + '<div class="sg-entity-photo-tag">FOTO</div></div>' +
+        '<div class="sg-entity-block sg-entity-block-compact" ' +
+          'data-entity-id="' + (mainEntity.id || '') + '" ' +
+          'data-entity-name="' + entNameEsc + '" ' +
+          'data-entity-desc="' + entDescEsc + '" ' +
+          'data-entity-danger="' + (mainEntity.danger != null ? mainEntity.danger : 3) + '" ' +
+          'data-entity-image="' + entImg + '" ' +
+          'data-entity-wiki="' + (mainEntity.wiki_url || '') + '">' +
+          '<div class="sg-entity-photo-wrap' + (eHasImg ? '' : ' sg-entity-photo-noimg') + '">' + eImg + (eHasImg ? '<div class="sg-entity-photo-tag">FOTO</div>' : '') + '</div>' +
           '<div class="sg-entity-info">' +
             '<div class="sg-entity-label">&gt; ENTIDAD ACTIVA</div>' +
             '<div class="sg-entity-name">' + mainEntity.name + '</div>' +
@@ -2267,78 +2382,122 @@
 
     // TikTok-style entity picker: choose 1 of 2 entities (or "no entity" option).
     // Once chosen, the entity's profile determines the escape odds and flavor text.
+    // If the level has no matched entities, pull from the full entity pool so
+    // the player always faces real entities from the wiki/community.
     var allEnts = (ents && ents.length) ? ents.slice() : [];
     var options = [];
+    var poolEnts = (typeof ENTITIES !== 'undefined' && ENTITIES.length) ? ENTITIES : [];
+    function pickFromPool(exclude) {
+      var pool = poolEnts.filter(function(e){ return e.id !== (exclude || ''); });
+      if (!pool.length) return null;
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
     if (allEnts.length >= 2) {
       options.push(allEnts[0]);
       options.push(allEnts[1]);
     } else if (allEnts.length === 1) {
+      var second = pickFromPool(allEnts[0].id);
       options.push(allEnts[0]);
-      options.push({ __none:true, name:'SECTOR DESPEJADO', hint:'Sin firmas biol\u00f3gicas. Avanza con precauci\u00f3n.', danger:0 });
+      options.push(second || { __none:true, name:'SECTOR DESPEJADO', hint:'Sin firmas biol\u00f3gicas. Avanza con precauci\u00f3n.', danger:0 });
     } else {
-      options.push({ __none:true, name:'SECTOR DESPEJADO', hint:'Los sensores no reportan amenazas activas.', danger:0 });
-      options.push({ __none:true, name:'AVANCE SILENCIOSO', hint:'Mant\u00e9n el ruido al m\u00ednimo. No enciendas la linterna.', danger:0 });
+      var e1 = pickFromPool('');
+      var e2 = e1 ? pickFromPool(e1.id) : null;
+      if (e1 && e2) { options.push(e1); options.push(e2); }
+      else {
+        options.push({ __none:true, name:'SECTOR DESPEJADO', hint:'Los sensores no reportan amenazas activas.', danger:0 });
+        options.push({ __none:true, name:'AVANCE SILENCIOSO', hint:'Mant\u00e9n el ruido al m\u00ednimo. No enciendas la linterna.', danger:0 });
+      }
     }
 
-    // Render pick cards (compact list with arrow on the right, like the mock-up)
+    // Render pick cards
+    var FALLBACK_IMG = 'images/Entidades/entidad_9_facelings.jpg';
+    function isImgPath(v) { return v && /\.(jpe?g|png|gif|webp|svg|bmp)(\?|$)/i.test(v); }
     var pickHtml = '<div class="sg-pick-stage">' +
-      '<div class="sg-pick-prompt">Desliza o pulsa <span class="arrow">\u25B6</span> elige tu entidad</div>' +
-      '<div class="sg-pick-list" id="sg-pick-grid">';
+      '<div class="sg-pick-prompt">Elige una entidad para el protocolo de extracci\u00f3n</div>' +
+      '<div class="sg-pick-entity-grid" id="sg-pick-grid">';
     for (var pi = 0; pi < options.length; pi++) {
       var opt = options[pi];
       var isNone = opt.__none;
-      var photoStyle = isNone
-        ? ''
-        : ' style="background-image:url(\'' + (opt.image || '') + '\');"';
-      var photoImg = isNone
-        ? ''
-        : '<img class="sg-entity-photo" src="' + (opt.image || '') + '" alt="' + opt.name + '" ' +
-          'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />';
-      // data-entity-* mirror what entidades.html uses to open the modal.
-      // The empty/fake options (no wiki entity) still expose name + image
-      // so the photo is clickable to view a "sector despejado" info card.
+      if (isNone) continue;
+      var imgSrc = (opt && (opt.image || opt.visual)) ? (opt.image || opt.visual) : '';
+      if (!isImgPath(imgSrc)) imgSrc = FALLBACK_IMG;
       var entId = (opt && opt.id) ? opt.id : (isNone ? 'sector-despejado' : '');
       var entName = (opt && opt.name) ? opt.name : (isNone ? 'Sector despejado' : 'Entidad');
-      var entDesc = (opt && opt.description) ? opt.description : (isNone ? 'Los sensores de proximidad no reportan actividad biol\u00f3gica. Sector despejado para avance.' : '');
+      var entDesc = (opt && (opt.description || opt.desc)) ? (opt.description || opt.desc) : (isNone ? 'Los sensores de proximidad no reportan actividad biol\u00f3gica. Sector despejado para avance.' : '');
       var entDanger = (opt && opt.danger != null) ? opt.danger : (isNone ? 1 : 2);
-      var entImg = (opt && opt.image) ? opt.image : '';
+      var entImg = (opt && (opt.image || opt.visual)) ? (opt.image || opt.visual) : '';
+      if (!isImgPath(entImg)) entImg = FALLBACK_IMG;
       var entWiki = (opt && opt.wiki_url) ? opt.wiki_url : '';
+      var levelsHtml = '';
+      if (!isNone) {
+        var lvArr = Array.isArray(opt.levels) ? opt.levels : [];
+        levelsHtml = lvArr.length
+          ? '<div class="sg-pick-lv-badges">' + lvArr.slice(0, 3).map(function(lv) {
+              return '<span class="sg-pick-lv-badge">' + lv + '</span>';
+            }).join('') + '</div>'
+          : '<div class="sg-pick-lv-badges"><span class="sg-pick-lv-badge sg-pick-lv-badge-multi">MULTI</span></div>';
+      }
       pickHtml +=
-        '<button class="sg-pick-row ' + (isNone ? 'sg-pick-row-none' : '') + '" ' +
-          'data-idx="' + pi + '" data-none="' + (isNone ? '1' : '0') + '" ' +
-          'data-entity-id="' + entId + '" data-entity-name="' + entName + '" ' +
+        '<div class="sg-pick-entity-card" data-idx="' + pi + '" data-none="' + (isNone ? '1' : '0') + '" ' +
+          'data-entity-id="' + entId + '" data-entity-name="' + entName.replace(/"/g,'&quot;') + '" ' +
           'data-entity-desc="' + entDesc.replace(/"/g,'&quot;') + '" ' +
           'data-entity-danger="' + entDanger + '" data-entity-image="' + entImg + '" ' +
           'data-entity-wiki="' + entWiki + '">' +
-          '<div class="pick-row-photo pick-row-photo-zoom"' + photoStyle + ' title="Ver ficha">' + photoImg + '</div>' +
-          '<div class="pick-row-text">' +
-            '<div class="pick-row-name">' + opt.name + '</div>' +
-            '<div class="pick-row-hint">' + (opt.hint || (opt.description ? opt.description.substring(0, 100) : 'Entidad registrada en este sector.')) + '</div>' +
+          '<div class="sg-pick-card-visual' + (isNone ? ' sg-pick-card-visual-none' : '') + '">' +
+            '<img src="' + imgSrc + '" alt="' + entName.replace(/"/g,'&quot;') + '" class="sg-pick-card-img" onerror="this.style.display=\'none\'">' +
           '</div>' +
-          '<div class="pick-row-arrow">\u25B6</div>' +
-        '</button>';
+          '<div class="sg-pick-card-info">' +
+            '<span class="sg-pick-card-name">' + entName + '</span>' +
+          '</div>' +
+          levelsHtml +
+        '</div>';
     }
-    pickHtml += '</div></div>';
+    pickHtml += '</div><div class="sg-pick-actions">' +
+      '<button class="sg-btn-primary" id="sg-btn-confirm-pick">\u25B6 CONFIRMAR SELECCI\u00d3N</button>' +
+      '</div></div>';
     optGrid.innerHTML = pickHtml;
 
     // Typewriter description lines (pick stage)
+    var tagStr = Array.isArray(level.tags) && level.tags.length
+      ? level.tags.join('</span> \u2022 <span class="hl">')
+      : 'sin clasificar';
     var descLines = [
       'Sistema de detecci\u00f3n de anomal\u00edas activo. Escaneando entorno...',
-      'Tags: <span class="hl">' + level.tags.join('</span> \u2022 <span class="hl">') + '</span>.',
-      'Elige con qu\u00e9 entidad te tocar\u00e1 enfrentarte. Tu selecci\u00f3n define el plan de extracci\u00f3n.'
+      'Tags: <span class="hl">' + tagStr + '</span>.',
+      'Selecciona una entidad y pulsa CONFIRMAR para iniciar el protocolo.'
     ];
     typeWriterLines(descLines, 0, function() {});
 
-    // Bind option clicks (entity pick).
-    // Click on the photo opens the entity info modal (like entidades.html).
-    // Click anywhere else on the row chooses the entity for the run.
-    var pickCards = optGrid.querySelectorAll('.sg-pick-row');
+    // Bind entity card clicks: click selects the card and shows info modal.
+    var pickCards = optGrid.querySelectorAll('.sg-pick-entity-card');
+    var selectedCard = null;
+    var confirmBtn = document.getElementById('sg-btn-confirm-pick');
     for (var ci = 0; ci < pickCards.length; ci++) {
       pickCards[ci].addEventListener('click', function(e) {
         if (GAME.state !== 'playing') return;
-        // If the click was on the photo, open the entity modal instead of
-        // choosing the entity for the run.
-        if (e.target && e.target.closest && e.target.closest('.pick-row-photo')) {
+        pickCards.forEach(function(c){ c.classList.remove('sg-pick-card-selected'); });
+        this.classList.add('sg-pick-card-selected');
+        selectedCard = this;
+        if (typeof openEntityModal === 'function') {
+          openEntityModal(this);
+        }
+      });
+    }
+    // Confirm button locks in the pick and shows the entity info confirmation
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', function() {
+        if (!selectedCard) return;
+        var idx = parseInt(selectedCard.getAttribute('data-idx'));
+        onEntityPicked(idx, options, level, idx);
+      });
+    }
+
+    // Click on the entity photo in the sidebar opens the modal too.
+    var entityWrap = document.querySelector('.sg-entity-block-compact');
+    if (entityWrap) {
+      entityWrap.addEventListener('click', function(e) {
+        if (GAME.state !== 'playing') return;
+        if (e.target && e.target.closest && e.target.closest('.sg-entity-photo-wrap')) {
           if (typeof openEntityModal === 'function') {
             e.stopPropagation();
             e.preventDefault();
@@ -2346,8 +2505,6 @@
             return;
           }
         }
-        var idx = parseInt(this.getAttribute('data-idx'));
-        onEntityPicked(idx, options, level, idx);
       });
     }
 
@@ -2385,7 +2542,8 @@
 
     var isNone = !!opt.__none;
     var danger = opt.danger != null ? opt.danger : (isNone ? 0 : 2);
-    var photo = isNone ? '' : (opt.image || '');
+    var photo = isNone ? '' : (opt.image || opt.visual || '');
+    if (photo && !/\.(jpe?g|png|gif|webp|svg|bmp)(\?|$)/i.test(photo)) photo = '';
 
     // What the entity "says" — context-aware advice that the user can obey
     // or ignore. Generated from the entity's wiki description when possible.
@@ -2399,6 +2557,9 @@
       says = descr || 'Firma an\u00f3mala detectada. Procede con precauci\u00f3n.';
     }
 
+    // Entity direct command
+    var entCommand = isNone ? '' : getEntityCommand(opt.name);
+
     // Build the two decision labels dynamically.
     var obeyText, obeyHint, disobeyText, disobeyHint;
     if (isNone) {
@@ -2407,19 +2568,18 @@
       disobeyText = 'Forzar una puerta lateral';
       disobeyHint = 'Tomar una ruta que nadie ha verificado.';
     } else {
-      var shortName = opt.name.split(' ')[0];
-      obeyText = 'Hacerle caso a ' + shortName;
-      obeyHint = 'Obedecer lo que sea que est\u00e9 intentando decirte.';
-      disobeyText = 'No hacerle caso a ' + shortName;
-      disobeyHint = 'Ir por tu cuenta, ignorando la se\u00f1al.';
+      var cmd = entCommand || 'lo que ordena';
+      obeyText = 'Obedecer: ' + cmd;
+      obeyHint = 'Hacer exactamente lo que la entidad te ordena.';
+      disobeyText = 'Desobedecer: ignorar la orden';
+      disobeyHint = 'No hacer lo que la entidad te pide. Ir por tu cuenta.';
     }
-
-    // Full description for the info card (HTML-escaped via textContent path).
+    var survHint = isNone ? 'Sector despejado. Avanza sin miedo.' : getEntitySurvivalHint(opt.name, danger);
     var fullDesc = opt.description || 'Sin descripci\u00f3n disponible.';
-    // Danger stars (filled vs empty)
+    var dangerColor = SURVIVAL_COLORS[danger] || SURVIVAL_COLORS[1];
     var stars = '';
     for (var si = 0; si < 5; si++) {
-      stars += '<span class="sg-star ' + (si < danger ? 'on' : 'off') + '">\u25C6</span>';
+      stars += '<span class="sg-star ' + (si < danger ? 'on' : 'off') + '" style="color:' + (si < danger ? dangerColor : 'rgba(200,164,21,0.2)') + '">\u25C6</span>';
     }
 
     var photoStyle = photo ? ' style="background-image:url(\'' + photo + '\');"' : '';
@@ -2430,13 +2590,12 @@
             'onerror="this.parentNode.classList.add(\'sg-entity-photo-missing\');this.remove();" />' +
         '</div>';
 
-    // Build a virtual card with the same data-entity-* attributes that
-    // entidades.html uses, so openEntityModal(card) works here too.
+    // Build a virtual card with the same data-entity-* attributes
     var entId = (opt && opt.id) ? opt.id : (isNone ? 'sector-despejado' : '');
     var entName = (opt && opt.name) ? opt.name : (isNone ? 'Sector despejado' : 'Entidad');
     var entDesc = (opt && opt.description) ? opt.description : (isNone ? 'Los sensores de proximidad no reportan actividad biol\u00f3gica. Sector despejado para avance.' : '');
     var entDanger = (opt && opt.danger != null) ? opt.danger : (isNone ? 1 : 2);
-    var entImg = (opt && opt.image) ? opt.image : '';
+    var entImg = (opt && (opt.image || opt.visual)) ? (opt.image || opt.visual) : '';
     var entWiki = (opt && opt.wiki_url) ? opt.wiki_url : '';
     var entityCardAttrs =
       ' data-entity-id="' + entId + '" data-entity-name="' + entName + '" ' +
@@ -2444,42 +2603,49 @@
       'data-entity-danger="' + entDanger + '" data-entity-image="' + entImg + '" ' +
       'data-entity-wiki="' + entWiki + '"';
 
+    var entNameShort = (opt.name || '').split(' \u2014 ')[1] || opt.name || '';
+
+    sgGlitch('active');
+    setTimeout(function(){ sgGlitch(''); sgFlash(); }, 120);
+
     var optGrid = document.getElementById('sg-opt-grid');
     optGrid.innerHTML =
       '<div class="sg-entity-info-stage"' + entityCardAttrs + '>' +
         '<div class="eis-head">' +
           '<span class="eis-head-arrow">\u25B6</span>' +
-          'Entidad seleccionada' +
+          'SE\u00d1AL DETECTADA' +
         '</div>' +
         '<div class="eis-card">' +
           photoBlock +
+          '<div class="eis-command-box" id="eis-command-box">' +
+            '<span class="eis-cmd-label">LA ENTIDAD ORDENA:</span>' +
+            '<span class="eis-cmd-text" id="eis-cmd-text">' + entCommand + '</span>' +
+          '</div>' +
           '<div class="eis-data">' +
-            '<div class="eis-label">&gt; FICHA R\u00c1PIDA</div>' +
-            '<div class="eis-name">' + opt.name + '</div>' +
+            '<div class="eis-name" style="color:' + dangerColor + '">' + (opt.name || '') + '</div>' +
             '<div class="eis-danger">' +
-              '<span>PELIGRO</span>' +
               '<span class="eis-stars">' + stars + '</span>' +
-              '<span>' + danger + '/5</span>' +
+              '<span class="eis-danger-val" style="color:' + dangerColor + '">' + danger + '/5</span>' +
+            '</div>' +
+            '<div class="eis-hint">' +
+              '<span class="eis-hint-label">\u25B6 SUPERVIVENCIA:</span>' +
+              '<span class="eis-hint-text">' + survHint + '</span>' +
             '</div>' +
             '<div class="eis-desc" id="eis-desc">' + fullDesc + '</div>' +
           '</div>' +
         '</div>' +
         '<div class="eis-actions" id="eis-actions">' +
           '<button class="eis-btn eis-btn-obey" id="sg-card-safe" data-pick="obey">' +
-            '<span class="eis-btn-icon">\u2713</span>' +
             '<span class="eis-btn-text">' +
               '<span class="eis-btn-name">' + obeyText + '</span>' +
               '<span class="eis-btn-hint">' + obeyHint + '</span>' +
             '</span>' +
-            '<span class="eis-btn-arrow">\u25B6</span>' +
           '</button>' +
           '<button class="eis-btn eis-btn-disobey" id="sg-card-risky" data-pick="disobey">' +
-            '<span class="eis-btn-icon">\u2715</span>' +
             '<span class="eis-btn-text">' +
               '<span class="eis-btn-name">' + disobeyText + '</span>' +
               '<span class="eis-btn-hint">' + disobeyHint + '</span>' +
             '</span>' +
-            '<span class="eis-btn-arrow">\u25B6</span>' +
           '</button>' +
         '</div>' +
       '</div>';
@@ -2679,7 +2845,16 @@
     sgStopGlitch();
     GAME.state = 'playing';
     if (nextIdx >= WIKI_LEVELS.length) { showVictoryScreen(); }
-    else { renderGameLevel(nextIdx); }
+    else {
+      try { renderGameLevel(nextIdx); }
+      catch(e) {
+        console.error('Error al renderizar nivel', nextIdx, e);
+        var c = document.getElementById('sg-content');
+        if (c) c.innerHTML = '<div class="sg-level-title" style="padding:40px;text-align:center;color:#c43030">ERROR DE CARGA — NIVEL ' + nextIdx + '</div><div style="padding:10px 40px;color:var(--text-dim);font-size:0.75rem">' + (e.message || '') + '</div>';
+        document.getElementById('sg-btn-restart').style.display = 'inline-block';
+        document.getElementById('sg-btn-close').style.display = 'inline-block';
+      }
+    }
   }
 
   function triggerSecretLevel() {
@@ -3487,8 +3662,6 @@
       if (el.style.display === 'none') { startGame(); }
       else { closeGame(); }
     });
-
-    initAmbientAudio();
 
     updateHeroCount();
 

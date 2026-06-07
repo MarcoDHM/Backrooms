@@ -122,14 +122,14 @@
       ['Espejos','Deforme','Desorientaci\u00f3n']),
 
     /* === ENIGMÁTICOS === */
-    L('wiki-the_end','level_the_end','The End','El Fin',null,null,'level_the_end.jpg',
+    L('wiki-the_end','level_the_end','The End','El Fin',4,3,'level_the_end.jpg',
       'https://backrooms.fandom.com/es/wiki/The_End',
       'The End es una trampa que tiene como objetivo atraer a los vagabundos a una falsa sensaci\u00f3n de seguridad, haci\u00e9ndoles creer que finalmente han escapado. La estructura consiste en una biblioteca de los a\u00f1os 2000 completamente vac\u00eda y silenciosa. Cualquier intento de salir revela que sigues dentro.',
       'Ninguna',
       ['Nivel 0','Nivel 444'],
       ['Trampa','Biblioteca','Engaño']),
 
-    L('wiki-l4_s0mbr4_gr1s','level_l4_s0mbr4_gr1s','L4 S0MBR4 GR1S','La Sombra Gris',null,null,'level_l4_s0mbr4_gr1s.jpg',
+    L('wiki-l4_s0mbr4_gr1s','level_l4_s0mbr4_gr1s','L4 S0MBR4 GR1S','La Sombra Gris',5,4,'level_l4_s0mbr4_gr1s.jpg',
       'https://backrooms.fandom.com/es/wiki/L4_S0MBR4_GR1S',
       'Los Backrooms como un purgatorio donde las almas desdichadas est\u00e1n condenadas a vivir una serie de sucesos tortuosos. Lugares inimaginables de la tierra son transportados a un revoltijo de espacios liminales en una dimensi\u00f3n desconocida.',
       'Entidad 50 (Las Sombras)',
@@ -143,14 +143,14 @@
       ['Nivel 0'],
       ['Perseguci\u00f3n','Alarma','Infinito']),
 
-    L('wiki-tierra_prometida','level_la_tierra_prometida','La Tierra Prometida','Tierra Prometida',null,null,'level_la_tierra_prometida.jpg',
+    L('wiki-tierra_prometida','level_la_tierra_prometida','La Tierra Prometida','Tierra Prometida',0,0,'level_la_tierra_prometida.jpg',
       'https://backrooms.fandom.com/es/wiki/La_Tierra_Prometida',
       'La Tierra Prometida es un nivel enigm\u00e1tico de Los Backrooms y uno de los pocos en los que puedes volver a la realidad. Un oasis de paz dentro del caos liminal.',
       'Ninguna',
       ['REAL'],
       ['Oasis','Escape','Paz']),
 
-    L('wiki-the_hub','level_the_hub','The Hub','El Centro',null,null,'level_the_hub.jpg',
+    L('wiki-the_hub','level_the_hub','The Hub','El Centro',0,0,'level_the_hub.jpg',
       'https://backrooms.fandom.com/es/wiki/The_Hub',
       'The Hub, tambi\u00e9n conocido como "El Centro" o "La Encrucijada", es un extenso complejo subterr\u00e1neo de t\u00faneles de ladrillo que sirve de nexo entre los niveles. Contiene entradas a la gran mayor\u00eda de niveles, cerradas tras puertas de acero dispersas en posiciones inestables y cambiantes.',
       'Vagabundos de todos los niveles',
